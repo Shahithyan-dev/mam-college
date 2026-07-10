@@ -40,7 +40,7 @@ export default function HistoryPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">Our History</h1>
         <div className="w-24 h-1 bg-brand-secondary mx-auto"></div>
-        <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">A legacy of excellence in engineering education spanning over two decades.</p>
+        <p className="mt-6 text-xl text-brand-text/80 max-w-2xl mx-auto">A legacy of excellence in engineering education spanning over two decades.</p>
       </div>
 
       <div className="max-w-4xl mx-auto relative">
@@ -63,7 +63,7 @@ export default function HistoryPage() {
                     {milestone.year}
                   </span>
                   <h3 className="text-2xl font-bold text-text-dark mb-3">{milestone.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                  <p className="text-brand-text/80 leading-relaxed">{milestone.description}</p>
                 </div>
               </div>
 

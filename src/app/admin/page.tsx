@@ -27,7 +27,7 @@ export default function AdminPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-black text-brand-primary mb-4">Administration</h1>
         <div className="w-24 h-1 bg-brand-secondary mx-auto"></div>
-        <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">Meet the visionary leaders and dedicated administrators who guide MAMCE towards excellence.</p>
+        <p className="mt-6 text-xl text-brand-text/80 max-w-2xl mx-auto">Meet the visionary leaders and dedicated administrators who guide MAMCE towards excellence.</p>
       </div>
 
       <div className="mb-20">
@@ -44,7 +44,7 @@ export default function AdminPage() {
               <p className="text-brand-secondary font-bold text-lg mb-6">{person.role}</p>
               <div className="relative">
                 <span className="text-4xl text-gray-200 absolute -top-4 -left-2 leading-none font-serif">"</span>
-                <p className="text-gray-600 italic leading-relaxed px-4">{person.message}</p>
+                <p className="text-brand-text/80 italic leading-relaxed px-4">{person.message}</p>
                 <span className="text-4xl text-gray-200 absolute -bottom-6 -right-2 leading-none font-serif">"</span>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function AdminPage() {
         </div>
       </div>
 
-      <div className="bg-gray-50 rounded-3xl p-10 md:p-16 border border-gray-100">
+      <div className="bg-brand-base rounded-3xl p-10 md:p-16 border border-gray-100">
         <h2 className="text-3xl font-bold text-text-dark mb-10 text-center flex justify-center items-center gap-3">
           <Users className="text-brand-primary" size={32} /> Key Administrators
         </h2>
