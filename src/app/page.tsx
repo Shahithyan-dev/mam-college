@@ -186,7 +186,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 relative z-10 divide-y md:divide-y-0 md:divide-x divide-white/10">
               
               {/* Card 1: Courses */}
-              <div className="p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
+              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
@@ -208,7 +208,7 @@ export default function Home() {
               </div>
 
               {/* Card 2: Placement */}
-              <div className="p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
+              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
@@ -230,7 +230,7 @@ export default function Home() {
               </div>
 
               {/* Card 3: Why MAMSE? */}
-              <div className="p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
+              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
@@ -257,8 +257,8 @@ export default function Home() {
       </section>
 
       {/* 3. About The Campus */}
-      <section className="w-full py-24 px-4 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="w-full py-12 md:py-24 px-4 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -302,7 +302,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto relative z-10">
 
           {/* Vision, Mission & Quality Policy Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-16 gap-x-8 lg:gap-8 max-w-6xl mx-auto mt-8 lg:mt-0">
             {/* Vision Card */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
