@@ -13,7 +13,7 @@ export default function Home() {
   // Fades out later, as it reaches the next section
   const admissionsOpacity = useTransform(scrollY, [200, 600], [1, 0]);
 
-  const [heroRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000, stopOnInteraction: false })]);
+  const [heroRef] = useEmblaCarousel({ loop: true });
   const [coursesRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
   const [recruitersRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 2000, stopOnInteraction: false })]);
   const [activeTab, setActiveTab] = React.useState('facilities');
@@ -122,12 +122,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Carousel Viewport */}
         <div className="w-full h-full overflow-hidden" ref={heroRef}>
           <div className="flex h-full">
             {/* Slide 1 */}
           <div className="flex-[0_0_100%] h-full relative">
             <video 
+              ref={(el) => {
+                if (el) {
+                  el.play().catch(e => console.log("Video autoplay failed:", e));
+                }
+              }}
               autoPlay 
               loop 
               muted 
