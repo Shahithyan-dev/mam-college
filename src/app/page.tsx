@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { Target, Flag, FileCheck, ArrowRight, ChevronRight, ChevronUp, GraduationCap, Users, Building, BookOpen, Binoculars, Mountain, Globe, Award } from 'lucide-react';
+import { Target, Flag, FileCheck, ArrowRight, ChevronRight, ChevronUp, GraduationCap, Users, Building, BookOpen, Binoculars, Mountain, Globe, Award, Menu, X } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -17,6 +17,7 @@ export default function Home() {
   const [coursesRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
   const [recruitersRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 2000, stopOnInteraction: false })]);
   const [activeTab, setActiveTab] = React.useState('facilities');
+  const [showAdmissions, setShowAdmissions] = React.useState(false);
 
   React.useEffect(() => {
     // Force the browser to start at the top of the page on reload
@@ -51,12 +52,12 @@ export default function Home() {
     <div className="flex flex-col min-h-screen font-sans">
       
       {/* 1. Hero Carousel */}
-      <section className="w-full h-[70vh] relative overflow-hidden" ref={heroRef}>
+      <section className="w-full h-[70vh] relative overflow-hidden">
         
-        {/* Floating Admissions Box - Unique Design */}
+        {/* Desktop Admissions Box (Original) */}
         <motion.div 
           style={{ y: admissionsY, opacity: admissionsOpacity }} 
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 m-0 pointer-events-none"
+          className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-20 m-0 pointer-events-none"
         >
           <motion.div 
             initial={{ x: -100, opacity: 0 }}
@@ -64,34 +65,67 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 100 }}
             className="group pointer-events-auto"
           >
-          {/* Glassmorphism base with glowing border effect */}
-          <div className="relative bg-white/10 backdrop-blur-md py-10 px-8 pr-12 rounded-r-3xl shadow-[30px_0_60px_-15px_rgba(0,0,0,0.5)] border-y border-r border-white/30 overflow-hidden">
-            {/* Animated gradient background sweep */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/90/90 via-brand-secondary/90 to-yellow-600/90 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            {/* Shine effect */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            {/* Glassmorphism base with glowing border effect */}
+            <div className="relative bg-white/10 backdrop-blur-md py-10 px-8 pr-12 rounded-r-3xl shadow-[30px_0_60px_-15px_rgba(0,0,0,0.5)] border-y border-r border-white/30 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/90/90 via-brand-secondary/90 to-yellow-600/90 opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
 
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
-                <p className="text-brand-primary text-xs font-black tracking-[0.3em] uppercase">Admissions</p>
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+                  <p className="text-brand-primary text-xs font-black tracking-[0.3em] uppercase">Admissions</p>
+                </div>
+                <h3 className="text-4xl font-black text-brand-text mb-1 tracking-tight drop-shadow-sm">2026<span className="text-red-700">–</span>2027</h3>
+                <p className="text-brand-text/80 text-sm font-bold mb-8 uppercase tracking-wide">UG & PG Programmes</p>
+                
+                <Link href="/admission" className="relative inline-flex items-center gap-3 bg-brand-primary text-white text-sm font-bold px-8 py-4 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                  <span className="relative z-10">Apply Now</span>
+                  <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-red-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                </Link>
               </div>
-              <h3 className="text-4xl font-black text-brand-text mb-1 tracking-tight drop-shadow-sm">2026<span className="text-red-700">–</span>2027</h3>
-              <p className="text-brand-text/80 text-sm font-bold mb-8 uppercase tracking-wide">UG & PG Programmes</p>
-              
-              <Link href="/admission" className="relative inline-flex items-center gap-3 bg-brand-primary text-white text-sm font-bold px-8 py-4 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-                <span className="relative z-10">Apply Now</span>
-                <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-red-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-              </Link>
             </div>
-          </div>
           </motion.div>
         </motion.div>
 
-        <div className="flex h-full">
-          {/* Slide 1 */}
+        {/* Mobile Admissions Box - Left Sidebar (Hamburger) */}
+        <div className="md:hidden fixed left-0 top-[60%] -translate-y-1/2 z-[60]">
+          {/* Toggle Button */}
+          <button 
+            onClick={() => setShowAdmissions(!showAdmissions)}
+            className={`absolute top-1/2 -translate-y-1/2 bg-brand-secondary text-white p-3 rounded-r-xl shadow-2xl hover:bg-brand-primary transition-all duration-500 ease-in-out z-50 flex items-center justify-center gap-2 ${showAdmissions ? 'translate-x-[300px]' : 'translate-x-0'}`}
+          >
+            {showAdmissions ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Sliding Panel */}
+          <div 
+            className={`absolute left-0 top-1/2 -translate-y-1/2 w-[300px] transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${showAdmissions ? 'translate-x-0' : '-translate-x-full'}`}
+          >
+            <div className="relative bg-[#0b335c]/95 backdrop-blur-xl py-10 px-6 rounded-r-3xl shadow-[30px_0_60px_-15px_rgba(0,0,0,0.5)] border-y border-r border-white/20 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/40 via-transparent to-brand-primary/80 pointer-events-none"></div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                  <p className="text-[#DE9E2F] text-xs font-black tracking-[0.3em] uppercase">Admissions</p>
+                </div>
+                <h3 className="text-3xl font-black text-white mb-1 tracking-tight drop-shadow-sm">2026<span className="text-red-500">–</span>2027</h3>
+                <p className="text-gray-200 text-xs font-bold mb-8 uppercase tracking-wide">UG & PG Programmes</p>
+                
+                <Link href="/admission" className="relative inline-flex items-center gap-3 bg-white text-brand-primary text-sm font-bold px-6 py-3 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                  <span className="relative z-10">Apply Now</span>
+                  <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-brand-secondary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Carousel Viewport */}
+        <div className="w-full h-full overflow-hidden" ref={heroRef}>
+          <div className="flex h-full">
+            {/* Slide 1 */}
           <div className="flex-[0_0_100%] h-full relative">
             <video 
               autoPlay 
@@ -126,6 +160,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Bottom Overlay Statistics Bar (BHC Style) */}
@@ -584,20 +619,22 @@ export default function Home() {
             <div className="flex items-center gap-12 -ml-12 opacity-50 hover:opacity-100 transition-opacity duration-500">
               {/* Recruiter Logos */}
               {[
-                { name: 'IBM', style: 'font-black text-4xl text-[#0530ad] tracking-tighter' },
-                { name: 'TCS', style: 'font-black text-3xl text-[#0a3a82] tracking-widest' },
-                { name: 'HCL', style: 'font-bold text-3xl text-blue-700 italic' },
-                { name: 'ZOHO', style: 'font-black text-3xl text-[#0089ff] tracking-tight' },
-                { name: 'TVS', style: 'font-black text-4xl text-blue-800' },
-                { name: 'WIPRO', style: 'font-bold text-3xl text-blue-500' },
-                { name: 'RANE', style: 'font-black text-3xl text-[#c1272d]' },
-                { name: 'HYUNDAI', style: 'font-black text-2xl text-[#002c5f] tracking-widest' }
+                { name: 'IBM', src: '/ibm.png' },
+                { name: 'TCS', src: '/tcs.png' },
+                { name: 'HCL', src: '/hcl.png' },
+                { name: 'ZOHO', src: '/zoho.png' },
+                { name: 'TVS', src: '/tvs.png' },
+                { name: 'WIPRO', src: '/wipro.png' },
+                { name: 'RANE', src: '/rane.png' },
+                { name: 'HYUNDAI', src: '/hyundai.png' }
               ].map((company, i) => (
                 <div key={i} className="flex-[0_0_auto] pl-12">
-                  <div className="w-48 h-24 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all hover:scale-110 hover:shadow-xl cursor-pointer group select-none">
-                    <span className={`${company.style} opacity-70 group-hover:opacity-100 transition-opacity`}>
-                      {company.name}
-                    </span>
+                  <div className="w-48 h-24 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center p-6 transition-all hover:scale-110 hover:shadow-xl cursor-pointer group select-none">
+                    <img 
+                      src={company.src} 
+                      alt={`${company.name} Logo`} 
+                      className="max-w-[80%] max-h-[80%] object-contain transition-opacity" 
+                    />
                   </div>
                 </div>
               ))}

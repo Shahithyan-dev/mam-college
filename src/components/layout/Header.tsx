@@ -164,12 +164,17 @@ export default function Header() {
                <div className="mt-1.5 px-3 py-0.5 bg-brand-secondary text-white text-[9px] md:text-[10px] font-bold rounded-full shadow-sm">
                  (AN AUTONOMOUS INSTITUTION)
                </div>
+               {/* Mobile TNEA Code */}
+               <div className="lg:hidden mt-2 bg-brand-primary/5 px-2 py-1 rounded border border-brand-primary/10 flex items-center gap-2">
+                 <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
+                 <span className="text-xs font-black text-brand-secondary">3786</span>
+               </div>
              </div>
           </div>
         </div>
 
         {/* Right Side (Contact Info & Code) */}
-        <div className="flex-1 flex flex-wrap md:flex-nowrap items-center justify-center lg:justify-end gap-6 md:gap-8 lg:gap-10 px-4 pb-6 pt-2 lg:py-0 lg:pr-10 text-white relative z-0">
+        <div className="hidden lg:flex flex-1 flex-wrap md:flex-nowrap items-center justify-center lg:justify-end gap-6 md:gap-8 lg:gap-10 px-4 pb-6 pt-2 lg:py-0 lg:pr-10 text-white relative z-0">
           
           {/* Call Now */}
           <div className="flex items-center gap-3">
@@ -237,18 +242,19 @@ export default function Header() {
 
                   {/* Dropdown Menu */}
                   {link.subLinks && (
-                    <div className="absolute top-[90%] left-0 bg-white border-t-4 border-t-brand-secondary shadow-[0_15px_30px_-5px_rgba(0,0,0,0.2)] min-w-[240px] text-left opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:top-full group-hover:translate-y-0 transition-all duration-300 z-50 rounded-b-xl overflow-hidden before:absolute before:-top-4 before:left-0 before:w-full before:h-4 before:bg-transparent">
-                      <ul className="py-2">
-                        {link.subLinks.map((sub, sIdx) => (
-                          <li key={sIdx}>
-                            <Link href={sub.href} className="relative block px-6 py-3 text-sm font-semibold text-brand-text/90 hover:text-brand-primary transition-colors duration-300 group/drop overflow-hidden border-b border-gray-50 last:border-0">
-                              <span className="absolute inset-0 bg-yellow-50 transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover/drop:scale-x-100"></span>
-                              <span className="absolute left-0 top-0 w-[3px] h-full bg-brand-secondary transform origin-bottom scale-y-0 transition-transform duration-300 ease-out group-hover/drop:scale-y-100"></span>
-                              <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-2">{sub.label}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="absolute top-[90%] left-0 pt-4 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:top-full group-hover:translate-y-0 transition-all duration-300 z-50">
+                      <div className="bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] ring-1 ring-black/5 min-w-[240px] text-left rounded-2xl overflow-hidden">
+                        <ul className="p-2 flex flex-col gap-1">
+                          {link.subLinks.map((sub, sIdx) => (
+                            <li key={sIdx}>
+                              <Link href={sub.href} className="relative flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-xl hover:bg-brand-primary/5">
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-brand-secondary rounded-full transition-all duration-300 group-hover/drop:h-4 opacity-0 group-hover/drop:opacity-100"></span>
+                                <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-2">{sub.label}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   )}
                 </li>
@@ -270,18 +276,19 @@ export default function Header() {
                   <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-secondary transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100"></span>
                 </Link>
                 {link.subLinks && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white border-t-2 border-brand-primary shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-w-[200px] text-left opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 rounded-b-lg overflow-hidden">
-                    <ul className="py-2">
-                      {link.subLinks.map((sub, sIdx) => (
-                        <li key={sIdx}>
-                          <Link href={sub.href} className="relative block px-5 py-2.5 text-xs text-brand-text/90 hover:text-brand-secondary transition-colors duration-300 group/drop normal-case tracking-normal overflow-hidden border-b border-gray-50 last:border-0">
-                            <span className="absolute inset-0 bg-blue-50 transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover/drop:scale-x-100"></span>
-                            <span className="absolute left-0 top-0 w-[3px] h-full bg-brand-primary transform origin-bottom scale-y-0 transition-transform duration-300 ease-out group-hover/drop:scale-y-100"></span>
-                            <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-1.5">{sub.label}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+                    <div className="bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] ring-1 ring-black/5 min-w-[200px] text-left rounded-xl overflow-hidden">
+                      <ul className="p-1.5 flex flex-col gap-0.5">
+                        {link.subLinks.map((sub, sIdx) => (
+                          <li key={sIdx}>
+                            <Link href={sub.href} className="relative flex items-center px-4 py-2 text-xs font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-lg hover:bg-brand-primary/5 normal-case tracking-normal">
+                              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-brand-secondary rounded-full transition-all duration-300 group-hover/drop:h-3 opacity-0 group-hover/drop:opacity-100"></span>
+                              <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-1.5">{sub.label}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 )}
               </div>
@@ -293,14 +300,13 @@ export default function Header() {
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl max-h-[80vh] overflow-y-auto border-t-2 border-brand-primary flex flex-col z-50">
-          <div className="bg-brand-primary text-white p-3 font-black tracking-widest text-sm text-center sticky top-0 z-10">MAIN MENU</div>
+        <div className="lg:hidden absolute top-[calc(100%+8px)] left-4 right-4 bg-white/95 backdrop-blur-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-3xl max-h-[80vh] overflow-y-auto border border-white/40 ring-1 ring-black/5 flex flex-col z-50 p-2">
           
           {/* Primary Links Mobile */}
-          <ul className="flex flex-col">
+          <ul className="flex flex-col gap-1 p-2">
             {primaryLinks.map((link, idx) => (
-              <li key={`p-${idx}`} className="border-b border-gray-100 flex flex-col">
-                <div className="flex items-center justify-between px-6 py-4 hover:bg-brand-base active:bg-gray-100">
+              <li key={`p-${idx}`} className="flex flex-col">
+                <div className="flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-brand-primary/5 active:bg-brand-primary/10 transition-colors">
                   <Link 
                     href={link.href} 
                     className="text-brand-primary font-bold flex-grow text-sm uppercase tracking-wide"
@@ -309,37 +315,40 @@ export default function Header() {
                     {link.name}
                   </Link>
                   {link.subLinks && (
-                    <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-primary bg-brand-primary/5 rounded">
+                    <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-primary bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-brand-primary/5">
                        <ChevronDown size={18} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180' : ''}`} />
                     </button>
                   )}
                 </div>
                 {link.subLinks && openMobileDropdown === link.name && (
-                  <ul className="bg-brand-base px-6 py-2 pb-4 shadow-inner">
-                    {link.subLinks.map((sub, sIdx) => (
-                      <li key={sIdx}>
-                        <Link 
-                          href={sub.href} 
-                          className="block py-2.5 text-sm text-brand-text/80 pl-4 border-l-2 border-brand-primary/30 hover:border-brand-primary hover:text-brand-primary transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-1 mb-2 px-2">
+                    <ul className="bg-gray-50/50 rounded-2xl px-4 py-3 flex flex-col gap-1">
+                      {link.subLinks.map((sub, sIdx) => (
+                        <li key={sIdx}>
+                          <Link 
+                            href={sub.href} 
+                            className="flex items-center py-2.5 text-sm font-semibold text-gray-600 hover:text-brand-primary hover:translate-x-2 transition-all duration-300"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary/50 mr-3"></span>
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </li>
             ))}
           </ul>
           
-          <div className="bg-brand-secondary text-white p-3 font-black tracking-widest text-sm text-center sticky top-0 z-10">QUICK LINKS</div>
+          <div className="mx-4 my-2 h-px bg-gray-100"></div>
           
           {/* Secondary Links Mobile */}
-          <ul className="flex flex-col pb-8">
+          <ul className="flex flex-col gap-1 p-2 pb-4">
             {secondaryLinks.map((link, idx) => (
-              <li key={`s-${idx}`} className="border-b border-gray-100 flex flex-col">
-                <div className="flex items-center justify-between px-6 py-4 hover:bg-brand-base active:bg-gray-100">
+              <li key={`s-${idx}`} className="flex flex-col">
+                <div className="flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-brand-secondary/5 active:bg-brand-secondary/10 transition-colors">
                   <Link 
                     href={link.href} 
                     className="text-brand-secondary font-bold flex-grow text-sm uppercase tracking-wide"
@@ -348,25 +357,28 @@ export default function Header() {
                     {link.name}
                   </Link>
                   {link.subLinks && (
-                    <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-secondary bg-brand-secondary/5 rounded">
+                    <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-secondary bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-brand-secondary/5">
                        <ChevronDown size={18} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180' : ''}`} />
                     </button>
                   )}
                 </div>
                 {link.subLinks && openMobileDropdown === link.name && (
-                  <ul className="bg-brand-base px-6 py-2 pb-4 shadow-inner">
-                    {link.subLinks.map((sub, sIdx) => (
-                      <li key={sIdx}>
-                        <Link 
-                          href={sub.href} 
-                          className="block py-2.5 text-sm text-brand-text/80 pl-4 border-l-2 border-brand-secondary/30 hover:border-brand-secondary hover:text-brand-secondary transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-1 mb-2 px-2">
+                    <ul className="bg-gray-50/50 rounded-2xl px-4 py-3 flex flex-col gap-1">
+                      {link.subLinks.map((sub, sIdx) => (
+                        <li key={sIdx}>
+                          <Link 
+                            href={sub.href} 
+                            className="flex items-center py-2.5 text-sm font-semibold text-gray-600 hover:text-brand-secondary hover:translate-x-2 transition-all duration-300"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/50 mr-3"></span>
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </li>
             ))}

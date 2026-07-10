@@ -9,13 +9,13 @@ export default function FloatingSidebar() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowEnquiry(true);
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      <div className="fixed right-0 top-1/3 z-50 flex flex-col items-end shadow-2xl">
+      <div className="hidden md:flex fixed right-0 top-1/3 z-50 flex-col items-end shadow-2xl">
         <button 
           onClick={() => setShowEnquiry(true)}
           className="bg-brand-secondary text-white font-bold text-sm tracking-[0.2em] uppercase py-6 px-3 hover:bg-brand-secondary/90 transition-colors border-l-2 border-white/20"
