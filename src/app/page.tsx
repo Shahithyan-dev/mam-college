@@ -215,86 +215,119 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* 2. Quick Links / Highlights */}
-        <section className="w-full mt-12 mb-20 px-4">
-          <div className="max-w-7xl mx-auto bg-[#0b335c] rounded-[2rem] relative overflow-hidden shadow-[0_20px_50px_rgba(11,51,92,0.3)] border border-white/10">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1a4a7e] rounded-full blur-[100px] opacity-60 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#DE9E2F] rounded-full blur-[120px] opacity-20 translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        {/* 2. Premium Highlight Cards */}
+        <section className="w-full mt-16 mb-24 px-4 bg-[#0a111a] py-16 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff03_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             
-            {/* Tech Grid Pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 relative z-10 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {/* Card 1: Courses (Blue) */}
+            <div className="relative h-[480px] rounded-[2rem] overflow-hidden border border-white/10 bg-[#061224] group shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+              {/* Background Image & Overlays */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-30 mix-blend-overlay group-hover:scale-110 transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#021124] via-[#05162b]/90 to-[#021124]"></div>
               
-              {/* Card 1: Courses */}
-              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
-                  <BookOpen size={30} className="text-white group-hover:text-[#DE9E2F] transition-colors" />
+              {/* Bottom Right Curved Glow */}
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#0066FF] rounded-full blur-[80px] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+              {/* Bottom Right Shape (Glass curve) */}
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#0066FF]/40 to-transparent rounded-tl-[100%] border-t border-l border-[#0066FF]/30"></div>
+
+              {/* Dotted Patterns */}
+              <div className="absolute top-8 right-8 w-12 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px]"></div>
+              <div className="absolute bottom-6 right-6 w-16 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px] z-10"></div>
+
+              {/* Content */}
+              <div className="relative z-20 p-8 h-full flex flex-col">
+                <div className="w-20 h-20 rounded-full border border-[#0066FF]/50 shadow-[0_0_20px_rgba(0,102,255,0.4)] flex items-center justify-center mb-8 relative">
+                  <div className="absolute inset-0 rounded-full bg-[#0066FF]/10 animate-pulse"></div>
+                  <BookOpen size={32} className="text-[#0066FF]" />
                 </div>
                 
-                <h3 className="text-3xl font-serif font-bold text-white mb-4">Courses</h3>
-                <p className="text-white/70 leading-relaxed mb-10 text-sm font-medium">
+                <h3 className="text-3xl font-bold text-white mb-2">Courses</h3>
+                <div className="w-10 h-1 bg-[#0066FF] mb-6"></div>
+                
+                <p className="text-gray-300 leading-relaxed text-sm flex-1">
                   Diverse undergraduate and postgraduate courses designed to meet industry standards and future technologies.
                 </p>
                 
-                <Link href="/courses" className="inline-flex items-center gap-3 text-sm font-bold text-white uppercase tracking-wider group/link">
-                  <span className="relative overflow-hidden block h-5">
-                    <span className="block group-hover/link:-translate-y-full transition-transform duration-300">Read More</span>
-                    <span className="absolute top-0 left-0 block translate-y-full text-[#DE9E2F] group-hover/link:translate-y-0 transition-transform duration-300">Read More</span>
-                  </span>
-                  <ArrowRight size={18} className="text-white group-hover/link:text-[#DE9E2F] group-hover/link:translate-x-1 transition-all" />
+                <Link href="/courses" className="inline-flex items-center gap-3 text-xs font-bold text-[#0066FF] tracking-widest uppercase group/link mt-auto">
+                  EXPLORE MORE <ArrowRight size={16} className="group-hover/link:translate-x-2 transition-transform" />
                 </Link>
               </div>
+            </div>
 
-              {/* Card 2: Placement */}
-              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
-                  <Globe size={30} className="text-white group-hover:text-[#DE9E2F] transition-colors" />
+            {/* Card 2: Placement (Gold) */}
+            <div className="relative h-[480px] rounded-[2rem] overflow-hidden border border-[#FFAA00]/30 bg-[#0d1112] group shadow-[0_0_30px_rgba(255,170,0,0.1)] transition-transform duration-500 hover:-translate-y-2">
+              {/* Background Image & Overlays */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-30 mix-blend-overlay group-hover:scale-110 transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111111]/90 to-[#0a0a0a]"></div>
+              
+              {/* Bottom Right Curved Glow */}
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#FFAA00] rounded-full blur-[80px] opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              {/* Bottom Right Shape (Glass curve) */}
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#FFAA00]/40 to-transparent rounded-tl-[100%] border-t border-l border-[#FFAA00]/30"></div>
+
+              {/* Dotted Patterns */}
+              <div className="absolute top-8 right-8 w-12 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px]"></div>
+              <div className="absolute bottom-6 right-6 w-16 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px] z-10"></div>
+
+              {/* Content */}
+              <div className="relative z-20 p-8 h-full flex flex-col">
+                <div className="w-20 h-20 rounded-full border border-[#FFAA00]/50 shadow-[0_0_20px_rgba(255,170,0,0.4)] flex items-center justify-center mb-8 relative">
+                  <div className="absolute inset-0 rounded-full bg-[#FFAA00]/10 animate-pulse"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFAA00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </div>
                 
-                <h3 className="text-3xl font-serif font-bold text-white mb-4">Placement</h3>
-                <p className="text-white/70 leading-relaxed mb-10 text-sm font-medium">
+                <h3 className="text-3xl font-bold text-white mb-2">Placement</h3>
+                <div className="w-10 h-1 bg-[#FFAA00] mb-6"></div>
+                
+                <p className="text-gray-300 leading-relaxed text-sm flex-1">
                   Strong industry partnerships ensure excellent placement opportunities with top companies and career growth.
                 </p>
                 
-                <Link href="/placements" className="inline-flex items-center gap-3 text-sm font-bold text-white uppercase tracking-wider group/link">
-                  <span className="relative overflow-hidden block h-5">
-                    <span className="block group-hover/link:-translate-y-full transition-transform duration-300">Read More</span>
-                    <span className="absolute top-0 left-0 block translate-y-full text-[#DE9E2F] group-hover/link:translate-y-0 transition-transform duration-300">Read More</span>
-                  </span>
-                  <ArrowRight size={18} className="text-white group-hover/link:text-[#DE9E2F] group-hover/link:translate-x-1 transition-all" />
+                <Link href="/placements" className="inline-flex items-center gap-3 text-xs font-bold text-[#FFAA00] tracking-widest uppercase group/link mt-auto">
+                  EXPLORE MORE <ArrowRight size={16} className="group-hover/link:translate-x-2 transition-transform" />
                 </Link>
               </div>
+            </div>
 
-              {/* Card 3: Why MAMSE? */}
-              <div className="p-8 md:p-10 lg:p-14 group hover:bg-white/5 transition-colors duration-500 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DE9E2F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#DE9E2F]/20 group-hover:border-[#DE9E2F]/50 transition-all duration-300 group-hover:-translate-y-1 shadow-lg">
-                  <Award size={30} className="text-white group-hover:text-[#DE9E2F] transition-colors" />
+            {/* Card 3: Why MAMSE? (Cyan) */}
+            <div className="relative h-[480px] rounded-[2rem] overflow-hidden border border-white/10 bg-[#04141c] group shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+              {/* Background Image & Overlays */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-30 mix-blend-overlay group-hover:scale-110 transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#021118] via-[#051b24]/90 to-[#021118]"></div>
+              
+              {/* Bottom Right Curved Glow */}
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#00AABB] rounded-full blur-[80px] opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              {/* Bottom Right Shape (Glass curve) */}
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#00AABB]/40 to-transparent rounded-tl-[100%] border-t border-l border-[#00AABB]/30"></div>
+
+              {/* Dotted Patterns */}
+              <div className="absolute top-8 right-8 w-12 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px]"></div>
+              <div className="absolute bottom-6 right-6 w-16 h-12 opacity-30 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:10px_10px] z-10"></div>
+
+              {/* Content */}
+              <div className="relative z-20 p-8 h-full flex flex-col">
+                <div className="w-20 h-20 rounded-full border border-[#00AABB]/50 shadow-[0_0_20px_rgba(0,170,187,0.4)] flex items-center justify-center mb-8 relative">
+                  <div className="absolute inset-0 rounded-full bg-[#00AABB]/10 animate-pulse"></div>
+                  <div className="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00AABB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <Award size={14} className="absolute -top-3 -right-2 text-[#00AABB]" />
+                  </div>
                 </div>
                 
-                <h3 className="text-3xl font-serif font-bold text-white mb-4">Why MAMSE?</h3>
-                <p className="text-white/70 leading-relaxed mb-10 text-sm font-medium">
+                <h3 className="text-3xl font-bold text-white mb-2">Why MAMSE?</h3>
+                <div className="w-10 h-1 bg-[#00AABB] mb-6"></div>
+                
+                <p className="text-gray-300 leading-relaxed text-sm flex-1">
                   MAMSE empowers students through quality education, innovation, industry exposure, leadership, and global opportunities.
                 </p>
                 
-                <Link href="/about" className="inline-flex items-center gap-3 text-sm font-bold text-white uppercase tracking-wider group/link">
-                  <span className="relative overflow-hidden block h-5">
-                    <span className="block group-hover/link:-translate-y-full transition-transform duration-300">Read More</span>
-                    <span className="absolute top-0 left-0 block translate-y-full text-[#DE9E2F] group-hover/link:translate-y-0 transition-transform duration-300">Read More</span>
-                  </span>
-                  <ArrowRight size={18} className="text-white group-hover/link:text-[#DE9E2F] group-hover/link:translate-x-1 transition-all" />
+                <Link href="/about" className="inline-flex items-center gap-3 text-xs font-bold text-[#00AABB] tracking-widest uppercase group/link mt-auto">
+                  EXPLORE MORE <ArrowRight size={16} className="group-hover/link:translate-x-2 transition-transform" />
                 </Link>
               </div>
-
             </div>
+
           </div>
         </section>
       </section>
