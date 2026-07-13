@@ -5,6 +5,7 @@ import { Target, Flag, FileCheck, ArrowRight, ChevronRight, ChevronUp, Graduatio
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Marquee from 'react-fast-marquee';
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -52,7 +53,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen font-sans">
       
       {/* 1. Hero Carousel */}
-      <section className="w-full h-[70vh] relative overflow-hidden">
+      <section className="w-full h-[45vh] md:h-[70vh] relative overflow-hidden">
         
         {/* Desktop Admissions Box (Original) */}
         <motion.div 
@@ -102,7 +103,7 @@ export default function Home() {
           <div 
             className={`absolute left-0 top-1/2 -translate-y-1/2 w-[300px] transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${showAdmissions ? 'translate-x-0' : '-translate-x-full'}`}
           >
-            <div className="relative bg-[#0b335c]/95 backdrop-blur-xl py-10 px-6 rounded-r-3xl shadow-[30px_0_60px_-15px_rgba(0,0,0,0.5)] border-y border-r border-white/20 overflow-hidden">
+            <div className={`relative bg-[#0b335c]/95 backdrop-blur-xl py-10 px-6 rounded-r-3xl border-y border-r border-white/20 overflow-hidden transition-shadow duration-500 ${showAdmissions ? 'shadow-[30px_0_60px_-15px_rgba(0,0,0,0.5)]' : 'shadow-none'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/40 via-transparent to-brand-primary/80 pointer-events-none"></div>
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-2">
@@ -195,19 +196,22 @@ export default function Home() {
       {/* 2. News & Events Ticker & Grid */}
       <section className="bg-white">
         {/* Marquee Ticker */}
-        <div className="bg-brand-primary text-white py-4 border-b-4 border-brand-secondary overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
-            <div className="bg-brand-secondary px-4 py-2 font-bold uppercase tracking-wider shrink-0 shadow-sm relative z-10">
+        <div className="bg-brand-primary text-white py-2 md:py-4 border-b-4 border-brand-secondary overflow-hidden">
+          <div className="w-full flex items-center gap-2 md:gap-4">
+            <div className="bg-brand-secondary px-3 py-1 md:px-6 md:py-2 text-[10px] md:text-base font-bold uppercase tracking-wider shrink-0 shadow-sm relative z-10 flex-none">
               Announcements
             </div>
-            <div className="overflow-hidden relative flex-1 h-6">
-              <div className="animate-marquee whitespace-nowrap absolute flex items-center gap-12 text-sm font-medium">
-                <span>★ Admissions 2026-27 Open for all UG and PG Programmes</span>
-                <span>★ National Level Technical Symposium on Oct 15</span>
-                <span>★ NAAC Peer Team Visit scheduled for next month</span>
-                <span>★ Campus Placement Drive by Top MNCs starts next week</span>
-                <span>★ Admissions 2026-27 Open for all UG and PG Programmes</span>
-              </div>
+            <div className="overflow-hidden relative flex-1 h-5 md:h-6 flex items-center">
+              <Marquee gradient={false} speed={40} pauseOnHover={true} className="overflow-hidden">
+                <div className="flex items-center gap-8 md:gap-12 pl-6 md:pl-12 text-[10px] md:text-sm font-medium cursor-default">
+                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">Admissions 2026-27 Open for all UG and PG Programmes</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">National Level Technical Symposium on Oct 15</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">NAAC Peer Team Visit scheduled for next month</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">Campus Placement Drive by Top MNCs starts next week</span></span>
+                  {/* Space at the end to match gap */}
+                  <span className="w-8 md:w-12"></span>
+                </div>
+              </Marquee>
             </div>
           </div>
         </div>
@@ -328,7 +332,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-[#0b335c]/10 translate-x-6 translate-y-6 rounded-2xl -z-10"></div>
             <div className="absolute inset-0 bg-[#DE9E2F]/10 -translate-x-4 -translate-y-4 rounded-2xl -z-20"></div>
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="College Building" className="rounded-2xl shadow-2xl" />
+            <img src="college.png" alt="College Building" className="rounded-2xl shadow-2xl" />
           </motion.div>
         </div>
       </section>
@@ -609,46 +613,109 @@ export default function Home() {
       </section>
 
       {/* 7. Trusted by Recruiters */}
-      <section className="w-full py-24 px-4 bg-[#F8F7F3] text-center border-t border-gray-100">
+      <section className="w-full py-16 md:py-24 px-4 bg-gradient-to-b from-brand-primary via-[#002952] to-[#001a33] text-center relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-brand-secondary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-secondary/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        </div>
+
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="max-w-7xl mx-auto"
+          className="max-w-7xl mx-auto relative z-10"
         >
-          <h3 className="text-brand-secondary font-bold tracking-[0.2em] uppercase mb-3">Placements</h3>
-          <h2 className="text-4xl font-serif font-bold text-brand-primary mb-16">Trusted by 80+ Recruiters</h2>
-          <div className="overflow-hidden" ref={recruitersRef}>
-            <div className="flex items-center gap-12 -ml-12 opacity-50 hover:opacity-100 transition-opacity duration-500">
-              {/* Recruiter Logos */}
-              {[
-                { name: 'IBM', src: '/ibm.png' },
-                { name: 'TCS', src: '/tcs.png' },
-                { name: 'HCL', src: '/hcl.png' },
-                { name: 'ZOHO', src: '/zoho.png' },
-                { name: 'TVS', src: '/tvs.png' },
-                { name: 'WIPRO', src: '/wipro.png' },
-                { name: 'RANE', src: '/rane.png' },
-                { name: 'HYUNDAI', src: '/hyundai.png' }
-              ].map((company, i) => (
-                <div key={i} className="flex-[0_0_auto] pl-12">
-                  <div className="w-48 h-24 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center p-6 transition-all hover:scale-110 hover:shadow-xl cursor-pointer group select-none">
+          <h3 className="text-brand-secondary text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-2 md:mb-3">Our Recruiters</h3>
+          <h2 className="text-2xl md:text-4xl font-serif font-bold text-white mb-4 md:mb-6">Where Our Graduates Work</h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12">Our students are recruited by the top companies across India, with placement records that speak for themselves.</p>
+
+          {/* Stats Row */}
+          <div className="flex items-center justify-center gap-6 md:gap-16 mb-10 md:mb-16">
+            <div className="text-center">
+              <h4 className="text-2xl md:text-4xl font-black text-brand-secondary">80+</h4>
+              <p className="text-[10px] md:text-xs uppercase tracking-wider text-gray-400 mt-1">Recruiters</p>
+            </div>
+            <div className="w-px h-10 bg-white/20"></div>
+            <div className="text-center">
+              <h4 className="text-2xl md:text-4xl font-black text-brand-secondary">95%</h4>
+              <p className="text-[10px] md:text-xs uppercase tracking-wider text-gray-400 mt-1">Placement Rate</p>
+            </div>
+            <div className="w-px h-10 bg-white/20"></div>
+            <div className="text-center">
+              <h4 className="text-2xl md:text-4xl font-black text-brand-secondary">8 LPA</h4>
+              <p className="text-[10px] md:text-xs uppercase tracking-wider text-gray-400 mt-1">Highest Package</p>
+            </div>
+          </div>
+
+          {/* Marquee Logos - Row 1 */}
+          <div className="overflow-hidden flex w-full relative">
+            <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={40} pauseOnHover={true} className="py-2 md:py-3 overflow-hidden">
+              <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
+                {[
+                  { name: 'IBM', src: '/ibm.png' },
+                  { name: 'TCS', src: '/tcs.png' },
+                  { name: 'HCL', src: '/hcl.png' },
+                  { name: 'ZOHO', src: '/zoho.png' },
+                  { name: 'TVS', src: '/tvs.png' },
+                  { name: 'WIPRO', src: '/wipro.png' },
+                  { name: 'RANE', src: '/rane.png' },
+                  { name: 'HYUNDAI', src: '/hyundai.png' }
+                ].map((company, i) => (
+                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-3 md:p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
                     <img 
                       src={company.src} 
                       alt={`${company.name} Logo`} 
-                      className="max-w-[80%] max-h-[80%] object-contain transition-opacity" 
+                      className="w-full h-full object-contain transition-all" 
                     />
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Marquee>
+          </div>
+
+          {/* Marquee Logos - Row 2 (reverse direction) */}
+          <div className="overflow-hidden flex w-full relative mt-4 md:mt-6">
+            <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={35} pauseOnHover={true} direction="right" className="py-2 md:py-3 overflow-hidden">
+              <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
+                {[
+                  { name: 'WIPRO', src: '/wipro.png' },
+                  { name: 'IBM', src: '/ibm.png' },
+                  { name: 'RANE', src: '/rane.png' },
+                  { name: 'TCS', src: '/tcs.png' },
+                  { name: 'HYUNDAI', src: '/hyundai.png' },
+                  { name: 'ZOHO', src: '/zoho.png' },
+                  { name: 'TVS', src: '/tvs.png' },
+                  { name: 'HCL', src: '/hcl.png' }
+                ].map((company, i) => (
+                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-3 md:p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
+                    <img 
+                      src={company.src} 
+                      alt={`${company.name} Logo`} 
+                      className="w-full h-full object-contain transition-all" 
+                    />
+                  </div>
+                ))}
+              </div>
+            </Marquee>
           </div>
         </motion.div>
       </section>
 
       {/* 8. News & Events (Moved below Placements) */}
       <section className="w-full py-24 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-brand-secondary text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-2 md:mb-3">Updates</h3>
+            <h2 className="text-2xl md:text-4xl font-serif font-bold text-brand-primary">News & Events</h2>
+          </motion.div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Latest News Column */}
           <motion.div 

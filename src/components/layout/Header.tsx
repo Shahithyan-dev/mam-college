@@ -230,10 +230,10 @@ export default function Header() {
                 <li key={idx} className="relative group">
                   <Link 
                     href={link.href} 
-                    className="relative px-2 lg:px-2.5 xl:px-3 py-4 text-white text-[9.5px] lg:text-[10px] xl:text-[11px] font-bold uppercase tracking-wide flex items-center justify-center gap-1 overflow-hidden"
+                    className="relative px-2 lg:px-2.5 xl:px-3 py-4 text-white group-hover:text-brand-primary transition-colors duration-300 text-[9.5px] lg:text-[10px] xl:text-[11px] font-bold uppercase tracking-wide flex items-center justify-center gap-1 overflow-hidden"
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{link.name}</span>
-                    {link.subLinks && <ChevronDown size={12} className="opacity-70 group-hover:opacity-100 relative z-10 transition-opacity duration-300" />}
+                    <span className="relative z-10">{link.name}</span>
+                    {link.subLinks && <ChevronDown size={12} className="opacity-70 group-hover:opacity-100 relative z-10 transition-all duration-300" />}
                     
                     {/* Modern Animated Hover Effects */}
                     <span className="absolute bottom-0 left-0 w-full h-[3px] bg-brand-primary transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100 z-0"></span>
