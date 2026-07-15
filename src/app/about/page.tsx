@@ -23,14 +23,24 @@ export default function AboutPage() {
         </div>
         
         <p>
-          M.A.M. College of Engineering (MAMCE), Trichy was established in 1998 with the vision of providing high-quality technical education to the students of rural areas and empowering them with the knowledge and skills needed for a successful career.
+          M.A.M. School of Engineering, Siruganur, Tiruchirappalli is patronized by Maluk Educational Health and Charitable Trust. The trust has committed itself to the cause of education and pays special attention to impart technical education to the socially, educationally and economically backward communities.
         </p>
         <p>
-          Approved by AICTE, New Delhi, and affiliated to Anna University, Chennai, MAMCE offers a wide range of undergraduate and postgraduate programs in various engineering disciplines.
+          The college was established on July 2010 with the approval of Tamilnadu Government and All India Council for Technical Education and is affiliated to Anna University, Chennai. In this competitive environment in the engineering education, MAMSE proves its commitment to provide quality education to their students.
         </p>
+
+        <h3 className="text-2xl font-bold text-brand-primary mt-8 mb-4">VISION</h3>
         <p>
-          With state-of-the-art infrastructure, highly qualified faculty, and a commitment to excellence, the institution strives to create an environment that encourages innovation, research, and holistic development.
+          To emerge as a Premier institute by empowering the students with competent knowledge, employable skills and research culture to satisfy the needs of the industry and society.
         </p>
+
+        <h3 className="text-2xl font-bold text-brand-primary mt-8 mb-4">MISSION</h3>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>To Inculcate conducive and innovative teaching learning environment</li>
+          <li>To equip the students with value and ethical based training to enhance the employable skills</li>
+          <li>To promote continuous learning and to facilitate exchange of innovative ideas through industry and institute collaborations</li>
+          <li>To imbibe communication skills, leadership skills, entrepreneurial skills and human values among the students.</li>
+        </ul>
       </div>
     </InnerPageLayout>
   );

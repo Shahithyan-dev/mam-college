@@ -204,7 +204,6 @@ export default function Home() {
             <div className="overflow-hidden relative flex-1 h-5 md:h-6 flex items-center">
               <Marquee gradient={false} speed={40} pauseOnHover={true} className="overflow-hidden">
                 <div className="flex items-center gap-8 md:gap-12 pl-6 md:pl-12 text-[10px] md:text-sm font-medium cursor-default">
-                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">Admissions 2026-27 Open for all UG and PG Programmes</span></span>
                   <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">National Level Technical Symposium on Oct 15</span></span>
                   <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">NAAC Peer Team Visit scheduled for next month</span></span>
                   <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">Campus Placement Drive by Top MNCs starts next week</span></span>
@@ -216,7 +215,7 @@ export default function Home() {
           </div>
         </div>
         {/* 2. Premium Highlight Cards */}
-        <section className="w-full mt-16 mb-24 px-4 bg-[#0a111a] py-16 relative">
+        <section className="w-full mt-12 md:mt-16 py-12 md:py-16 px-4 bg-[#0a111a] relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff03_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             
@@ -333,7 +332,7 @@ export default function Home() {
       </section>
 
       {/* 3. About The Campus */}
-      <section className="w-full py-12 md:py-24 px-4 bg-white overflow-hidden">
+      <section className="w-full py-12 md:py-16 px-4 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div 
             initial="hidden"
@@ -371,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* 4. Vision & Mission */}
-      <section className="w-full pt-16 pb-16 px-4 bg-[#F5F8FA] border-t border-gray-100 relative overflow-hidden">
+      <section className="w-full py-12 md:py-16 px-4 bg-[#F5F8FA] border-t border-gray-100 relative overflow-hidden">
         {/* Subtle dot pattern background */}
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
@@ -482,7 +481,7 @@ export default function Home() {
       </section>
 
       {/* 5. Interactive Core Values Tabs */}
-      <section className="w-full py-16 px-4 bg-white">
+      <section className="w-full py-12 md:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Interactive Core Values Tabs */}
           <motion.div 
@@ -566,7 +565,7 @@ export default function Home() {
       </section>
 
       {/* 5. Courses Carousel */}
-      <section className="w-full py-24 px-4 bg-white overflow-hidden">
+      <section className="w-full py-12 md:py-16 px-4 bg-white overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -614,7 +613,7 @@ export default function Home() {
       </section>
 
       {/* 6. Quick Stats & Facilities */}
-      <section className="w-full py-24 bg-brand-primary text-white relative overflow-hidden">
+      <section className="w-full py-12 md:py-16 bg-brand-primary text-white relative overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -646,7 +645,7 @@ export default function Home() {
       </section>
 
       {/* 7. Trusted by Recruiters */}
-      <section className="w-full py-16 md:py-24 px-4 bg-gradient-to-b from-brand-primary via-[#002952] to-[#001a33] text-center relative overflow-hidden">
+      <section className="w-full py-12 md:py-16 px-4 bg-gradient-to-b from-brand-primary via-[#002952] to-[#001a33] text-center relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-brand-secondary/5 rounded-full blur-3xl"></div>
@@ -738,7 +737,7 @@ export default function Home() {
       </section>
 
       {/* 8. News & Events (Moved below Placements) */}
-      <section className="w-full py-24 bg-white border-t border-gray-100">
+      <section className="w-full py-12 md:py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
