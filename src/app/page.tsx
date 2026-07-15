@@ -14,6 +14,13 @@ export default function Home() {
   // Fades out later, as it reaches the next section
   const admissionsOpacity = useTransform(scrollY, [200, 600], [1, 0]);
 
+  const aboutRef = React.useRef(null);
+  const { scrollYProgress: aboutScroll } = useScroll({
+    target: aboutRef,
+    offset: ["start start", "end start"]
+  });
+  const aboutImageOpacity = useTransform(aboutScroll, [0.5, 1], [1, 0]);
+
   const [heroRef] = useEmblaCarousel({ loop: true });
   const [coursesRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
   const [recruitersRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 2000, stopOnInteraction: false })]);
@@ -90,7 +97,7 @@ export default function Home() {
         </motion.div>
 
         {/* Mobile Admissions Box - Left Sidebar (Hamburger) */}
-        <div className="md:hidden fixed left-0 top-[60%] -translate-y-1/2 z-[60]">
+        <div className="md:hidden absolute left-0 top-[60%] -translate-y-1/2 z-[60]">
           {/* Toggle Button */}
           <button 
             onClick={() => setShowAdmissions(!showAdmissions)}
@@ -332,8 +339,49 @@ export default function Home() {
       </section>
 
       {/* 3. About The Campus */}
-      <section className="w-full py-12 md:py-16 px-4 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section ref={aboutRef} className="w-full bg-white lg:py-16 lg:px-4">
+        
+        {/* Mobile View Container */}
+        <div className="relative lg:hidden w-full overflow-hidden min-h-[80vh] flex flex-col justify-center pb-16 pt-32 px-4">
+          {/* Background Image (bg-fixed creates the scroll effect) */}
+          <motion.div 
+            className="absolute inset-0 z-0"
+            style={{ opacity: aboutImageOpacity }}
+          >
+            <div className="w-full h-full bg-[url('/college.png')] bg-cover bg-center bg-fixed"></div>
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
+          </motion.div>
+
+          {/* Fading bottom edge into next section */}
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none"></div>
+
+          {/* Text Content */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="relative z-20 p-4"
+          >
+            <h4 className="text-[#DE9E2F] font-bold tracking-[0.2em] uppercase text-sm mb-4">About The Campus</h4>
+            <h2 className="text-3xl font-black text-[#0b335c] mb-6 font-serif leading-tight">
+              M.A.M. School of Engineering
+            </h2>
+            <div className="w-16 h-[2px] bg-[#DE9E2F] mb-6"></div>
+            <p className="text-[#0b335c]/80 mb-6 leading-relaxed font-bold">
+              Established with a commitment to providing high-quality technical education, M.A.M. School of Engineering is proudly affiliated with Anna University and holds the prestigious autonomous status.
+            </p>
+            <p className="text-[#0b335c]/80 mb-8 leading-relaxed font-bold">
+              Consistently recognized among the finest engineering institutions, we offer a diverse range of undergraduate and postgraduate programmes designed to foster innovation, critical thinking, and social responsibility.
+            </p>
+            <Link href="/about" className="inline-flex items-center gap-2 text-[#0b335c] font-bold hover:text-[#DE9E2F] transition-colors uppercase tracking-wider border-b-2 border-[#0b335c] hover:border-[#DE9E2F] pb-1 group">
+              Read More About Us <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Desktop View: Side by Side (unchanged) */}
+        <div className="hidden lg:grid max-w-7xl mx-auto grid-cols-2 gap-16 items-center pt-16">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -341,7 +389,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <h4 className="text-[#DE9E2F] font-bold tracking-[0.2em] uppercase text-sm mb-4">About The Campus</h4>
-            <h2 className="text-3xl md:text-5xl font-black text-[#0b335c] mb-8 font-serif leading-tight">
+            <h2 className="text-5xl font-black text-[#0b335c] mb-8 font-serif leading-tight">
               M.A.M. School of Engineering (Autonomous)
             </h2>
             <div className="w-20 h-[2px] bg-[#DE9E2F] mb-8"></div>
