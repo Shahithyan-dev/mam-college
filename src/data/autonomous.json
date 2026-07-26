@@ -1,0 +1,39 @@
+{
+  "Academic Council": [
+    "Academic Council",
+    "Academic Council Members",
+    {
+      "type": "table",
+      "title": "External Members",
+      "headers": ["S.No", "Name and Address", "Designation", "Category"],
+      "rows": [
+        ["1.", "Dr.S.Senthil Kumaran\nProfessor,\nDepartment of Mechanical Engineering,\nAnna University, Chennai.", "Anna University Nominees", ""],
+        ["2.", "Dr.B.Sathyabama\nProfessor,\nDepartment of ECE,\nThiagarajar College of Engineering, Madurai.", "Anna University Nominees", ""],
+        ["3.", "Dr.S.R.Sumathy\nAssociate Professor,\nDepartment of Civil Engineering,\nAlagappa Chettiar Government College of Engineering and Technology, Karaikudi.", "Anna University Nominees", ""],
+        ["4.", "Dr.A.Nagappan\nRegistrar,\nVinayaka Mission’s Research Foundation,\n(Deemed to be University),\nSalem.", "Academician nominated by Governing Body", ""],
+        ["5.", "Dr. A.Santakumari\nAdditional General Manager,\nBHEL, Trichy.", "Industrial Experts nominated by Governing Body", ""],
+        ["6.", "Mr.P.Vimal\nDirector,\nSang Engineering and Consultancy Services, Trichy.", "Industrial Experts nominated by Governing Body", ""]
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Internal Members",
+      "headers": ["S.No", "Name of the Member", "Designation", "Category"],
+      "rows": [
+        ["1.", "Prof.Dr.P.Ranjith Kumar", "Principal", "Chairman of the Academic Council"],
+        ["2.", "Prof.G.Thiraviya Suyambu", "Dean – Academics", "Member Secretary"],
+        ["3.", "Prof.Dr.M.Pandian", "Dean – Faculty of Mechanical Engineering", "Controller of Examination"],
+        ["4.", "Prof.Dr.M.Paneerselvam", "Professor/Mech", "Teachers of the College nominated by the Governing Body"],
+        ["5.", "Prof.R.Ramanathan", "Asso.Prof/Mech", "Teachers of the College nominated by the Governing Body"],
+        ["6.", "Prof.K.Sathish kumar", "Asst.Prof and Head/CSE", "Teachers of the College nominated by the Governing Body"],
+        ["7.", "Prof.Beula Elizebeth", "Asst.Prof/Chemistry", "Teachers of the College nominated by the Governing Body"],
+        ["8.", "Prof.Dr.M.Vijayan", "HoD/Mechanical and Mechatronics.", "Heads of Departments of the College"],
+        ["9.", "Prof.Dr.P.Lilly Florence", "Dean – Science and Humanities.", "Heads of Departments of the College"],
+        ["10.", "Prof.P.Kavitha", "HoD/ECE and BME.", "Heads of Departments of the College"],
+        ["11.", "Prof.Dr.A.Senthilkumar", "HoD/EEE.", "Heads of Departments of the College"],
+        ["12.", "Prof.Dr.K.Chandrasekaran", "HoD/Aeronautical Engineering.", "Heads of Departments of the College"],
+        ["13.", "Prof.R.Ranjani", "HoD/AI&DS", "Heads of Departments of the College"]
+      ]
+    }
+  ]
+}

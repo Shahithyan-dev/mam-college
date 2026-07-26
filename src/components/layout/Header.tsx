@@ -192,7 +192,7 @@ export default function Header() {
             <Mail className="w-8 h-8 text-brand-secondary" strokeWidth={1.5} />
             <div className="flex flex-col">
               <span className="text-[10px] text-white/70 font-semibold uppercase tracking-wider">Email Now</span>
-              <span className="text-sm font-black tracking-wide">info@mamse.in</span>
+              <span className="text-sm font-black tracking-wide">principal@mamse.in</span>
             </div>
           </div>
 

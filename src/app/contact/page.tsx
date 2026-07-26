@@ -19,7 +19,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-bold text-text-dark mb-2">Campus Address</h3>
               <p className="text-brand-text/80 leading-relaxed">
-                M.A.M. College of Engineering,<br />
+                M.A.M. School of Engineering,<br />
                 Trichy-Chennai Trunk Road,<br />
                 Siruganur, Tiruchirappalli - 621 105.
               </p>
@@ -33,8 +33,8 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-bold text-text-dark mb-2">Phone</h3>
               <p className="text-brand-text/80 leading-relaxed">
-                +91 7305092313<br />
-                +91 8015211313
+                +91 <br />
+                +91 
               </p>
             </div>
           </div>
@@ -46,8 +46,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-bold text-text-dark mb-2">Email</h3>
               <p className="text-brand-text/80 leading-relaxed">
-                info@mamce.org<br />
-                admissions@mamce.org
+                principal@mamse.in<br />
               </p>
             </div>
           </div>

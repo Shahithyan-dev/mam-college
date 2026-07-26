@@ -37,10 +37,16 @@ export default function Home() {
 
   const courses = [
     { title: "B.E. Aeronautical Engineering", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.Tech. AI and Data Science", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.E. Bio-Medical Engineering", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.Tech. Artificial Intelligence and Data Science", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.E. BioMedical Engineering", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Computer Science and Engineering", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Electrical and Electronics Engineering", image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.E. Electronics and Communication Engineering", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.Tech. Information Technology", image: "https://images.unsplash.com/photo-1531297172864-715a56317114?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.E. Mechanical Engineering", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.E. Mechatronics Engineering", image: "https://images.unsplash.com/photo-1563805042-7684c8a9e9ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "M.E. Computer Integrated Manufacturing", image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "M.E. Power Electronics and Drives", image: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
   ];
 
   const fadeInUp: any = {
@@ -179,14 +185,14 @@ export default function Home() {
         <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-12 z-20 hidden md:flex items-center gap-8 bg-brand-primary/80 backdrop-blur-md border-t-2 border-brand-secondary p-5 rounded-t-xl shadow-2xl text-white">
           <div className="text-center px-4 border-r border-white/20">
             <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">NAAC</p>
-            <h4 className="text-xl font-bold text-brand-secondary">A++</h4>
+            <h4 className="text-xl font-bold text-brand-secondary">A</h4>
             <p className="text-[9px] uppercase tracking-wider text-gray-300">Grade</p>
           </div>
-          <div className="text-center px-4 border-r border-white/20">
+          {/* <div className="text-center px-4 border-r border-white/20">
             <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">NBA</p>
             <h4 className="text-xl font-bold text-brand-secondary">Accredited</h4>
             <p className="text-[9px] uppercase tracking-wider text-gray-300">Status</p>
-          </div>
+          </div>  */}
           <div className="text-center px-4 border-r border-white/20">
             <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">UGC</p>
             <h4 className="text-xl font-bold text-brand-secondary">Autonomous</h4>
@@ -194,7 +200,7 @@ export default function Home() {
           </div>
           <div className="text-center px-4">
             <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">EST.</p>
-            <h4 className="text-xl font-bold text-brand-secondary">1998</h4>
+            <h4 className="text-xl font-bold text-brand-secondary">2010</h4>
             <p className="text-[9px] uppercase tracking-wider text-gray-300">Heritage</p>
           </div>
         </div>
@@ -450,7 +456,7 @@ export default function Home() {
               <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
               
               <p className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2">
-                To be a leading institution in technical education, fostering innovation, academic excellence, and research to transform young learners into competent professionals.
+                To emerge as a Premier institute by empowering the students with competent knowledge, employable skills and research culture to satisfy the needs of the industry and society.
               </p>
 
               <button className="w-10 h-10 rounded-full border border-[#DE9E2F] mx-auto flex items-center justify-center text-[#DE9E2F] hover:bg-[#DE9E2F] hover:text-white transition-colors relative z-10">
@@ -484,9 +490,24 @@ export default function Home() {
               <h3 className="text-xl font-bold text-[#0b335c] mb-4 relative z-10">Our Mission</h3>
               <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
               
-              <p className="text-gray-600 font-medium text-sm leading-relaxed mb-8 relative z-10 px-2">
-                To provide high-quality, practical-oriented technical education that empowers students for successful careers, promoting social and ecological consciousness.
-              </p>
+              <ul className="text-gray-600 font-medium text-sm leading-relaxed mb-8 relative z-10 px-2 text-left space-y-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                  <span>To Inculcate conducive and innovative teaching learning environment.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                  <span>To equip the students with value and ethical based training to enhance the employable skills.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                  <span>To promote continuous learning and to facilitate exchange of innovative ideas through industry and institute collaborations.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                  <span>To imbibe communication skills, leadership skills, entrepreneurial skills and human values among the students.</span>
+                </li>
+              </ul>
 
               <button className="w-10 h-10 rounded-full border border-[#0b335c] mx-auto flex items-center justify-center text-[#0b335c] hover:bg-[#0b335c] hover:text-white transition-colors relative z-10">
                 <ArrowRight size={16} />
@@ -516,9 +537,31 @@ export default function Home() {
               <h3 className="text-xl font-bold text-white mb-4 relative z-10">Quality Policy</h3>
               <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
               
-              <p className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2">
-                We are committed to creating competent technical professionals capable of meeting the evolving challenges of industry through continuous improvement.
-              </p>
+              <div className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2 text-left">
+                <p className="mb-3 text-center">We are committed to create competent technical professionals to meet the challenges of the industry and the society through:</p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                    <span>Building quality professionals with high ethical values.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                    <span>Implementing innovative teaching and learning processes.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                    <span>Encouraging industrial interaction.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                    <span>Providing utmost satisfaction to all stakeholders.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                    <span>Continual improvement in all activities.</span>
+                  </li>
+                </ul>
+              </div>
 
               <button className="w-10 h-10 rounded-full border border-[#DE9E2F] mx-auto flex items-center justify-center text-[#DE9E2F] hover:bg-[#DE9E2F] hover:text-white transition-colors relative z-10">
                 <ArrowRight size={16} />

@@ -1,46 +1,16 @@
 import React from 'react';
-import InnerPageLayout from '@/components/layout/InnerPageLayout';
+import GenericContentPage from '@/components/layout/GenericContentPage';
+import autonomousData from '@/data/autonomous.json';
 
 export default function AutonomousPage() {
-  const sidebarLinks = [
-    {
-        "label": "UGC Approval",
-        "href": "#",
-        "isActive": true
-    },
-    {
-        "label": "Anna University Approval",
-        "href": "#"
-    },
-    {
-        "label": "Academic Council",
-        "href": "#"
-    },
-    {
-        "label": "Board of Studies",
-        "href": "#"
-    },
-    {
-        "label": "Curriculum and Syllabus",
-        "href": "#"
-    }
-];
+  const pdfs = [
+    { label: 'AIDS R2024 Syllabus', href: '/documents/AIDS_R2024_SYLLABUS.pdf' },
+    { label: 'BME Curriculum R2024', href: '/documents/BME CURRICULUM R2024 (1).pdf' },
+    { label: 'ECE Curriculum R2024', href: '/documents/ECE CURRICULUM R2024 (1).pdf' },
+    { label: 'IT R2024 Syllabus', href: '/documents/IT_R2024_SYLLABUS.pdf' },
+    { label: 'Aero R2024 Syllabus', href: '/documents/R2024 - Aero.pdf' },
+    { label: 'UGC Approval', href: '/documents/UGC.pdf' },
+  ];
 
-  return (
-    <InnerPageLayout title="AUTONOMOUS" sidebarLinks={sidebarLinks}>
-      <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden min-h-[400px]">
-        <div className="bg-brand-primary p-4 text-white">
-           <h3 className="text-xl font-medium">{sidebarLinks.find(l => l.isActive)?.label || 'AUTONOMOUS'}</h3>
-        </div>
-        <div className="p-8 text-brand-text/80 leading-relaxed space-y-4">
-          <p>
-            Welcome to the AUTONOMOUS page. This section is currently under development.
-          </p>
-          <p>
-            Please check back later for full updates on {sidebarLinks.find(l => l.isActive)?.label || 'AUTONOMOUS'}.
-          </p>
-        </div>
-      </div>
-    </InnerPageLayout>
-  );
+  return <GenericContentPage title="Autonomous" data={autonomousData} pdfs={pdfs} />;
 }

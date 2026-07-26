@@ -6,6 +6,7 @@ interface SidebarLink {
   label: string;
   href: string;
   isActive?: boolean;
+  onClick?: () => void;
 }
 
 interface InnerPageLayoutProps {
@@ -49,17 +50,31 @@ export default function InnerPageLayout({ title, breadcrumbTitle, sidebarLinks, 
             <ul className="flex flex-col">
               {sidebarLinks.map((link, index) => (
                 <li key={index} className="border-b border-white/20 last:border-0">
-                  <Link 
-                    href={link.href}
-                    className={`flex items-center justify-between px-6 py-4 font-medium transition-colors ${
-                      link.isActive 
-                        ? 'bg-brand-secondary text-brand-primary font-bold shadow-md' 
-                        : 'bg-brand-primary text-white hover:bg-brand-primary/90'
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
-                  </Link>
+                  {link.onClick ? (
+                    <button 
+                      onClick={link.onClick}
+                      className={`w-full flex items-center justify-between px-6 py-4 font-medium transition-colors ${
+                        link.isActive 
+                          ? 'bg-brand-secondary text-brand-primary font-bold shadow-md' 
+                          : 'bg-brand-primary text-white hover:bg-brand-primary/90'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
+                    </button>
+                  ) : (
+                    <Link 
+                      href={link.href}
+                      className={`flex items-center justify-between px-6 py-4 font-medium transition-colors ${
+                        link.isActive 
+                          ? 'bg-brand-secondary text-brand-primary font-bold shadow-md' 
+                          : 'bg-brand-primary text-white hover:bg-brand-primary/90'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,0 +1,40 @@
+{
+  "COE": [
+    "About US",
+    "· The office of The Controller of Examinations (COE) has been established from the month of June 2024 since the conferment of Autonomous to the institution.",
+    "· The Office of the Controller of Examinations shall be responsible for assessing continuous learning process of the students by maintaining best quality and standard in examination process and ensuring confidentiality. It is the duty of the COE to arrange, prepare, schedule, conduct, publish and maintain records of IAT and End Semester Examinations of the students of all UG and PG programmes.",
+    "The other responsibilities of the office are:",
+    "· Collection of student bio data from the students.",
+    "· Mapping Electives from the students for the current semester.",
+    "· Conducting Internal Assessment Examinations and End Semester Examinations for the students of various UG/PG Programmes.",
+    "· Preparation of exam schedule, Hall allocation and Seating arrangements for IAT.",
+    "· Collection of Question Papers from the departments, printing and disseminating for Internal Assessment Examinations and End Semester Examinations",
+    "· Collecting Practical examination schedule from the departments.",
+    "· Appointment of External Examiners for practical examinations.",
+    "· Ensuring students attendance percentage during semester.",
+    "· Lack of attendance, debarred and withdrawal Panel of Examiners preparation from various Institution/Universities.",
+    "· Exam schedule preparation for Semester End Semester Examinations.",
+    "· Appointment of Hall Invigilators, Hall Chart, Seating arrangements, Squad and Chief Superintendent etc.",
+    "· Appointment of Evaluators, Chief Examiners and Chairman for Valuation.",
+    "· Publication of Results.",
+    "· Conducting Malpractice meeting, if any in the semester by Malpractice Committee.",
+    "· Conducting of revaluation and issuing photocopy to the students.",
+    "· Publishing revaluation results and Review process.",
+    "· Conduction of Special Supplementary examination.",
+    "· Printing of Statement of Grades, Consolidated Statement of Grades.",
+    "· Issue of Duplicate Grade Sheet/ Certificate etc.,",
+    "· Issue of Transcripts, CGPA to percentage conversion, Medium of Instruction, WES request etc.,",
+    "· Conduction of graduation day and issuing degree certificate.",
+    "· Assisting in student background verification.",
+    {
+      "type": "table",
+      "title": "Our Team",
+      "headers": ["S.No.", "Name", "Designation"],
+      "rows": [
+        ["1", "Dr. M.Pandian", "Controller of Examinations"],
+        ["2", "Prof.M.Chandrasekar", "Deputy COE"],
+        ["3", "Dr.Balamurugan", "Deputy COE"]
+      ]
+    }
+  ]
+}

@@ -1,34 +1,10 @@
 import React from 'react';
-import InnerPageLayout from '@/components/layout/InnerPageLayout';
+import GenericContentPage from '@/components/layout/GenericContentPage';
 
 export default function AccreditationPage() {
-  const sidebarLinks = [
-    {
-        "label": "NAAC",
-        "href": "#",
-        "isActive": true
-    },
-    {
-        "label": "ISO",
-        "href": "#"
-    }
-];
+  const pdfs = [
+    { label: 'NAAC A Certificate', href: '/documents/NAAC A Certificate.pdf' },
+  ];
 
-  return (
-    <InnerPageLayout title="ACCREDITATION" sidebarLinks={sidebarLinks}>
-      <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden min-h-[400px]">
-        <div className="bg-brand-primary p-4 text-white">
-           <h3 className="text-xl font-medium">{sidebarLinks.find(l => l.isActive)?.label || 'ACCREDITATION'}</h3>
-        </div>
-        <div className="p-8 text-brand-text/80 leading-relaxed space-y-4">
-          <p>
-            Welcome to the ACCREDITATION page. This section is currently under development.
-          </p>
-          <p>
-            Please check back later for full updates on {sidebarLinks.find(l => l.isActive)?.label || 'ACCREDITATION'}.
-          </p>
-        </div>
-      </div>
-    </InnerPageLayout>
-  );
+  return <GenericContentPage title="Accreditation" data={{}} pdfs={pdfs} />;
 }
