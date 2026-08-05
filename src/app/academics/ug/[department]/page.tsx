@@ -20,9 +20,37 @@ export default function UGDepartmentPage() {
     
     // Sort tabs logically, Introduction first
     const sections = Object.keys(departmentData.sections);
+    const logicalOrder = [
+      'Introduction',
+      'Objectives',
+      'Outcomes',
+      'Lab Facilities',
+      'Faculty',
+      'Student_s Achievements',
+      'Faculty Achievements',
+      'Faculty Publications',
+      'Student Publications',
+      'Books Published',
+      'Invited Talk',
+      'Seminars and Conferences',
+      'Placements',
+      'Innovative Projects',
+      'Internships',
+      'MOUs',
+      'Value Added Courses - Certificate Courses',
+      'Professional Bodies',
+      'Opportunities',
+      'Question Bank',
+      'Research Consultancy and Patents'
+    ];
+
     const sorted = sections.sort((a, b) => {
-      if (a === 'Introduction') return -1;
-      if (b === 'Introduction') return 1;
+      const indexA = logicalOrder.indexOf(a);
+      const indexB = logicalOrder.indexOf(b);
+      
+      if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
       return a.localeCompare(b);
     });
     
@@ -56,8 +84,22 @@ export default function UGDepartmentPage() {
     const contentText = departmentData.sections[validActiveTab];
     if (!contentText) return null;
     
-    // Simple parsing to split by newlines for paragraphs
-    const paragraphs = contentText.split('\n\n').filter(Boolean);
+    // Smart Parsing for raw text
+    const rawParagraphs = contentText.split('\n\n').map(p => p.trim()).filter(Boolean);
+    const elements: { type: string, key?: string, val?: string, content?: string }[] = [];
+    
+    let i = 0;
+    while (i < rawParagraphs.length) {
+      if (i + 1 < rawParagraphs.length && rawParagraphs[i+1] === ':') {
+        const key = rawParagraphs[i];
+        const val = i + 2 < rawParagraphs.length ? rawParagraphs[i+2] : '';
+        elements.push({ type: 'kv', key, val });
+        i += 3;
+      } else {
+        elements.push({ type: 'text', content: rawParagraphs[i] });
+        i++;
+      }
+    }
 
     return (
       <motion.div 
@@ -71,16 +113,32 @@ export default function UGDepartmentPage() {
           {validActiveTab}
         </h2>
         <div className="space-y-4">
-          {paragraphs.map((para: string, i: number) => {
-            // Check if it looks like a list item
-            if (para.trim().match(/^[0-9]+[.)]|^[•-]/)) {
+          {elements.map((el, idx) => {
+            if (el.type === 'kv') {
               return (
-                <div key={i} className="pl-4 border-l-2 border-brand-secondary">
-                  <p className="text-gray-700 leading-relaxed text-lg">{para.replace(/^[0-9]+[.)]|^[•-]/, '').trim()}</p>
+                <div key={idx} className="flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 px-2 rounded transition-colors">
+                  <span className="font-bold text-brand-primary sm:w-1/3 shrink-0 text-sm md:text-base">{el.key}</span>
+                  <span className="hidden sm:inline-block mr-4 text-brand-secondary">:</span>
+                  <span className="text-gray-700 flex-1 text-sm md:text-base">{el.val}</span>
                 </div>
               );
+            } else if (el.type === 'text' && el.content) {
+              if (el.content.match(/^[0-9]+[.)]|^[•-]/)) {
+                return (
+                  <div key={idx} className="pl-4 border-l-2 border-brand-secondary my-2 bg-gray-50/50 p-2 rounded-r">
+                    <p className="text-gray-700 leading-relaxed text-sm md:text-base">{el.content.replace(/^[0-9]+[.)]|^[•-]/, '').trim()}</p>
+                  </div>
+                );
+              }
+              if (el.content === ':') return null;
+              
+              if (el.content.trim().startsWith('<table') || el.content.trim().startsWith('<div')) {
+                return <div key={idx} className="my-4 w-full" dangerouslySetInnerHTML={{ __html: el.content }} />;
+              }
+              
+              return <p key={idx} className="text-gray-700 leading-relaxed text-sm md:text-base text-justify">{el.content}</p>;
             }
-            return <p key={i} className="text-gray-700 leading-relaxed text-lg text-justify">{para}</p>;
+            return null;
           })}
         </div>
       </motion.div>

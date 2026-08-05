@@ -29,115 +29,117 @@ export default function Header() {
     { name: "HOME", href: "/" },
     { name: "ABOUT US", href: "/about", subLinks: [
       { label: "Overview", href: "/about" },
-      { label: "Vision, Mission", href: "#" },
+      { label: "Vision, Mission", href: "/about" },
       { label: "MAMSE Milestones", href: "/history" },
       { label: "Administration", href: "/admin" },
-      { label: "Code of Conduct", href: "#" },
-      { label: "Awards and Recognition", href: "#" },
+      { label: "Code of Conduct", href: "/about" },
+      { label: "Awards and Recognition", href: "/about" },
     ]},
     { name: "ACADEMICS", href: "/courses", subLinks: [
       { label: "U.G Programmes", href: "/courses" },
-      { label: "P.G Programmes", href: "#" },
+      { label: "P.G Programmes", href: "/courses" },
     ]},
     { name: "ADMISSION", href: "/admission", subLinks: [
       { label: "Eligibility", href: "/admission" },
-      { label: "Scholarships", href: "#" },
-      { label: "Apply Now", href: "#" },
+      { label: "Scholarships", href: "/admission" },
+      { label: "Apply Now", href: "/admission" },
       { label: "For Admission Contact", href: "/contact" },
     ]},
     { name: "APPROVALS", href: "/approvals", subLinks: [
-      { label: 'AICTE', href: '#' },
-      { label: 'Anna University', href: '#' },
-      { label: 'UGC', href: '#' }
+      { label: 'AICTE', href: '/approvals' },
+      { label: 'Anna University', href: '/approvals' },
+      { label: 'UGC', href: '/approvals' }
     ]},
     { name: "ACCREDITATION", href: "/accreditation", subLinks: [
-      { label: 'NAAC', href: '#' },
-      { label: 'ISO', href: '#' }
+      { label: 'NAAC', href: '/accreditation' },
+      { label: 'ISO', href: '/accreditation' }
     ]},
     { name: "AUTONOMOUS", href: "/autonomous", subLinks: [
-      { label: 'UGC Approval', href: '#' },
-      { label: 'Anna University Approval', href: '#' },
-      { label: 'Academic Council', href: '#' },
-      { label: 'Board of Studies', href: '#' },
-      { label: 'Curriculum and Syllabus', href: '#' }
+      { label: 'UGC Approval', href: '/autonomous' },
+      { label: 'Anna University Approval', href: '/autonomous' },
+      { label: 'Academic Council', href: '/autonomous' },
+      { label: 'Board of Studies', href: '/autonomous' },
+      { label: 'Curriculum and Syllabus', href: '/autonomous' }
     ]},
     { name: "COE", href: "/coe", subLinks: [
-      { label: 'About US', href: '#' },
-      { label: 'Notifications', href: '#' },
-      { label: 'Exam Schedule', href: '#' },
-      { label: 'Student Login', href: '#' },
-      { label: 'Examination Manual', href: '#' }
+      { label: 'About US', href: '/coe' },
+      { label: 'Notifications', href: '/coe' },
+      { label: 'Exam Schedule', href: '/coe' },
+      { label: 'Student Login', href: '/coe' },
+      { label: 'Examination Manual', href: '/coe' }
     ]},
     { name: "E-LEARNING", href: "/e-learning", subLinks: [
-      { label: 'E-Library', href: '#' },
-      { label: 'SWAYAM', href: '#' },
-      { label: 'NPTEL', href: '#' },
-      { label: 'Coursera', href: '#' }
+      { label: 'E-Library', href: '/e-learning' },
+      { label: 'SWAYAM', href: '/e-learning' },
+      { label: 'NPTEL', href: '/e-learning' },
+      { label: 'Coursera', href: '/e-learning' }
     ]},
     { name: "STUDENT'S CORNER", href: "/students-corner", subLinks: [
-      { label: 'Cultural Events', href: '#' },
-      { label: 'Sports', href: '#' },
-      { label: 'Technical Events', href: '#' },
-      { label: 'NSS', href: '#' },
-      { label: 'Job Openings', href: '#' }
+      { label: 'Cultural Events', href: '/students-corner' },
+      { label: 'Sports', href: '/students-corner' },
+      { label: 'Technical Events', href: '/students-corner' },
+      { label: 'NSS', href: '/students-corner' },
+      { label: 'Job Openings', href: '/career' }
     ]},
     { name: "ALUMNI", href: "/alumni", subLinks: [
-      { label: 'Alumni Registration', href: '#' },
-      { label: 'Alumni Directory', href: '#' },
-      { label: 'Events & Reunions', href: '#' }
+      { label: 'Alumni Registration', href: '/alumni' },
+      { label: 'Alumni Directory', href: '/alumni' },
+      { label: 'Events & Reunions', href: '/alumni' }
     ]},
     { name: "RESEARCH", href: "/research", subLinks: [
-      { label: 'Academic Research', href: '#' },
-      { label: 'Sponsored Research', href: '#' },
-      { label: 'Hackathons', href: '#' }
+      { label: 'Academic Research', href: '/research' },
+      { label: 'Sponsored Research', href: '/research' },
+      { label: 'Hackathons', href: '/research' }
     ]},
     { name: "FACILITIES", href: "/facilities", subLinks: [
-      { label: 'Library', href: '#' },
-      { label: 'Hostel', href: '#' },
-      { label: 'Transport', href: '#' },
-      { label: 'Canteen', href: '#' },
-      { label: 'Gymnasium', href: '#' }
+      { label: 'Library', href: '/facilities' },
+      { label: 'Hostel', href: '/facilities' },
+      { label: 'Transport', href: '/facilities' },
+      { label: 'Canteen', href: '/facilities' },
+      { label: 'Gymnasium', href: '/facilities' }
     ]},
   ];
 
   const secondaryLinks = [
     { name: "CLUBS", href: "/clubs", subLinks: [
-        { label: 'Department Associations', href: '#' },
-        { label: 'Technical Clubs', href: '#' },
-        { label: 'Social Clubs', href: '#' }
+        { label: 'Department Associations', href: '/clubs' },
+        { label: 'Technical Clubs', href: '/clubs' },
+        { label: 'Social Clubs', href: '/clubs' }
     ]},
     { name: "ERP LOGIN", href: "/erp", subLinks: [
-        { label: 'Student Login', href: '#' },
-        { label: 'Faculty Login', href: '#' }
+        { label: 'Student Login', href: '/erp' },
+        { label: 'Faculty Login', href: '/erp' }
     ]},
     { name: "PLACEMENTS", href: "/placement" },
     { name: "CENTRE FOR INT. AFFAIRS", href: "/cia", subLinks: [
-        { label: 'About', href: '#' },
-        { label: "MoU's", href: '#' },
-        { label: 'Higher Studies Abroad', href: '#' }
+        { label: 'About', href: '/cia' },
+        { label: "MoU's", href: '/cia' },
+        { label: 'Higher Studies Abroad', href: '/cia' }
     ]},
     { name: "IQAC", href: "/iqac", subLinks: [
-        { label: 'About IQAC', href: '#' },
-        { label: 'Composition', href: '#' },
-        { label: 'NAAC', href: '#' },
-        { label: 'NBA', href: '#' }
+        { label: 'About IQAC', href: '/iqac' },
+        { label: 'Composition', href: '/iqac' },
+        { label: 'NAAC', href: '/iqac' },
+        { label: 'NBA', href: '/iqac' }
     ]},
     { name: "NIRF", href: "/nirf", subLinks: [
-        { label: 'NIRF Reports', href: '#' }
+        { label: 'NIRF Reports', href: '/nirf' }
     ]},
     { name: "IIC", href: "/iic", subLinks: [
-        { label: 'About IIC', href: '#' },
-        { label: 'Activity Reports', href: '#' },
-        { label: 'Yukti', href: '#' }
+        { label: 'About IIC', href: '/iic' },
+        { label: 'Activity Reports', href: '/iic' },
+        { label: 'Yukti', href: '/iic' }
     ]},
     { name: "NISP", href: "/nisp", subLinks: [
-        { label: 'Core Team', href: '#' },
-        { label: 'Policy Documents', href: '#' }
+        { label: 'Core Team', href: '/nisp' },
+        { label: 'Policy Documents', href: '/nisp' }
     ]},
     { name: "CIRCULARS", href: "/circulars" },
-    { name: "GRIEVANCE", href: "/grievance", subLinks: [
-        { label: 'Grievance Redressal', href: '#' },
-        { label: 'Anti-Ragging', href: '#' }
+    { name: "COMMITTEE", href: "/grievance", subLinks: [
+        { label: 'Anti-Ragging', href: '/grievance?tab=Anti-Ragging' },
+        { label: 'Grievance Redressal', href: '/grievance?tab=Grievance%20Redressal' },
+        { label: 'POSH Cell', href: '/grievance?tab=POSH%20Cell' },
+        { label: 'SC/ST', href: '/grievance?tab=SC%2FST' }
     ]},
     { name: "CONTACT US", href: "/contact" },
   ];
@@ -154,15 +156,20 @@ export default function Header() {
           className="bg-white relative z-10 flex flex-col md:flex-row items-center justify-center lg:justify-start pl-4 lg:pl-8 pr-12 lg:pr-24 py-4 lg:py-3 lg:w-[45%] lg:[clip-path:polygon(0_0,92%_0,100%_100%,0_100%)]"
         >
           <div className="flex items-center gap-3 md:gap-5 w-full">
-             <div className="w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white shadow-sm border border-gray-100">
-               <img src="/logo.png" alt="MAM Logo" className="w-[85%] h-[85%] object-contain" />
+             <div className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center shrink-0">
+               <img src="/logo.png" alt="MAM Logo" className="w-[90%] h-[90%] object-contain" />
              </div>
-             <div className="flex flex-col items-start text-left flex-1">
+              <div className="flex flex-col items-start text-left flex-1 mt-1 lg:mt-0">
                <h1 className="text-[20px] md:text-[28px] font-black text-brand-primary tracking-tight leading-[1.1]">
                  M.A.M. <br className="hidden md:block"/>SCHOOL OF ENGINEERING
                </h1>
-               <div className="mt-1.5 px-3 py-0.5 bg-brand-secondary text-white text-[9px] md:text-[10px] font-bold rounded-full shadow-sm">
-                 (AN AUTONOMOUS INSTITUTION)
+               <div className="flex flex-col gap-1 mt-1">
+                 <span className="text-[9px] md:text-[10px] font-bold text-brand-secondary uppercase tracking-wider">
+                   (An Autonomous Institution)
+                 </span>
+                 <p className="text-[9px] md:text-[10px] font-semibold text-brand-primary leading-tight max-w-[320px] md:max-w-md">
+                   Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai. Recognized by UGC & Accredited by NAAC
+                 </p>
                </div>
                {/* Mobile TNEA Code */}
                <div className="lg:hidden mt-2 bg-brand-primary/5 px-2 py-1 rounded border border-brand-primary/10 flex items-center gap-2">
@@ -173,40 +180,44 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Right Side (Contact Info & Code) */}
-        <div className="hidden lg:flex flex-1 flex-wrap md:flex-nowrap items-center justify-center lg:justify-end gap-6 md:gap-8 lg:gap-10 px-4 pb-6 pt-2 lg:py-0 lg:pr-10 text-white relative z-0">
+        {/* Right Side (Blue Background Area) */}
+        <div className="hidden lg:flex flex-1 relative items-center justify-center">
           
-          {/* Call Now */}
-          <div className="flex items-center gap-3">
-            <PhoneCall className="w-8 h-8 text-brand-secondary" strokeWidth={1.5} />
-            <div className="flex flex-col">
-              <span className="text-[10px] text-white/70 font-semibold uppercase tracking-wider">Call Now !</span>
-              <span className="text-sm font-black tracking-wide">+91 431 2910220</span>
+          {/* Contact Info & Code */}
+          <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-6 md:gap-8 lg:gap-10 text-white relative z-0">
+            
+            {/* NAAC Image (Replacing Call Now) */}
+            <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full p-1 shadow-lg transform hover:scale-105 transition-transform">
+              <img 
+                src="/nacc.png" 
+                alt="NAAC A Grade" 
+                className="w-full h-full object-contain" 
+              />
             </div>
-          </div>
 
-          <div className="w-px h-10 bg-white/20 hidden md:block"></div>
+            <div className="w-px h-10 bg-white/20 hidden lg:block"></div>
 
-          {/* Email Now */}
-          <div className="flex items-center gap-3">
-            <Mail className="w-8 h-8 text-brand-secondary" strokeWidth={1.5} />
-            <div className="flex flex-col">
-              <span className="text-[10px] text-white/70 font-semibold uppercase tracking-wider">Email Now</span>
-              <span className="text-sm font-black tracking-wide">principal@mamse.in</span>
+            {/* Email Now */}
+            <div className="flex items-center gap-3">
+              <Mail className="w-8 h-8 text-brand-secondary" strokeWidth={1.5} />
+              <div className="flex flex-col">
+                <span className="text-[10px] text-white/70 font-semibold uppercase tracking-wider">Email Now</span>
+                <span className="text-sm font-black tracking-wide">principal@mamse.in</span>
+              </div>
             </div>
-          </div>
 
-          <div className="w-px h-10 bg-white/20 hidden lg:block"></div>
+            <div className="w-px h-10 bg-white/20 hidden lg:block"></div>
 
-          {/* Counselling Code */}
-          <div className="flex items-center gap-3 mr-4 md:mr-0">
-            <GraduationCap className="w-10 h-10 text-brand-secondary" strokeWidth={1.5} />
-            <div className="flex flex-col">
-              <span className="text-[10px] text-brand-secondary font-bold uppercase tracking-wider">TNEA Counselling Code</span>
-              <span className="text-xl lg:text-2xl font-black tracking-widest text-white drop-shadow-md leading-none mt-1">3786</span>
+            {/* Counselling Code */}
+            <div className="flex items-center gap-3 mr-4 md:mr-0">
+              <GraduationCap className="w-10 h-10 text-brand-secondary" strokeWidth={1.5} />
+              <div className="flex flex-col">
+                <span className="text-[10px] text-brand-secondary font-bold uppercase tracking-wider">TNEA Counselling Code</span>
+                <span className="text-xl lg:text-2xl font-black tracking-widest text-white drop-shadow-md leading-none mt-1">3786</span>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
 
         {/* Mobile Menu Button - Positioned absolutely on mobile */}

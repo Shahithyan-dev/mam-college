@@ -41,12 +41,16 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-300">
               {[
-                { label: 'Staff ERP Login', href: '#' },
-                { label: 'Student ERP Login', href: '#' },
+                // { label: 'Staff ERP Login', href: '#' },
+                // { label: 'Student ERP Login', href: '#' },
                 { label: 'Online Fees Payment', href: '#' },
                 { label: 'Prospectus 2026-27', href: '#' },
-                { label: 'College Calendar', href: '#' },
-                { label: 'Library Portal', href: '#' }
+                { label: 'Academic Calendar', href: '#' },
+                { label: 'Mandatory Disclosure', href: '/mandatory-disclosure' },
+                { label: 'Privacy Policy', href: '/privacy-policy' },
+                { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+                { label: 'Refund & Cancellation', href: '/refund-and-cancellation' },
+                // { label: 'Library Portal', href: '#' }
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link href={item.href} className="flex items-center gap-2 hover:text-brand-secondary transition-colors">

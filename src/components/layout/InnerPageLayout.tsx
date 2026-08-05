@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, ArrowDown } from 'lucide-react';
+import BackButton from '@/components/ui/BackButton';
 
 interface SidebarLink {
   label: string;
@@ -43,6 +44,9 @@ export default function InnerPageLayout({ title, breadcrumbTitle, sidebarLinks, 
 
       {/* Main Content Section */}
       <section className="w-full py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-6">
+          <BackButton />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-12">
           
           {/* Left Sidebar Menu */}

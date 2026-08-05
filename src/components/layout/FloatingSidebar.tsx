@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function FloatingSidebar() {
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isVisible, setIsVisible] = useState(true);
+  const pathname = usePathname();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,9 +45,30 @@ export default function FloatingSidebar() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // If we are on the homepage, hide the sidebar when near the top (hero section)
+      if (pathname === '/') {
+        if (window.scrollY < 400) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    // Initial check
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
+
   return (
     <>
-      <div className="hidden md:flex fixed right-0 top-1/3 z-50 flex-col items-end shadow-2xl">
+      <div className={`hidden md:flex fixed right-0 top-1/3 z-50 flex-col items-end shadow-2xl transition-transform duration-500 ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}>
         <button 
           onClick={() => setShowEnquiry(true)}
           className="bg-brand-secondary text-white font-bold text-sm tracking-[0.2em] uppercase py-6 px-3 hover:bg-brand-secondary/90 transition-colors border-l-2 border-white/20"

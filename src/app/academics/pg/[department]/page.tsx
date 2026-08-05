@@ -80,6 +80,9 @@ export default function PGDepartmentPage() {
                 </div>
               );
             }
+            if (para.trim().startsWith('<table') || para.trim().startsWith('<div')) {
+              return <div key={i} className="my-4 w-full" dangerouslySetInnerHTML={{ __html: para }} />;
+            }
             return <p key={i} className="text-gray-700 leading-relaxed text-lg text-justify">{para}</p>;
           })}
         </div>

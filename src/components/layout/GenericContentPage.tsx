@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import InnerPageLayout from '@/components/layout/InnerPageLayout';
 import { motion } from 'framer-motion';
 import { FileText, Download } from 'lucide-react';
@@ -12,6 +13,9 @@ interface GenericContentPageProps {
 }
 
 export default function GenericContentPage({ title, data, pdfs = [] }: GenericContentPageProps) {
+  const searchParams = useSearchParams();
+  const tabQuery = searchParams.get('tab');
+
   const sections = Object.keys(data);
   
   const tabs = [
@@ -20,6 +24,12 @@ export default function GenericContentPage({ title, data, pdfs = [] }: GenericCo
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || '');
+
+  useEffect(() => {
+    if (tabQuery && tabs.some(t => t.id === tabQuery)) {
+      setActiveTab(tabQuery);
+    }
+  }, [tabQuery, tabs]);
 
   const sidebarLinks = tabs.map(tab => ({
     label: tab.label,

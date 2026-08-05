@@ -8,6 +8,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 
 export default function Home() {
+  const [isMissionFlipped, setIsMissionFlipped] = React.useState(false);
+  const [isQualityFlipped, setIsQualityFlipped] = React.useState(false);
+
   const { scrollY } = useScroll();
   // Travels down 800px (into the next section) as user scrolls 600px
   const admissionsY = useTransform(scrollY, [0, 600], [0, 800]);
@@ -26,6 +29,10 @@ export default function Home() {
   const [recruitersRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 2000, stopOnInteraction: false })]);
   const [activeTab, setActiveTab] = React.useState('facilities');
   const [showAdmissions, setShowAdmissions] = React.useState(false);
+  
+  // Dynamic Updates State
+  const [newsItems, setNewsItems] = React.useState<any[]>([]);
+  const [eventItems, setEventItems] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     // Force the browser to start at the top of the page on reload
@@ -33,20 +40,37 @@ export default function Home() {
       window.history.scrollRestoration = 'manual';
       window.scrollTo(0, 0);
     }
+    
+    // Fetch Updates
+    const fetchUpdates = async () => {
+      try {
+        const res = await fetch('/api/updates');
+        const data = await res.json();
+        if (data.success) {
+          const news = data.data.filter((item: any) => item.type === 'news');
+          const events = data.data.filter((item: any) => item.type === 'event');
+          setNewsItems(news);
+          setEventItems(events);
+        }
+      } catch (err) {
+        console.error('Failed to fetch updates:', err);
+      }
+    };
+    fetchUpdates();
   }, []);
 
   const courses = [
-    { title: "B.E. Aeronautical Engineering", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.E. Aeronautical Engineering", image: "/programmes/aero.jpeg" },
     { title: "B.Tech. Artificial Intelligence and Data Science", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. BioMedical Engineering", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Computer Science and Engineering", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Electrical and Electronics Engineering", image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Electronics and Communication Engineering", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.Tech. Information Technology", image: "https://images.unsplash.com/photo-1531297172864-715a56317114?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.E. Mechanical Engineering", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.E. Mechatronics Engineering", image: "https://images.unsplash.com/photo-1563805042-7684c8a9e9ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+    { title: "B.Tech. Information Technology", image: "/programmes/IT.jpeg" },
+    { title: "B.E. Mechanical Engineering", image: "/programmes/mech.jpeg" },
+    { title: "B.E. Mechatronics Engineering", image: "/programmes/mechatronics.png" },
     { title: "M.E. Computer Integrated Manufacturing", image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "M.E. Power Electronics and Drives", image: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+    { title: "M.E. Power Electronics and Drives", image: "/programmes/power.png" }
   ];
 
   const fadeInUp: any = {
@@ -66,7 +90,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen font-sans">
       
       {/* 1. Hero Carousel */}
-      <section className="w-full h-[45vh] md:h-[70vh] relative overflow-hidden">
+      <section className="w-full h-[60vh] md:h-[75vh] relative overflow-hidden">
         
         {/* Desktop Admissions Box (Original) */}
         <motion.div 
@@ -99,6 +123,29 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Desktop Quick Links Box (Right Side) */}
+        <motion.div 
+          style={{ y: admissionsY, opacity: admissionsOpacity }} 
+          className="hidden md:flex flex-col gap-4 absolute right-0 top-1/2 -translate-y-1/2 z-20 m-0 pointer-events-none"
+        >
+          <motion.div 
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7, type: "spring", stiffness: 100 }}
+            className="group pointer-events-auto flex flex-col gap-3"
+          >
+            {/* MAMSE LMS */}
+            <Link href="#" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
+               <span className="text-blue-600 font-black text-xl md:text-2xl tracking-wide">MAMSE LMS</span>
+            </Link>
+
+            {/* J-Gate */}
+            <Link href="#" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
+               <span className="text-orange-500 font-black text-xl md:text-2xl tracking-wide">J-Gate</span>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -136,7 +183,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full h-full overflow-hidden" ref={heroRef}>
+        <div className="absolute inset-0 overflow-hidden" ref={heroRef}>
           <div className="flex h-full">
             {/* Slide 1 */}
           <div className="flex-[0_0_100%] h-full relative">
@@ -150,7 +197,7 @@ export default function Home() {
               loop 
               muted 
               playsInline 
-              className="w-full h-full object-cover"
+              className="block w-full h-full object-cover"
             >
               <source src="/video.mp4" type="video/mp4" />
             </video>
@@ -169,7 +216,7 @@ export default function Home() {
           </div>
           {/* Slide 2 */}
           <div className="flex-[0_0_100%] h-full relative">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Students" className="w-full h-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Students" className="block w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 flex items-center justify-center text-center px-4">
               <div className="max-w-4xl">
@@ -181,29 +228,7 @@ export default function Home() {
         </div>
         </div>
 
-        {/* Bottom Overlay Statistics Bar (BHC Style) */}
-        <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-12 z-20 hidden md:flex items-center gap-8 bg-brand-primary/80 backdrop-blur-md border-t-2 border-brand-secondary p-5 rounded-t-xl shadow-2xl text-white">
-          <div className="text-center px-4 border-r border-white/20">
-            <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">NAAC</p>
-            <h4 className="text-xl font-bold text-brand-secondary">A</h4>
-            <p className="text-[9px] uppercase tracking-wider text-gray-300">Grade</p>
-          </div>
-          {/* <div className="text-center px-4 border-r border-white/20">
-            <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">NBA</p>
-            <h4 className="text-xl font-bold text-brand-secondary">Accredited</h4>
-            <p className="text-[9px] uppercase tracking-wider text-gray-300">Status</p>
-          </div>  */}
-          <div className="text-center px-4 border-r border-white/20">
-            <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">UGC</p>
-            <h4 className="text-xl font-bold text-brand-secondary">Autonomous</h4>
-            <p className="text-[9px] uppercase tracking-wider text-gray-300">Institution</p>
-          </div>
-          <div className="text-center px-4">
-            <p className="text-[10px] font-black tracking-widest text-gray-400 mb-1">EST.</p>
-            <h4 className="text-xl font-bold text-brand-secondary">2010</h4>
-            <p className="text-[9px] uppercase tracking-wider text-gray-300">Heritage</p>
-          </div>
-        </div>
+
       </section>
 
       {/* 2. News & Events Ticker & Grid */}
@@ -214,21 +239,108 @@ export default function Home() {
             <div className="bg-brand-secondary px-3 py-1 md:px-6 md:py-2 text-[10px] md:text-base font-bold uppercase tracking-wider shrink-0 shadow-sm relative z-10 flex-none">
               Announcements
             </div>
-            <div className="overflow-hidden relative flex-1 h-5 md:h-6 flex items-center">
-              <Marquee gradient={false} speed={40} pauseOnHover={true} className="overflow-hidden">
-                <div className="flex items-center gap-8 md:gap-12 pl-6 md:pl-12 text-[10px] md:text-sm font-medium cursor-default">
-                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">National Level Technical Symposium on Oct 15</span></span>
-                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">NAAC Peer Team Visit scheduled for next month</span></span>
-                  <span className="flex items-center gap-2 text-brand-secondary">★ <span className="text-white">Campus Placement Drive by Top MNCs starts next week</span></span>
-                  {/* Space at the end to match gap */}
+            <div className="relative flex-1 flex items-center">
+              <Marquee gradient={false} speed={40} pauseOnHover={true} className="overflow-hidden py-1">
+                <div className="flex items-center gap-8 md:gap-12 pl-6 md:pl-12 text-[11px] md:text-sm font-medium cursor-default">
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">National Level Technical Symposium on Oct 15</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">NAAC Peer Team Visit scheduled for next month</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">Campus Placement Drive by Top MNCs starts next week</span></span>
                   <span className="w-8 md:w-12"></span>
                 </div>
               </Marquee>
             </div>
           </div>
         </div>
-        {/* 2. Premium Highlight Cards */}
-        <section className="w-full mt-12 md:mt-16 py-12 md:py-16 px-4 bg-[#0a111a] relative">
+        {/* Updates / News & Events - directly below ticker */}
+        <div className="w-full py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-brand-secondary text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-2 md:mb-3">Updates</h3>
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-brand-primary">News & Events</h2>
+            </motion.div>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Latest News Column */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="bg-brand-primary text-white py-4 px-6">
+                <h3 className="text-xl font-serif font-bold flex items-center gap-2">
+                  <Target size={20} className="text-brand-secondary" />
+                  Latest News
+                </h3>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-4">
+                  {newsItems.length > 0 ? newsItems.map((news, idx) => (
+                    <li key={idx} className="flex gap-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                      <span className="text-brand-secondary mt-1">●</span>
+                      <a href={news.link || "#"} className="text-brand-text/90 hover:text-brand-primary transition-colors text-sm font-medium leading-relaxed">
+                        {news.title}
+                      </a>
+                    </li>
+                  )) : (
+                    <li className="text-gray-500 text-sm">No latest news available.</li>
+                  )}
+                </ul>
+                <div className="mt-6 text-right">
+                  <Link href="/news" className="text-brand-secondary text-sm font-bold uppercase hover:underline">
+                    View All News
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Upcoming Events Column */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="bg-brand-secondary text-white py-4 px-6">
+                <h3 className="text-xl font-serif font-bold flex items-center gap-2">
+                  <Flag size={20} className="text-white" />
+                  Upcoming Events
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-6">
+                  {eventItems.length > 0 ? eventItems.map((event, idx) => (
+                    <div key={idx} className="flex gap-5 pb-6 border-b border-gray-100 last:border-0 last:pb-0 group cursor-pointer" onClick={() => { if (event.link && event.link !== '#') window.location.href = event.link }}>
+                      <div className="flex flex-col text-center shadow-sm shrink-0 w-16 group-hover:scale-105 transition-transform">
+                        <div className="bg-brand-primary text-white text-xs font-bold py-1 rounded-t-md">{event.month}</div>
+                        <div className="bg-gray-100 text-brand-primary text-2xl font-black py-2 rounded-b-md border border-t-0 border-gray-200">{event.day}</div>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-brand-secondary uppercase tracking-wider mb-1">{event.eventType}</p>
+                        <h4 className="text-brand-text font-bold group-hover:text-brand-primary transition-colors leading-tight">{event.title}</h4>
+                      </div>
+                    </div>
+                  )) : (
+                    <p className="text-gray-500 text-sm">No upcoming events scheduled.</p>
+                  )}
+                </div>
+                <div className="mt-4 text-right">
+                  <Link href="/events" className="text-brand-secondary text-sm font-bold uppercase hover:underline">
+                    View All Events
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Premium Highlight Cards */}
+      <section className="w-full py-12 md:py-16 px-4 bg-[#0a111a] relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff03_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             
@@ -342,7 +454,6 @@ export default function Home() {
 
           </div>
         </section>
-      </section>
 
       {/* 3. About The Campus */}
       <section ref={aboutRef} className="w-full bg-white lg:py-16 lg:px-4">
@@ -437,7 +548,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0b335c] rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group hover:-translate-y-2 transition-transform duration-300"
+              className="bg-[#0b335c] rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col"
             >
               {/* Inner wrapper for overflowing graphics */}
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
@@ -455,7 +566,7 @@ export default function Home() {
               <h3 className="text-xl font-bold text-white mb-4 relative z-10">Our Vision</h3>
               <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
               
-              <p className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2">
+              <p className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2 flex-1">
                 To emerge as a Premier institute by empowering the students with competent knowledge, employable skills and research culture to satisfy the needs of the industry and society.
               </p>
 
@@ -469,49 +580,87 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group hover:-translate-y-2 transition-transform duration-300"
+              className="relative w-full h-full"
+              style={{ perspective: 1000 }}
             >
-              {/* Inner wrapper for overflowing graphics */}
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
-                {/* Background faint graphic */}
-                <div className="absolute bottom-0 right-0 translate-x-1/4 opacity-[0.03] group-hover:scale-110 transition-transform duration-700">
-                  <Mountain size={180} className="text-[#0b335c]" />
+              <motion.div
+                className="w-full h-full relative"
+                animate={{ rotateY: isMissionFlipped ? 180 : 0 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 150, damping: 20 }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Front of Card */}
+                <div 
+                  className="bg-white rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group transition-transform duration-300 w-full h-full flex flex-col" 
+                  style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+                >
+                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                    <div className="absolute bottom-0 right-0 translate-x-1/4 opacity-[0.03] group-hover:scale-110 transition-transform duration-700">
+                      <Mountain size={180} className="text-[#0b335c]" />
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-24 h-24 opacity-[0.05] bg-[radial-gradient(#000_2px,transparent_2px)] [background-size:10px_10px]"></div>
+                  </div>
+
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#0b335c] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
+                    <Flag size={24} className="text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-[#0b335c] mb-4 relative z-10">Our Mission</h3>
+                  <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
+                  
+                  <ul className="text-gray-600 font-medium text-sm leading-relaxed mb-8 relative z-10 px-2 text-left space-y-3 flex-1">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                      <span>To Inculcate conducive and innovative teaching learning environment.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                      <span>To equip the students with value and ethical based training to enhance the employable skills.</span>
+                    </li>
+                  </ul>
+
+                  <button onClick={() => setIsMissionFlipped(true)} className="mx-auto flex items-center gap-3 text-[#0b335c] hover:text-[#DE9E2F] group/btn transition-colors relative z-10">
+                    <span className="text-sm font-bold uppercase tracking-wider">Read More</span>
+                    <div className="w-10 h-10 rounded-full border border-[#0b335c] group-hover/btn:border-[#DE9E2F] flex items-center justify-center transition-colors">
+                      <ArrowRight size={16} />
+                    </div>
+                  </button>
                 </div>
 
-                {/* Faint dot pattern inside card corner */}
-                <div className="absolute bottom-0 right-0 w-24 h-24 opacity-[0.05] bg-[radial-gradient(#000_2px,transparent_2px)] [background-size:10px_10px]"></div>
-              </div>
+                {/* Back of Card */}
+                <div 
+                  className="bg-white rounded-[2rem] p-8 pt-12 absolute top-0 left-0 text-center shadow-2xl group w-full h-full flex flex-col" 
+                  style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+                >
+                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                    <div className="absolute bottom-0 right-0 translate-x-1/4 opacity-[0.03]">
+                      <Mountain size={180} className="text-[#0b335c]" />
+                    </div>
+                  </div>
 
-              {/* Floating Icon */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#0b335c] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
-                <Flag size={24} className="text-white" />
-              </div>
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#0b335c] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg z-10">
+                    <Flag size={24} className="text-white" />
+                  </div>
 
-              <h3 className="text-xl font-bold text-[#0b335c] mb-4 relative z-10">Our Mission</h3>
-              <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
-              
-              <ul className="text-gray-600 font-medium text-sm leading-relaxed mb-8 relative z-10 px-2 text-left space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                  <span>To Inculcate conducive and innovative teaching learning environment.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                  <span>To equip the students with value and ethical based training to enhance the employable skills.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                  <span>To promote continuous learning and to facilitate exchange of innovative ideas through industry and institute collaborations.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                  <span>To imbibe communication skills, leadership skills, entrepreneurial skills and human values among the students.</span>
-                </li>
-              </ul>
+                  <h3 className="text-xl font-bold text-[#0b335c] mb-4 relative z-10">Our Mission</h3>
+                  <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
+                  
+                  <ul className="text-gray-600 font-medium text-sm leading-relaxed mb-8 relative z-10 px-2 text-left space-y-3 flex-1">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                      <span>To promote continuous learning and to facilitate exchange of innovative ideas through industry and institute collaborations.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                      <span>To imbibe communication skills, leadership skills, entrepreneurial skills and human values among the students.</span>
+                    </li>
+                  </ul>
 
-              <button className="w-10 h-10 rounded-full border border-[#0b335c] mx-auto flex items-center justify-center text-[#0b335c] hover:bg-[#0b335c] hover:text-white transition-colors relative z-10">
-                <ArrowRight size={16} />
-              </button>
+                  <button onClick={() => setIsMissionFlipped(false)} className="w-10 h-10 rounded-full border border-[#0b335c] mx-auto flex items-center justify-center text-[#0b335c] hover:bg-[#0b335c] hover:text-white transition-colors relative z-10 absolute bottom-8 left-1/2 -translate-x-1/2">
+                    <ArrowRight size={16} className="rotate-180" />
+                  </button>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Quality Policy Card */}
@@ -519,53 +668,95 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0b335c] rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group hover:-translate-y-2 transition-transform duration-300"
+              className="relative w-full h-full"
+              style={{ perspective: 1000 }}
             >
-              {/* Inner wrapper for overflowing graphics */}
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
-                {/* Background faint graphic */}
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 opacity-[0.05] group-hover:scale-110 transition-transform duration-700">
-                  <FileCheck size={200} className="text-white" />
+              <motion.div
+                className="w-full h-full relative"
+                animate={{ rotateY: isQualityFlipped ? -180 : 0 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 150, damping: 20 }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Front of Card */}
+                <div 
+                  className="bg-[#0b335c] rounded-[2rem] p-8 pt-12 relative text-center shadow-2xl group transition-transform duration-300 w-full h-full flex flex-col"
+                  style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+                >
+                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                    <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 opacity-[0.05] group-hover:scale-110 transition-transform duration-700">
+                      <FileCheck size={200} className="text-white" />
+                    </div>
+                  </div>
+
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#DE9E2F] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
+                    <FileCheck size={24} className="text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white mb-4 relative z-10">Quality Policy</h3>
+                  <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
+                  
+                  <div className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2 text-left flex-1">
+                    <p className="mb-3 text-center">We are committed to create competent technical professionals to meet the challenges of the industry and the society through:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                        <span>Building quality professionals with high ethical values.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                        <span>Implementing innovative teaching and learning processes.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button onClick={() => setIsQualityFlipped(true)} className="mx-auto flex items-center gap-3 text-[#DE9E2F] hover:text-white group/btn transition-colors relative z-10">
+                    <span className="text-sm font-bold uppercase tracking-wider">Read More</span>
+                    <div className="w-10 h-10 rounded-full border border-[#DE9E2F] group-hover/btn:border-white flex items-center justify-center transition-colors">
+                      <ArrowRight size={16} />
+                    </div>
+                  </button>
                 </div>
-              </div>
 
-              {/* Floating Icon */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#DE9E2F] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
-                <FileCheck size={24} className="text-white" />
-              </div>
+                {/* Back of Card */}
+                <div 
+                  className="bg-[#0b335c] rounded-[2rem] p-8 pt-12 absolute top-0 left-0 text-center shadow-2xl group w-full h-full flex flex-col"
+                  style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(-180deg)" }}
+                >
+                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                    <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 opacity-[0.05]">
+                      <FileCheck size={200} className="text-white" />
+                    </div>
+                  </div>
 
-              <h3 className="text-xl font-bold text-white mb-4 relative z-10">Quality Policy</h3>
-              <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
-              
-              <div className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2 text-left">
-                <p className="mb-3 text-center">We are committed to create competent technical professionals to meet the challenges of the industry and the society through:</p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                    <span>Building quality professionals with high ethical values.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                    <span>Implementing innovative teaching and learning processes.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                    <span>Encouraging industrial interaction.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                    <span>Providing utmost satisfaction to all stakeholders.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
-                    <span>Continual improvement in all activities.</span>
-                  </li>
-                </ul>
-              </div>
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#DE9E2F] rounded-full border-[4px] border-[#F5F8FA] flex items-center justify-center shadow-lg z-10">
+                    <FileCheck size={24} className="text-white" />
+                  </div>
 
-              <button className="w-10 h-10 rounded-full border border-[#DE9E2F] mx-auto flex items-center justify-center text-[#DE9E2F] hover:bg-[#DE9E2F] hover:text-white transition-colors relative z-10">
-                <ArrowRight size={16} />
-              </button>
+                  <h3 className="text-xl font-bold text-white mb-4 relative z-10">Quality Policy</h3>
+                  <div className="w-12 h-[2px] bg-[#DE9E2F] mx-auto mb-5 relative z-10"></div>
+                  
+                  <div className="text-white/90 text-sm leading-relaxed mb-8 relative z-10 px-2 text-left flex-1">
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                        <span>Encouraging industrial interaction.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                        <span>Providing utmost satisfaction to all stakeholders.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#DE9E2F] mt-1 font-bold">•</span>
+                        <span>Continual improvement in all activities.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button onClick={() => setIsQualityFlipped(false)} className="w-10 h-10 rounded-full border border-[#DE9E2F] mx-auto flex items-center justify-center text-[#DE9E2F] hover:bg-[#DE9E2F] hover:text-white transition-colors relative z-10 absolute bottom-8 left-1/2 -translate-x-1/2">
+                    <ArrowRight size={16} className="rotate-180" />
+                  </button>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -682,7 +873,7 @@ export default function Home() {
                   <div className="bg-brand-base rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-300">
                     <div className="h-64 overflow-hidden relative">
                       <div className="absolute inset-0 bg-brand-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
-                      <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <img src={course.image} alt={course.title} className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${course.title.includes('Mechatronics') ? 'object-left' : ''}`} />
                     </div>
                     <div className="p-8 border-t-4 border-brand-secondary bg-white relative">
                       <div className="absolute -top-6 right-6 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center shadow-lg group-hover:-translate-y-2 transition-transform">
@@ -714,29 +905,29 @@ export default function Home() {
         >
           <motion.div variants={fadeInUp} className="text-center p-8 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
             <BookOpen size={40} strokeWidth={1.5} className="mx-auto mb-6 text-brand-secondary" />
-            <h3 className="text-5xl font-black mb-3">20+</h3>
+            <h3 className="text-5xl font-black mb-3">11+</h3>
             <p className="text-white font-bold uppercase tracking-widest text-xs">Programmes</p>
           </motion.div>
           <motion.div variants={fadeInUp} className="text-center p-8 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
             <Users size={40} strokeWidth={1.5} className="mx-auto mb-6 text-brand-secondary" />
-            <h3 className="text-5xl font-black mb-3">5K+</h3>
+            <h3 className="text-5xl font-black mb-3">2K+</h3>
             <p className="text-white font-bold uppercase tracking-widest text-xs">Students</p>
           </motion.div>
           <motion.div variants={fadeInUp} className="text-center p-8 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
             <GraduationCap size={40} strokeWidth={1.5} className="mx-auto mb-6 text-brand-secondary" />
-            <h3 className="text-5xl font-black mb-3">15K+</h3>
+            <h3 className="text-5xl font-black mb-3">300+</h3>
             <p className="text-white font-bold uppercase tracking-widest text-xs">Alumni</p>
           </motion.div>
           <motion.div variants={fadeInUp} className="text-center p-8 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
             <Building size={40} strokeWidth={1.5} className="mx-auto mb-6 text-brand-secondary" />
-            <h3 className="text-5xl font-black mb-3">80+</h3>
+            <h3 className="text-5xl font-black mb-3">30+</h3>
             <p className="text-white font-bold uppercase tracking-widest text-xs">Recruiters</p>
           </motion.div>
         </motion.div>
       </section>
 
       {/* 7. Trusted by Recruiters */}
-      <section className="w-full py-12 md:py-16 px-4 bg-gradient-to-b from-brand-primary via-[#002952] to-[#001a33] text-center relative overflow-hidden">
+      <section className="w-full py-12 md:py-16 px-4 bg-gradient-to-b from-brand-primary via-[#002952] to-[#001a33] text-center relative overflow-hidden mb-12 md:mb-16">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-brand-secondary/5 rounded-full blur-3xl"></div>
@@ -758,7 +949,7 @@ export default function Home() {
           {/* Stats Row */}
           <div className="flex items-center justify-center gap-6 md:gap-16 mb-10 md:mb-16">
             <div className="text-center">
-              <h4 className="text-2xl md:text-4xl font-black text-brand-secondary">80+</h4>
+              <h4 className="text-2xl md:text-4xl font-black text-brand-secondary">30+</h4>
               <p className="text-[10px] md:text-xs uppercase tracking-wider text-gray-400 mt-1">Recruiters</p>
             </div>
             <div className="w-px h-10 bg-white/20"></div>
@@ -778,21 +969,29 @@ export default function Home() {
             <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={40} pauseOnHover={true} className="py-2 md:py-3 overflow-hidden">
               <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
                 {[
-                  { name: 'IBM', src: '/ibm.png' },
                   { name: 'TCS', src: '/tcs.png' },
-                  { name: 'HCL', src: '/hcl.png' },
                   { name: 'ZOHO', src: '/zoho.png' },
-                  { name: 'TVS', src: '/tvs.png' },
-                  { name: 'WIPRO', src: '/wipro.png' },
-                  { name: 'RANE', src: '/rane.png' },
-                  { name: 'HYUNDAI', src: '/hyundai.png' }
+                  { name: 'Tech Mahindra', src: '/tech.png' },
+                  { name: 'L&T', src: '/l&t.png' },
+                  { name: 'Schneider Electric', src: '/se.png' },
+                  { name: 'ITC', src: '/itc.png' },
+                  { name: 'Windows', src: '/windows.png' },
+                  { name: 'Yamaha', src: '/yamaha.png' },
+                  { name: 'Infosys', src: '/infosys.png' },
+                  { name: 'Foxconn', src: '/foxconn.png' },
+                  { name: 'JK Fenner', src: '/jk.png' },
+                  { name: 'TVS', src: '/tvs.png' }
                 ].map((company, i) => (
-                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-3 md:p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
-                    <img 
-                      src={company.src} 
-                      alt={`${company.name} Logo`} 
-                      className="w-full h-full object-contain transition-all" 
-                    />
+                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
+                    {company.src ? (
+                      <img 
+                        src={company.src} 
+                        alt={`${company.name} Logo`} 
+                        className="w-[85%] h-[85%] object-contain transition-all group-hover:scale-110" 
+                      />
+                    ) : (
+                      <span className="text-lg md:text-xl font-black text-brand-primary text-center leading-tight">{company.name}</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -804,21 +1003,30 @@ export default function Home() {
             <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={35} pauseOnHover={true} direction="right" className="py-2 md:py-3 overflow-hidden">
               <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
                 {[
+                  { name: 'Flex', src: '/flex.png' },
+                  { name: 'CSS Corp', src: '/css corp.png' },
+                  { name: 'Allsec', src: '/allsec.png' },
+                  { name: 'Autotex', src: '/autotex.png' },
+                  { name: 'Kia', src: '/kia.png' },
+                  { name: 'Royal Enfield', src: '/re.png' },
                   { name: 'WIPRO', src: '/wipro.png' },
-                  { name: 'IBM', src: '/ibm.png' },
-                  { name: 'RANE', src: '/rane.png' },
-                  { name: 'TCS', src: '/tcs.png' },
-                  { name: 'HYUNDAI', src: '/hyundai.png' },
-                  { name: 'ZOHO', src: '/zoho.png' },
-                  { name: 'TVS', src: '/tvs.png' },
-                  { name: 'HCL', src: '/hcl.png' }
+                  { name: 'Cognizant', src: '/cts.png' },
+                  { name: 'HCL', src: '/hcl.png' },
+                  { name: 'Airtel', src: '/airtel.png' },
+                  { name: 'Garuda', src: '/garuda.png' },
+                  { name: 'INFAC', src: '/infac.png' },
+                  { name: 'Sanmar', src: '/sanmar.png' }
                 ].map((company, i) => (
-                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-3 md:p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
-                    <img 
-                      src={company.src} 
-                      alt={`${company.name} Logo`} 
-                      className="w-full h-full object-contain transition-all" 
-                    />
+                  <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
+                    {company.src ? (
+                      <img 
+                        src={company.src} 
+                        alt={`${company.name} Logo`} 
+                        className="w-[85%] h-[85%] object-contain transition-all group-hover:scale-110" 
+                      />
+                    ) : (
+                      <span className="text-lg md:text-xl font-black text-brand-primary text-center leading-tight">{company.name}</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -826,100 +1034,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* 8. News & Events (Moved below Placements) */}
-      <section className="w-full py-12 md:py-16 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-brand-secondary text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-2 md:mb-3">Updates</h3>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-brand-primary">News & Events</h2>
-          </motion.div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Latest News Column */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-          >
-            <div className="bg-brand-primary text-white py-4 px-6">
-              <h3 className="text-xl font-serif font-bold flex items-center gap-2">
-                <Target size={20} className="text-brand-secondary" />
-                Latest News
-              </h3>
-            </div>
-            <div className="p-6">
-              <ul className="space-y-4">
-                {[
-                  "MAMSE secures top rank in Anna University Examinations 2025.",
-                  "New AI & Data Science Center of Excellence inaugurated.",
-                  "Students win First Prize in National Level Hackathon at IIT Madras.",
-                  "MOU signed with leading MNCs for student internships and placements.",
-                  "International Conference on Sustainable Engineering on Dec 10-12."
-                ].map((news, idx) => (
-                  <li key={idx} className="flex gap-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                    <span className="text-brand-secondary mt-1">●</span>
-                    <a href="#" className="text-brand-text/90 hover:text-brand-primary transition-colors text-sm font-medium leading-relaxed">
-                      {news}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 text-right">
-                <Link href="/news" className="text-brand-secondary text-sm font-bold uppercase hover:underline">
-                  View All News
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Upcoming Events Column */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-          >
-            <div className="bg-brand-secondary text-white py-4 px-6">
-              <h3 className="text-xl font-serif font-bold flex items-center gap-2">
-                <Flag size={20} className="text-white" />
-                Upcoming Events
-              </h3>
-            </div>
-            <div className="p-6">
-              <div className="space-y-6">
-                {[
-                  { month: "OCT", day: "15", title: "National Level Technical Symposium (MAMTECH 26)", type: "Symposium" },
-                  { month: "NOV", day: "02", title: "Alumni Meet & Networking Dinner", type: "Alumni" },
-                  { month: "NOV", day: "24", title: "Workshop on Advanced Machine Learning", type: "Workshop" }
-                ].map((event, idx) => (
-                  <div key={idx} className="flex gap-5 pb-6 border-b border-gray-100 last:border-0 last:pb-0 group cursor-pointer">
-                    <div className="flex flex-col text-center shadow-sm shrink-0 w-16 group-hover:scale-105 transition-transform">
-                      <div className="bg-brand-primary text-white text-xs font-bold py-1 rounded-t-md">{event.month}</div>
-                      <div className="bg-gray-100 text-brand-primary text-2xl font-black py-2 rounded-b-md border border-t-0 border-gray-200">{event.day}</div>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-brand-secondary uppercase tracking-wider mb-1">{event.type}</p>
-                      <h4 className="text-brand-text font-bold group-hover:text-brand-primary transition-colors leading-tight">{event.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 text-right">
-                <Link href="/events" className="text-brand-secondary text-sm font-bold uppercase hover:underline">
-                  View All Events
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
     </div>
   );
 }
