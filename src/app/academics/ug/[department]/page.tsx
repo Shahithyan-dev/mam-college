@@ -85,7 +85,7 @@ export default function UGDepartmentPage() {
     if (!contentText) return null;
     
     // Smart Parsing for raw text
-    const rawParagraphs = contentText.split('\n\n').map(p => p.trim()).filter(Boolean);
+    const rawParagraphs = contentText.split('\n\n').map((p: string) => p.trim()).filter(Boolean);
     const elements: { type: string, key?: string, val?: string, content?: string }[] = [];
     
     let i = 0;
