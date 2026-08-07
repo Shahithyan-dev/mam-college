@@ -138,7 +138,7 @@ export default function Header() {
     { name: "COMMITTEE", href: "/grievance", subLinks: [
         { label: 'Anti-Ragging', href: '/grievance?tab=Anti-Ragging' },
         { label: 'Grievance Redressal', href: '/grievance?tab=Grievance%20Redressal' },
-        { label: 'POSH Cell', href: '/grievance?tab=POSH%20Cell' },
+        { label: '⁠ICC/POSH', href: '/grievance?tab=POSH%20Cell' },
         { label: 'SC/ST', href: '/grievance?tab=SC%2FST' }
     ]},
     { name: "CONTACT US", href: "/contact" },

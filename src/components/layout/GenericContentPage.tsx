@@ -108,6 +108,9 @@ export default function GenericContentPage({ title, data, pdfs = [] }: GenericCo
                   </div>
                 );
               }
+              if (item.trim().startsWith('<') && !item.startsWith('### ')) {
+                return <div key={i} className="html-content space-y-4" dangerouslySetInnerHTML={{ __html: item }} />;
+              }
               if (item.startsWith('**') && item.endsWith('**')) {
                 return <p key={i} className="text-gray-900 font-bold leading-relaxed text-lg whitespace-pre-wrap mt-4">{item.replace(/\*\*/g, '')}</p>;
               }
