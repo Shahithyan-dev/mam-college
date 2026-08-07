@@ -16,12 +16,10 @@ export default function GenericContentPage({ title, data, pdfs = [] }: GenericCo
   const searchParams = useSearchParams();
   const tabQuery = searchParams.get('tab');
 
-  const sections = Object.keys(data);
-  
-  const tabs = [
-    ...sections.map(section => ({ label: section, id: section })),
+  const tabs = useMemo(() => [
+    ...Object.keys(data).map(section => ({ label: section, id: section })),
     ...(pdfs.length > 0 ? [{ label: 'Documents & Downloads', id: 'Documents' }] : [])
-  ];
+  ], [data, pdfs]);
 
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || '');
 
