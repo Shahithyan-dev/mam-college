@@ -158,17 +158,20 @@ export default function Header() {
           {/* Mobile Layout (Visible only on < lg) */}
           <div className="flex lg:hidden items-center justify-between w-full pr-14"> 
              {/* Logo & Name */}
-             <div className="flex items-center gap-3">
-               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
+             <div className="flex items-start gap-3">
+               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 mt-1">
                  <img src="/logo.png" alt="MAM Logo" className="w-full h-full object-contain" />
                </div>
                <div className="flex flex-col">
                  <h1 className="text-[15px] sm:text-[18px] font-black text-brand-primary tracking-tight leading-[1.1]">
                    M.A.M. <br/>SCHOOL OF ENGINEERING
                  </h1>
-                 <span className="text-[8px] font-bold text-brand-secondary uppercase tracking-wider mt-0.5">
+                 <span className="text-[8.5px] font-bold text-brand-secondary uppercase tracking-wider mt-0.5 mb-0.5">
                    (An Autonomous Institution)
                  </span>
+                 <p className="text-[7.5px] sm:text-[8px] font-semibold text-brand-primary leading-[1.2] max-w-[220px] sm:max-w-[260px]">
+                   Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai. Recognized by UGC & Accredited by NAAC
+                 </p>
                </div>
              </div>
           </div>
