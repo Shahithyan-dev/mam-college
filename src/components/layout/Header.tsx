@@ -215,11 +215,11 @@ export default function Header() {
           <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-6 md:gap-8 lg:gap-10 text-white relative z-0">
             
             {/* NAAC Image (Replacing Call Now) */}
-            <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full shadow-lg transform hover:scale-105 transition-transform overflow-hidden border-2 border-white">
+            <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full p-1 shadow-lg transform hover:scale-105 transition-transform">
               <img 
                 src="/nacc.png" 
                 alt="NAAC A Grade" 
-                className="w-full h-full object-cover mix-blend-multiply" 
+                className="w-full h-full object-contain" 
               />
             </div>
 
