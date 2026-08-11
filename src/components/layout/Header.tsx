@@ -65,11 +65,11 @@ export default function Header() {
       { label: 'About US', href: '/coe' },
       { label: 'Notifications', href: '/coe' },
       { label: 'Exam Schedule', href: '/coe' },
-      { label: 'Student Login', href: '/coe' },
+      { label: 'Student Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' },
       { label: 'Examination Manual', href: '/coe' }
     ]},
     { name: "E-LEARNING", href: "/e-learning", subLinks: [
-      { label: 'E-Library', href: '/e-learning' },
+      { label: 'J-Gate (E-Library)', href: 'https://jgatenext.com/' },
       { label: 'SWAYAM', href: '/e-learning' },
       { label: 'NPTEL', href: '/e-learning' },
       { label: 'Coursera', href: '/e-learning' }
@@ -106,9 +106,9 @@ export default function Header() {
         { label: 'Technical Clubs', href: '/clubs' },
         { label: 'Social Clubs', href: '/clubs' }
     ]},
-    { name: "ERP LOGIN", href: "/erp", subLinks: [
-        { label: 'Student Login', href: '/erp' },
-        { label: 'Faculty Login', href: '/erp' }
+    { name: "ERP LOGIN", href: "https://portal.vmedulife.com/public/auth/#/login/mamse-trichy", subLinks: [
+        { label: 'Student Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' },
+        { label: 'Faculty Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' }
     ]},
     { name: "PLACEMENTS", href: "/placement" },
     { name: "CENTRE FOR INT. AFFAIRS", href: "/cia", subLinks: [
@@ -171,10 +171,15 @@ export default function Header() {
                    Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai. Recognized by UGC & Accredited by NAAC
                  </p>
                </div>
-               {/* Mobile TNEA Code */}
-               <div className="lg:hidden mt-2 bg-brand-primary/5 px-2 py-1 rounded border border-brand-primary/10 flex items-center gap-2">
-                 <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
-                 <span className="text-xs font-black text-brand-secondary">3786</span>
+               {/* Mobile TNEA Code & NAAC */}
+               <div className="lg:hidden mt-2 flex items-center gap-3">
+                 <div className="bg-brand-primary/5 px-2 py-1 rounded border border-brand-primary/10 flex items-center gap-2">
+                   <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
+                   <span className="text-xs font-black text-brand-secondary">3786</span>
+                 </div>
+                 <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-full p-0.5 shadow-sm border border-gray-100">
+                   <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-contain" />
+                 </div>
                </div>
              </div>
           </div>
