@@ -45,7 +45,13 @@ export default function Home() {
     const fetchUpdates = async () => {
       try {
         const res = await fetch('/api/updates');
-        const data = await res.json();
+        if (!res.ok) {
+          console.warn('API /api/updates returned status:', res.status);
+          return;
+        }
+        const text = await res.text();
+        if (!text) return;
+        const data = JSON.parse(text);
         if (data.success) {
           const news = data.data.filter((item: any) => item.type === 'news');
           const events = data.data.filter((item: any) => item.type === 'event');
