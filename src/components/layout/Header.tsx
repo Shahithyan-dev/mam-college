@@ -194,12 +194,12 @@ export default function Header() {
           </div>
 
           {/* Mobile Bottom Bar (TNEA & NAAC) - only on mobile */}
-          <div className="flex lg:hidden mt-3 items-center gap-3 border-t border-gray-100 pt-3">
-            <div className="bg-brand-primary/5 px-2 py-1.5 rounded border border-brand-primary/10 flex items-center gap-2">
-              <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
-              <span className="text-[11px] font-black text-brand-secondary">3786</span>
+          <div className="flex lg:hidden mt-3 items-center justify-start gap-4 border-t border-gray-100 pt-3">
+            <div className="bg-brand-primary/5 px-3 py-2 rounded-lg border border-brand-primary/10 flex items-center gap-2 h-12">
+              <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
+              <span className="text-sm font-black text-brand-secondary">3786</span>
             </div>
-            <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-sm border border-gray-100 p-0.5">
+            <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md border border-gray-100 p-1 shrink-0">
               <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-contain" />
             </div>
           </div>
