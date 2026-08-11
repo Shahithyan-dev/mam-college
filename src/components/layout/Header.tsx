@@ -202,8 +202,8 @@ export default function Header() {
               <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
               <span className="text-sm font-black text-brand-secondary">3786</span>
             </div>
-            <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md border border-gray-100 p-1 shrink-0">
-              <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-contain" />
+            <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md border-2 border-white shrink-0 overflow-hidden">
+              <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-cover mix-blend-multiply" />
             </div>
           </div>
         </div>
@@ -215,11 +215,11 @@ export default function Header() {
           <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-6 md:gap-8 lg:gap-10 text-white relative z-0">
             
             {/* NAAC Image (Replacing Call Now) */}
-            <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full p-1 shadow-lg transform hover:scale-105 transition-transform">
+            <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full shadow-lg transform hover:scale-105 transition-transform overflow-hidden border-2 border-white">
               <img 
                 src="/nacc.png" 
                 alt="NAAC A Grade" 
-                className="w-full h-full object-contain" 
+                className="w-full h-full object-cover mix-blend-multiply" 
               />
             </div>
 
