@@ -68,6 +68,7 @@ export default function FloatingSidebar() {
 
   return (
     <>
+      {/* Desktop Floating Sidebar */}
       <div className={`hidden md:flex fixed right-0 top-1/3 z-50 flex-col items-end shadow-2xl transition-transform duration-500 ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}>
         <button 
           onClick={() => setShowEnquiry(true)}
@@ -83,6 +84,24 @@ export default function FloatingSidebar() {
         >
           ADMISSIONS
         </Link>
+      </div>
+
+      {/* Mobile Sticky Bottom Bar */}
+      <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white shadow-[0_-5px_20px_rgba(0,0,0,0.15)] border-t border-gray-200 transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className="flex w-full">
+          <button onClick={() => setShowEnquiry(true)} className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 bg-brand-secondary text-white hover:bg-brand-secondary/90">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-center leading-tight">Enquire<br/>Now</span>
+          </button>
+          <Link href="/admission" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 bg-brand-primary text-white hover:bg-brand-primary/90">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-center leading-tight">Admissions</span>
+          </Link>
+          <a href="https://portal.vmedulife.com/public/auth/#/login/mamse-trichy" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 hover:bg-gray-50">
+            <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-wide text-center leading-tight">MAMSE<br/>LMS</span>
+          </a>
+          <a href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 hover:bg-gray-50">
+            <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wide text-center leading-tight">J-Gate<br/>Library</span>
+          </a>
+        </div>
       </div>
 
       {/* Enquiry Modal */}
