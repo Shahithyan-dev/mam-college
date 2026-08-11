@@ -153,35 +153,55 @@ export default function Header() {
         
         {/* Left Side (White with clip-path) */}
         <div 
-          className="bg-white relative z-10 flex flex-col md:flex-row items-center justify-center lg:justify-start pl-4 lg:pl-8 pr-12 lg:pr-24 py-4 lg:py-3 lg:w-[45%] lg:[clip-path:polygon(0_0,92%_0,100%_100%,0_100%)]"
+          className="bg-white relative z-10 flex flex-col justify-center lg:justify-start pl-4 lg:pl-8 pr-4 lg:pr-24 py-3 lg:w-[45%] lg:[clip-path:polygon(0_0,92%_0,100%_100%,0_100%)]"
         >
-          <div className="flex items-center gap-3 md:gap-5 w-full">
-             <div className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center shrink-0">
-               <img src="/logo.png" alt="MAM Logo" className="w-[90%] h-[90%] object-contain" />
-             </div>
-              <div className="flex flex-col items-start text-left flex-1 mt-1 lg:mt-0">
-               <h1 className="text-[20px] md:text-[28px] font-black text-brand-primary tracking-tight leading-[1.1]">
-                 M.A.M. <br className="hidden md:block"/>SCHOOL OF ENGINEERING
-               </h1>
-               <div className="flex flex-col gap-1 mt-1">
-                 <span className="text-[9px] md:text-[10px] font-bold text-brand-secondary uppercase tracking-wider">
+          {/* Mobile Layout (Visible only on < lg) */}
+          <div className="flex lg:hidden items-center justify-between w-full pr-14"> 
+             {/* Logo & Name */}
+             <div className="flex items-center gap-3">
+               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
+                 <img src="/logo.png" alt="MAM Logo" className="w-full h-full object-contain" />
+               </div>
+               <div className="flex flex-col">
+                 <h1 className="text-[15px] sm:text-[18px] font-black text-brand-primary tracking-tight leading-[1.1]">
+                   M.A.M. <br/>SCHOOL OF ENGINEERING
+                 </h1>
+                 <span className="text-[8px] font-bold text-brand-secondary uppercase tracking-wider mt-0.5">
                    (An Autonomous Institution)
                  </span>
-                 <p className="text-[9px] md:text-[10px] font-semibold text-brand-primary leading-tight max-w-[320px] md:max-w-md">
+               </div>
+             </div>
+          </div>
+          
+          {/* Desktop Layout (Visible only on lg) */}
+          <div className="hidden lg:flex items-center gap-5 w-full">
+             <div className="w-24 h-24 xl:w-28 xl:h-28 flex items-center justify-center shrink-0">
+               <img src="/logo.png" alt="MAM Logo" className="w-[90%] h-[90%] object-contain" />
+             </div>
+             <div className="flex flex-col items-start text-left flex-1">
+               <h1 className="text-[28px] font-black text-brand-primary tracking-tight leading-[1.1]">
+                 M.A.M. <br/>SCHOOL OF ENGINEERING
+               </h1>
+               <div className="flex flex-col gap-1 mt-1">
+                 <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-wider">
+                   (An Autonomous Institution)
+                 </span>
+                 <p className="text-[10px] font-semibold text-brand-primary leading-tight max-w-[320px]">
                    Approved by AICTE, New Delhi & Affiliated to Anna University, Chennai. Recognized by UGC & Accredited by NAAC
                  </p>
                </div>
-               {/* Mobile TNEA Code & NAAC */}
-               <div className="lg:hidden mt-2 flex items-center gap-3">
-                 <div className="bg-brand-primary/5 px-2 py-1 rounded border border-brand-primary/10 flex items-center gap-2">
-                   <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
-                   <span className="text-xs font-black text-brand-secondary">3786</span>
-                 </div>
-                 <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-full p-0.5 shadow-sm border border-gray-100">
-                   <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-contain" />
-                 </div>
-               </div>
              </div>
+          </div>
+
+          {/* Mobile Bottom Bar (TNEA & NAAC) - only on mobile */}
+          <div className="flex lg:hidden mt-3 items-center gap-3 border-t border-gray-100 pt-3">
+            <div className="bg-brand-primary/5 px-2 py-1.5 rounded border border-brand-primary/10 flex items-center gap-2">
+              <span className="text-[9px] font-bold text-brand-primary uppercase tracking-wider">TNEA Code</span>
+              <span className="text-[11px] font-black text-brand-secondary">3786</span>
+            </div>
+            <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-sm border border-gray-100 p-0.5">
+              <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-contain" />
+            </div>
           </div>
         </div>
 
