@@ -283,7 +283,7 @@ export default function Header() {
             <ul className="flex flex-wrap items-center justify-center flex-1">
               {primaryLinks.map((link, idx) => (
                 <li key={idx} className="relative group">
-                  <Link 
+                  <NavLink 
                     href={link.href} 
                     className="relative px-2 lg:px-2.5 xl:px-3 py-4 text-white group-hover:text-brand-primary transition-colors duration-300 text-[9.5px] lg:text-[10px] xl:text-[11px] font-bold uppercase tracking-wide flex items-center justify-center gap-1 overflow-hidden"
                   >
@@ -293,7 +293,7 @@ export default function Header() {
                     {/* Modern Animated Hover Effects */}
                     <span className="absolute bottom-0 left-0 w-full h-[3px] bg-brand-primary transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100 z-0"></span>
                     <span className="absolute inset-0 bg-white/10 transform scale-y-0 origin-top transition-transform duration-300 ease-out group-hover:scale-y-100 z-0"></span>
-                  </Link>
+                  </NavLink>
 
                   {/* Dropdown Menu */}
                   {link.subLinks && (
@@ -302,10 +302,10 @@ export default function Header() {
                         <ul className="p-2 flex flex-col gap-1">
                           {link.subLinks.map((sub, sIdx) => (
                             <li key={sIdx}>
-                              <Link href={sub.href} className="relative flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-xl hover:bg-brand-primary/5">
+                              <NavLink href={sub.href} className="relative flex items-center px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-xl hover:bg-brand-primary/5">
                                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-brand-secondary rounded-full transition-all duration-300 group-hover/drop:h-4 opacity-0 group-hover/drop:opacity-100"></span>
                                 <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-2">{sub.label}</span>
-                              </Link>
+                              </NavLink>
                             </li>
                           ))}
                         </ul>
@@ -323,23 +323,23 @@ export default function Header() {
           <div className="bg-brand-primary text-white px-6 py-2 flex justify-end items-center gap-6 text-[11px] font-bold tracking-wider uppercase flex-wrap rounded-b-lg shadow-md pointer-events-auto">
             {secondaryLinks.map((link, idx) => (
               <div key={idx} className="relative group">
-                <Link href={link.href} className="relative py-1 flex items-center gap-1 group-hover:text-brand-secondary transition-colors duration-300">
+                <NavLink href={link.href} className="relative py-1 flex items-center gap-1 group-hover:text-brand-secondary transition-colors duration-300">
                   <span className="relative z-10">{link.name}</span>
                   {link.subLinks && <ChevronDown size={10} className="relative z-10" />}
                   
                   {/* Modern Animated Underline */}
                   <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-secondary transform origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100"></span>
-                </Link>
+                </NavLink>
                 {link.subLinks && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
                     <div className="bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] ring-1 ring-black/5 min-w-[200px] text-left rounded-xl overflow-hidden">
                       <ul className="p-1.5 flex flex-col gap-0.5">
                         {link.subLinks.map((sub, sIdx) => (
                           <li key={sIdx}>
-                            <Link href={sub.href} className="relative flex items-center px-4 py-2 text-xs font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-lg hover:bg-brand-primary/5 normal-case tracking-normal">
+                            <NavLink href={sub.href} className="relative flex items-center px-4 py-2 text-xs font-semibold text-gray-700 hover:text-brand-primary transition-all duration-300 group/drop rounded-lg hover:bg-brand-primary/5 normal-case tracking-normal">
                               <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-brand-secondary rounded-full transition-all duration-300 group-hover/drop:h-3 opacity-0 group-hover/drop:opacity-100"></span>
                               <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover/drop:translate-x-1.5">{sub.label}</span>
-                            </Link>
+                            </NavLink>
                           </li>
                         ))}
                       </ul>
@@ -362,13 +362,13 @@ export default function Header() {
             {primaryLinks.map((link, idx) => (
               <li key={`p-${idx}`} className="flex flex-col">
                 <div className="flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-brand-primary/5 active:bg-brand-primary/10 transition-colors">
-                  <Link 
+                  <NavLink 
                     href={link.href} 
                     className="text-brand-primary font-bold flex-grow text-sm uppercase tracking-wide"
                     onClick={() => !link.subLinks && setIsMobileMenuOpen(false)}
                   >
                     {link.name}
-                  </Link>
+                  </NavLink>
                   {link.subLinks && (
                     <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-primary bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-brand-primary/5">
                        <ChevronDown size={18} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180' : ''}`} />
@@ -380,14 +380,14 @@ export default function Header() {
                     <ul className="bg-gray-50/50 rounded-2xl px-4 py-3 flex flex-col gap-1">
                       {link.subLinks.map((sub, sIdx) => (
                         <li key={sIdx}>
-                          <Link 
+                          <NavLink 
                             href={sub.href} 
                             className="flex items-center py-2.5 text-sm font-semibold text-gray-600 hover:text-brand-primary hover:translate-x-2 transition-all duration-300"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary/50 mr-3"></span>
                             {sub.label}
-                          </Link>
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
@@ -404,13 +404,13 @@ export default function Header() {
             {secondaryLinks.map((link, idx) => (
               <li key={`s-${idx}`} className="flex flex-col">
                 <div className="flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-brand-secondary/5 active:bg-brand-secondary/10 transition-colors">
-                  <Link 
+                  <NavLink 
                     href={link.href} 
                     className="text-brand-secondary font-bold flex-grow text-sm uppercase tracking-wide"
                     onClick={() => !link.subLinks && setIsMobileMenuOpen(false)}
                   >
                     {link.name}
-                  </Link>
+                  </NavLink>
                   {link.subLinks && (
                     <button onClick={(e) => toggleMobileDropdown(link.name, e)} className="p-2 text-brand-secondary bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-brand-secondary/5">
                        <ChevronDown size={18} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180' : ''}`} />
@@ -422,14 +422,14 @@ export default function Header() {
                     <ul className="bg-gray-50/50 rounded-2xl px-4 py-3 flex flex-col gap-1">
                       {link.subLinks.map((sub, sIdx) => (
                         <li key={sIdx}>
-                          <Link 
+                          <NavLink 
                             href={sub.href} 
                             className="flex items-center py-2.5 text-sm font-semibold text-gray-600 hover:text-brand-secondary hover:translate-x-2 transition-all duration-300"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-primary/50 mr-3"></span>
                             {sub.label}
-                          </Link>
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
