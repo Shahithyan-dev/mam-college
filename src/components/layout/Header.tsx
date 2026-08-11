@@ -4,14 +4,23 @@ import Link from 'next/link';
 import { Menu, X, Award, Building2, ChevronDown, PhoneCall, Mail, GraduationCap } from 'lucide-react';
 
 const NavLink = ({ href, children, className, onClick }: any) => {
-  const isExternal = href.startsWith('http');
+  const isExternal = href && href.startsWith('http');
+  
   if (isExternal) {
+    const handleExternalClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (onClick) onClick(e);
+      window.open(href, '_blank', 'noopener,noreferrer');
+    };
+    
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>
+      <a href={href} onClick={handleExternalClick} className={className}>
         {children}
       </a>
     );
   }
+  
   return (
     <Link href={href} className={className} onClick={onClick}>
       {children}
