@@ -94,22 +94,33 @@ export default function FloatingSidebar() {
       </div>
 
       {/* Mobile Sticky Bottom Bar */}
-      <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white shadow-[0_-5px_20px_rgba(0,0,0,0.15)] border-t border-gray-200 transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}>
-        <div className="flex w-full">
-          <button onClick={() => setShowEnquiry(true)} className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 bg-brand-secondary text-white hover:bg-brand-secondary/90">
-            <span className="text-[10px] font-bold uppercase tracking-wide text-center leading-tight">Enquire<br/>Now</span>
+      <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white shadow-[0_-10px_20px_rgba(0,0,0,0.1)] border-t border-gray-100 transition-transform duration-500 pb-safe ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className="flex w-full justify-around items-center h-16 px-2">
+          <button onClick={() => setShowEnquiry(true)} className="flex flex-col items-center justify-center w-full h-full gap-1 text-brand-secondary hover:bg-gray-50 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <span className="text-[9px] font-bold uppercase tracking-wider">Enquire</span>
           </button>
-          <Link href="/admission" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 bg-brand-primary text-white hover:bg-brand-primary/90">
-            <span className="text-[10px] font-bold uppercase tracking-wide text-center leading-tight">Admissions</span>
+          
+          <Link href="/admission" className="flex flex-col items-center justify-center w-full h-full gap-1 text-brand-primary hover:bg-gray-50 rounded-lg transition-colors relative">
+            <div className="absolute -top-4 bg-brand-primary text-white p-2.5 rounded-full shadow-lg border-4 border-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span className="text-[9px] font-bold uppercase tracking-wider mt-5">Admissions</span>
           </Link>
-          <a href="https://portal.vmedulife.com/public/auth/#/login/mamse-trichy" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 hover:bg-gray-50">
-            <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-wide text-center leading-tight">MAMSE<br/>LMS</span>
+          
+          <a href="https://portal.vmedulife.com/public/auth/#/login/mamse-trichy" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center w-full h-full gap-1 text-gray-600 hover:text-brand-primary hover:bg-gray-50 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span className="text-[9px] font-bold uppercase tracking-wider">LMS</span>
           </a>
-          <a href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 hover:bg-gray-50">
-            <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wide text-center leading-tight">J-Gate<br/>Library</span>
+          
+          <a href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center w-full h-full gap-1 text-gray-600 hover:text-brand-primary hover:bg-gray-50 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg>
+            <span className="text-[9px] font-bold uppercase tracking-wider">Library</span>
           </a>
-          <a href="https://eazypay.icicibank.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 hover:bg-gray-50">
-            <span className="text-[10px] font-bold text-green-600 uppercase tracking-wide text-center leading-tight">Online<br/>Payment</span>
+          
+          <a href="https://eazypay.icicibank.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center w-full h-full gap-1 text-green-600 hover:bg-green-50 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+            <span className="text-[9px] font-bold uppercase tracking-wider">Pay</span>
           </a>
         </div>
       </div>

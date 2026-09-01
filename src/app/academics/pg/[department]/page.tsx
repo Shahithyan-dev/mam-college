@@ -60,7 +60,7 @@ function PGDepartmentPageInner() {
   }
 
   const sidebarLinks = tabs.map(tab => ({
-    label: tab.label,
+    label: tab.label.replace(/^\d+\s*/, ''),
     href: '#',
     isActive: activeTab === tab.id,
     onClick: () => setActiveTab(tab.id)
@@ -84,7 +84,7 @@ function PGDepartmentPageInner() {
         className="space-y-6 bg-white p-4 md:p-8 rounded-xl border border-gray-100 shadow-sm overflow-hidden"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-brand-primary border-b-2 border-brand-secondary pb-2 mb-4 md:mb-6 inline-block">
-          {validActiveTab}
+          {validActiveTab.replace(/^\d+\s*/, '')}
         </h2>
         <div className="space-y-4">
           {Array.isArray(contentText) ? (
