@@ -14,12 +14,12 @@
     "<div class=\"my-6\"><img src=\"/Committees_Cells/scst-committee.png\" alt=\"SC/ST Committee\" class=\"w-full rounded-lg shadow-md border border-gray-200\" /></div>"
   ],
   "Grievance Form": [
-    "<div class=\"flex flex-col items-center justify-center py-12 w-full\">",
+    "<div class=\"flex flex-col py-8 w-full\">",
     "<h2 class=\"text-3xl font-bold text-brand-primary mb-8\">Online Grievance Submission</h2>",
-    "<div class=\"flex flex-col sm:flex-row gap-6 w-full max-w-3xl justify-center\">",
-    "  <a href=\"#\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors text-center shadow-md\">Student Grievance Form</a>",
-    "  <a href=\"#\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors text-center shadow-md\">Faculty Grievance Form</a>",
-    "  <a href=\"#\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors text-center shadow-md\">Parent Grievance Form</a>",
+    "<div class=\"flex flex-col md:flex-row gap-6 w-full max-w-4xl\">",
+    "  <a href=\"https://forms.gle/Tr2J78NGaHZxKBmM8\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary hover:text-brand-primary transition-colors text-center shadow-md flex-1\">Student Grievance Form</a>",
+    "  <a href=\"https://forms.gle/FzxBwBNL6Scg3RTR9\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary hover:text-brand-primary transition-colors text-center shadow-md flex-1\">Faculty Grievance Form</a>",
+    "  <a href=\"https://forms.gle/JZHfdMcsLtHb8D2h9\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary hover:text-brand-primary transition-colors text-center shadow-md flex-1\">Parent Grievance Form</a>",
     "</div>",
     "</div>"
   ]
