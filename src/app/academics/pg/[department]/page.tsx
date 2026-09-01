@@ -34,12 +34,41 @@ function PGDepartmentPageInner() {
   const tabs = useMemo(() => {
     if (!departmentData || !departmentData.sections) return [];
     
-    // Sort tabs logically, Introduction first
+    // Sort tabs logically matching the user's 21 folders
     const sections = Object.keys(departmentData.sections);
+    const logicalOrder = [
+      'Introduction',
+      'Objectives',
+      'Outcomes',
+      'Opportunities',
+      'Lab Facilities',
+      'Faculty',
+      'Student_s Achievements',
+      'Faculty Achievements',
+      'Seminars and Conferences',
+      'Internships',
+      'Value Added Courses - Certificate Courses',
+      'Faculty Publications',
+      'Student Publications',
+      'Question Bank',
+      'Innovative Projects',
+      'Books Published',
+      'Research Consultancy and Patents',
+      'Invited Talk',
+      'Professional Bodies',
+      'MOUs',
+      'Placements',
+      'Prominent Alumni'
+    ];
+
     const sorted = sections.sort((a, b) => {
-      if (a === 'Introduction') return -1;
-      if (b === 'Introduction') return 1;
-      return a.localeCompare(b);
+      const indexA = logicalOrder.indexOf(a);
+      const indexB = logicalOrder.indexOf(b);
+      
+      if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
     });
     
     return sorted.map(section => ({

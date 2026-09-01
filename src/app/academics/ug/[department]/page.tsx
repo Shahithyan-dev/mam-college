@@ -34,30 +34,31 @@ function UGDepartmentPageInner() {
   const tabs = useMemo(() => {
     if (!departmentData || !departmentData.sections) return [];
     
-    // Sort tabs logically, Introduction first
+    // Sort tabs logically matching the user's 21 folders
     const sections = Object.keys(departmentData.sections);
     const logicalOrder = [
       'Introduction',
       'Objectives',
       'Outcomes',
+      'Opportunities',
       'Lab Facilities',
       'Faculty',
       'Student_s Achievements',
       'Faculty Achievements',
+      'Seminars and Conferences',
+      'Internships',
+      'Value Added Courses - Certificate Courses',
       'Faculty Publications',
       'Student Publications',
-      'Books Published',
-      'Invited Talk',
-      'Seminars and Conferences',
-      'Placements',
-      'Innovative Projects',
-      'Internships',
-      'MOUs',
-      'Value Added Courses - Certificate Courses',
-      'Professional Bodies',
-      'Opportunities',
       'Question Bank',
-      'Research Consultancy and Patents'
+      'Innovative Projects',
+      'Books Published',
+      'Research Consultancy and Patents',
+      'Invited Talk',
+      'Professional Bodies',
+      'MOUs',
+      'Placements',
+      'Prominent Alumni'
     ];
 
     const sorted = sections.sort((a, b) => {
