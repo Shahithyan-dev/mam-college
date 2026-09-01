@@ -57,3 +57,13 @@ body {
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+/* Style the first row of any table as a header */
+.html-content-container table tr:first-child td {
+  @apply bg-brand-primary text-white font-bold;
+}
+
+.html-content-container table tr:first-child td p,
+.html-content-container table tr:first-child td strong {
+  @apply text-white;
+}
