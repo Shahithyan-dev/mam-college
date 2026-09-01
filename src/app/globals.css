@@ -58,12 +58,31 @@ body {
   animation-play-state: paused;
 }
 
+.html-content-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #d1d5db;
+}
+.html-content-container table th,
+.html-content-container table td {
+  border: 1px solid #d1d5db;
+  padding: 1rem;
+}
+.html-content-container table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+.html-content-container table tr:hover {
+  background-color: #f3f4f6;
+}
 /* Style the first row of any table as a header */
 .html-content-container table tr:first-child td {
-  @apply bg-brand-primary text-white font-bold;
+  background-color: var(--color-brand-primary);
+  color: white;
+  font-weight: bold;
 }
-
 .html-content-container table tr:first-child td p,
 .html-content-container table tr:first-child td strong {
-  @apply text-white;
+  color: white;
 }
