@@ -81,9 +81,9 @@ function PGDepartmentPageInner() {
         initial={{ opacity: 0, y: 10 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.3 }}
-        className="space-y-6 bg-white p-8 rounded-xl border border-gray-100 shadow-sm"
+        className="space-y-6 bg-white p-4 md:p-8 rounded-xl border border-gray-100 shadow-sm overflow-hidden"
       >
-        <h2 className="text-3xl font-bold text-brand-primary border-b-2 border-brand-secondary pb-2 mb-6 inline-block">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-primary border-b-2 border-brand-secondary pb-2 mb-4 md:mb-6 inline-block">
           {validActiveTab}
         </h2>
         <div className="space-y-4">

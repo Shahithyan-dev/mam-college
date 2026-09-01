@@ -43,11 +43,11 @@ export default function InnerPageLayout({ title, breadcrumbTitle, sidebarLinks, 
       </section>
 
       {/* Main Content Section */}
-      <section className="w-full py-16">
+      <section className="w-full py-8 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-6">
           <BackButton />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-6 md:gap-12">
           
           {/* Sidebar Menu - Horizontal pills on Mobile, Vertical list on Desktop */}
           <div className="w-full md:w-1/4 shrink-0 h-fit">
