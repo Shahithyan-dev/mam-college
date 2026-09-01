@@ -126,7 +126,7 @@ export default function FloatingSidebar() {
               {new Date() < new Date('2026-09-05T00:00:00') ? (
                 <div className="w-full flex flex-col items-center">
                   <img 
-                    src="/invitations/genesis-2k26.png" 
+                    src="/invitations/genesis-2k26.jpg" 
                     alt="Genesis 2K26 Invitation" 
                     className="w-full h-auto object-contain rounded-md shadow-sm mb-4"
                   />
