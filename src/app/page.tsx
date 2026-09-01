@@ -122,11 +122,11 @@ export default function Home() {
                 <h3 className="text-4xl font-black text-brand-text mb-1 tracking-tight drop-shadow-sm">2026<span className="text-red-700">–</span>2027</h3>
                 <p className="text-brand-text/80 text-sm font-bold mb-8 uppercase tracking-wide">UG & PG Programmes</p>
                 
-                <Link href="/admission" className="relative inline-flex items-center gap-3 bg-brand-primary text-white text-sm font-bold px-8 py-4 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <button onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-enquiry')); }} className="relative inline-flex items-center gap-3 bg-brand-primary text-white text-sm font-bold px-8 py-4 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105 pointer-events-auto cursor-pointer">
                   <span className="relative z-10">Apply Now</span>
                   <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary to-red-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>
@@ -184,11 +184,11 @@ export default function Home() {
                 <h3 className="text-3xl font-black text-white mb-1 tracking-tight drop-shadow-sm">2026<span className="text-red-500">–</span>2027</h3>
                 <p className="text-gray-200 text-xs font-bold mb-8 uppercase tracking-wide">UG & PG Programmes</p>
                 
-                <Link href="/admission" className="relative inline-flex items-center gap-3 bg-white text-brand-primary text-sm font-bold px-6 py-3 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <button onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-enquiry')); }} className="relative inline-flex items-center gap-3 bg-white text-brand-primary text-sm font-bold px-6 py-3 rounded-full overflow-hidden group/btn shadow-xl hover:shadow-2xl transition-all hover:scale-105 pointer-events-auto cursor-pointer">
                   <span className="relative z-10">Apply Now</span>
                   <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
                   <div className="absolute inset-0 bg-brand-secondary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                </Link>
+                </button>
               </div>
             </div>
           </div>

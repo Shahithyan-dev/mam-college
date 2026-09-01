@@ -39,10 +39,17 @@ export default function FloatingSidebar() {
   };
 
   useEffect(() => {
+    const handleOpen = () => setShowEnquiry(true);
+    window.addEventListener('open-enquiry', handleOpen);
+    
     const timer = setTimeout(() => {
       setShowEnquiry(true);
     }, 4000);
-    return () => clearTimeout(timer);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('open-enquiry', handleOpen);
+    };
   }, []);
 
   useEffect(() => {
