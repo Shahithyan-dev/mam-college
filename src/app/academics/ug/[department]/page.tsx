@@ -1,6 +1,5 @@
-import { useSearchParams } from 'next/navigation';
 "use client";
-
+import { useSearchParams } from 'next/navigation';
 import React, { useState, useMemo } from 'react';
 import { useParams } from 'next/navigation';
 import InnerPageLayout from '@/components/layout/InnerPageLayout';

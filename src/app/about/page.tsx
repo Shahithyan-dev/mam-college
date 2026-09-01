@@ -1,13 +1,30 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import InnerPageLayout from '@/components/layout/InnerPageLayout';
 import aboutData from '@/data/about.json';
 import { motion } from 'framer-motion';
 import { Building2 } from 'lucide-react';
 
 export default function AboutPage() {
+  return (
+    <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <AboutPageInner />
+    </React.Suspense>
+  );
+}
+
+function AboutPageInner() {
   const [activeTab, setActiveTab] = useState('Overview');
+  const searchParams = useSearchParams();
+  const tabQuery = searchParams.get('tab');
+
+  useEffect(() => {
+    if (tabQuery) {
+      setActiveTab(tabQuery);
+    }
+  }, [tabQuery]);
 
   const tabs = [
     { label: 'Overview', id: 'Overview' },
