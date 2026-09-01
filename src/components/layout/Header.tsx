@@ -80,11 +80,11 @@ export default function Header() {
       { label: 'ISO', href: '/accreditation' }
     ]},
     { name: "AUTONOMOUS", href: "/autonomous", subLinks: [
-      { label: 'UGC Approval', href: '/autonomous' },
-      { label: 'Anna University Approval', href: '/autonomous' },
-      { label: 'Academic Council', href: '/autonomous' },
-      { label: 'Board of Studies', href: '/autonomous' },
-      { label: 'Curriculum and Syllabus', href: '/autonomous' }
+      { label: 'UGC Approval', href: '/autonomous?tab=UGC%20Approval' },
+      { label: 'Anna University Approval', href: '/autonomous?tab=Anna%20University%20Approval' },
+      { label: 'Academic Council', href: '/autonomous?tab=Academic%20Council' },
+      { label: 'Board of Studies', href: '/autonomous?tab=Board%20of%20Studies' },
+      { label: 'Curriculum and Syllabus', href: '/autonomous?tab=Documents' }
     ]},
     { name: "COE", href: "/coe", subLinks: [
       { label: 'About US', href: '/coe' },
