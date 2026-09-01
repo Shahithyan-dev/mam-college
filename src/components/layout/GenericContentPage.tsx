@@ -12,7 +12,7 @@ interface GenericContentPageProps {
   pdfs?: { label: string; href: string }[];
 }
 
-export default function GenericContentPage({ title, data, pdfs = [] }: GenericContentPageProps) {
+function GenericContentInner({ title, data, pdfs = [] }: GenericContentPageProps) {
   const searchParams = useSearchParams();
   const tabQuery = searchParams.get('tab');
 
@@ -159,5 +159,14 @@ export default function GenericContentPage({ title, data, pdfs = [] }: GenericCo
         {renderContent()}
       </InnerPageLayout>
     </div>
+  );
+}
+
+
+export default function GenericContentPage(props: GenericContentPageProps) {
+  return (
+    <React.Suspense fallback={<div className="flex justify-center items-center h-[50vh]"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div></div>}>
+      <GenericContentInner {...props} />
+    </React.Suspense>
   );
 }
