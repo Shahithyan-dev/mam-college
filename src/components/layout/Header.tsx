@@ -131,9 +131,10 @@ export default function Header() {
         { label: 'Technical Clubs', href: '/clubs' },
         { label: 'Social Clubs', href: '/clubs' }
     ]},
-    { name: "ERP LOGIN", href: "https://portal.vmedulife.com/public/auth/#/login/mamse-trichy", subLinks: [
-        { label: 'Student Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' },
-        { label: 'Faculty Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' }
+    { name: "ERP", href: "/erp", subLinks: [
+        { label: 'About ERP', href: '/erp?tab=About%20ERP' },
+        { label: 'Student Login', href: '/erp?tab=Student%20Login' },
+        { label: 'Faculty Login', href: '/erp?tab=Faculty%20Login' }
     ]},
     { name: "PLACEMENTS", href: "/placement" },
     { name: "CENTRE FOR INT. AFFAIRS", href: "/cia", subLinks: [
