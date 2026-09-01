@@ -1,1 +1,8 @@
-{}
+{
+  "NAAC": [
+    "<div class=\"flex justify-center\"><img src=\"/documents/naac-certificate.jpg\" alt=\"NAAC Certificate\" class=\"w-full max-w-4xl rounded shadow-lg border border-gray-200\" /></div>"
+  ],
+  "ISO": [
+    "<div class=\"flex justify-center\"><img src=\"/documents/iso-certificate.png\" alt=\"ISO Certificate\" class=\"w-full max-w-4xl rounded shadow-lg border border-gray-200\" /></div>"
+  ]
+}
