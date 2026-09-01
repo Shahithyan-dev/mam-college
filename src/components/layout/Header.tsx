@@ -142,8 +142,8 @@ export default function Header() {
         { label: 'Higher Studies Abroad', href: '/cia' }
     ]},
     { name: "IQAC", href: "/iqac", subLinks: [
-        { label: 'About IQAC', href: '/iqac' },
-        { label: 'Composition', href: '/iqac' },
+        { label: 'About IQAC', href: '/iqac?tab=About%20IQAC' },
+        { label: 'Composition', href: '/iqac?tab=Composition' },
         { label: 'NAAC', href: '/iqac' },
         { label: 'NBA', href: '/iqac' }
     ]},
