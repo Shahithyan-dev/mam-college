@@ -34,45 +34,19 @@ function UGDepartmentPageInner() {
   const tabs = useMemo(() => {
     if (!departmentData || !departmentData.sections) return [];
     
-    // Sort tabs logically matching the user's 21 folders
     const sections = Object.keys(departmentData.sections);
-    const logicalOrder = [
-      'Introduction',
-      'Objectives',
-      'Outcomes',
-      'Opportunities',
-      'Lab Facilities',
-      'Faculty',
-      'Student_s Achievements',
-      'Faculty Achievements',
-      'Seminars and Conferences',
-      'Internships',
-      'Value Added Courses - Certificate Courses',
-      'Faculty Publications',
-      'Student Publications',
-      'Question Bank',
-      'Innovative Projects',
-      'Books Published',
-      'Research Consultancy and Patents',
-      'Invited Talk',
-      'Professional Bodies',
-      'MOUs',
-      'Placements',
-      'Prominent Alumni'
-    ];
-
     const sorted = sections.sort((a, b) => {
-      const indexA = logicalOrder.indexOf(a);
-      const indexB = logicalOrder.indexOf(b);
+      const numA = parseInt(a.match(/^\d+/)?.[0] || '999', 10);
+      const numB = parseInt(b.match(/^\d+/)?.[0] || '999', 10);
       
-      if (indexA !== -1 && indexB !== -1) return indexA - indexB;
-      if (indexA !== -1) return -1;
-      if (indexB !== -1) return 1;
+      if (numA !== numB) {
+        return numA - numB;
+      }
       return a.localeCompare(b);
     });
     
     return sorted.map(section => ({
-      label: section,
+      label: section.replace(/^\\d+\\s*/, ''), // Strip the number from the UI label to make it cleaner
       id: section
     }));
   }, [departmentData]);
