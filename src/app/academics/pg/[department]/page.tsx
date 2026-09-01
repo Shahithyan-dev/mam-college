@@ -71,9 +71,6 @@ function PGDepartmentPageInner() {
     
     const contentText = departmentData.sections[validActiveTab];
     if (!contentText) return null;
-    
-    // Simple parsing to split by newlines for paragraphs
-    const paragraphs = contentText.split('\n\n').filter(Boolean);
 
     return (
       <motion.div 
@@ -87,20 +84,13 @@ function PGDepartmentPageInner() {
           {validActiveTab}
         </h2>
         <div className="space-y-4">
-          {paragraphs.map((para: string, i: number) => {
-            // Check if it looks like a list item
-            if (para.trim().match(/^[0-9]+[.)]|^[•-]/)) {
-              return (
-                <div key={i} className="pl-4 border-l-2 border-brand-secondary">
-                  <p className="text-gray-700 leading-relaxed text-lg">{para.replace(/^[0-9]+[.)]|^[•-]/, '').trim()}</p>
-                </div>
-              );
-            }
-            if (para.trim().startsWith('<table') || para.trim().startsWith('<div')) {
-              return <div key={i} className="my-4 w-full" dangerouslySetInnerHTML={{ __html: para }} />;
-            }
-            return <p key={i} className="text-gray-700 leading-relaxed text-lg text-justify">{para}</p>;
-          })}
+          {Array.isArray(contentText) ? (
+            contentText.map((htmlString: string, idx: number) => (
+              <div key={idx} dangerouslySetInnerHTML={{ __html: htmlString }} className="html-content-container" />
+            ))
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: contentText }} className="html-content-container" />
+          )}
         </div>
       </motion.div>
     );

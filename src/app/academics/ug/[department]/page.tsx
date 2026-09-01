@@ -100,23 +100,6 @@ function UGDepartmentPageInner() {
     const contentText = departmentData.sections[validActiveTab];
     if (!contentText) return null;
     
-    // Smart Parsing for raw text
-    const rawParagraphs = contentText.split('\n\n').map((p: string) => p.trim()).filter(Boolean);
-    const elements: { type: string, key?: string, val?: string, content?: string }[] = [];
-    
-    let i = 0;
-    while (i < rawParagraphs.length) {
-      if (i + 1 < rawParagraphs.length && rawParagraphs[i+1] === ':') {
-        const key = rawParagraphs[i];
-        const val = i + 2 < rawParagraphs.length ? rawParagraphs[i+2] : '';
-        elements.push({ type: 'kv', key, val });
-        i += 3;
-      } else {
-        elements.push({ type: 'text', content: rawParagraphs[i] });
-        i++;
-      }
-    }
-
     return (
       <motion.div 
         key={validActiveTab}
@@ -129,33 +112,13 @@ function UGDepartmentPageInner() {
           {validActiveTab}
         </h2>
         <div className="space-y-4">
-          {elements.map((el, idx) => {
-            if (el.type === 'kv') {
-              return (
-                <div key={idx} className="flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 px-2 rounded transition-colors">
-                  <span className="font-bold text-brand-primary sm:w-1/3 shrink-0 text-sm md:text-base">{el.key}</span>
-                  <span className="hidden sm:inline-block mr-4 text-brand-secondary">:</span>
-                  <span className="text-gray-700 flex-1 text-sm md:text-base">{el.val}</span>
-                </div>
-              );
-            } else if (el.type === 'text' && el.content) {
-              if (el.content.match(/^[0-9]+[.)]|^[•-]/)) {
-                return (
-                  <div key={idx} className="pl-4 border-l-2 border-brand-secondary my-2 bg-gray-50/50 p-2 rounded-r">
-                    <p className="text-gray-700 leading-relaxed text-sm md:text-base">{el.content.replace(/^[0-9]+[.)]|^[•-]/, '').trim()}</p>
-                  </div>
-                );
-              }
-              if (el.content === ':') return null;
-              
-              if (el.content.trim().startsWith('<table') || el.content.trim().startsWith('<div')) {
-                return <div key={idx} className="my-4 w-full" dangerouslySetInnerHTML={{ __html: el.content }} />;
-              }
-              
-              return <p key={idx} className="text-gray-700 leading-relaxed text-sm md:text-base text-justify">{el.content}</p>;
-            }
-            return null;
-          })}
+          {Array.isArray(contentText) ? (
+            contentText.map((htmlString: string, idx: number) => (
+              <div key={idx} dangerouslySetInnerHTML={{ __html: htmlString }} className="html-content-container" />
+            ))
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: contentText }} className="html-content-container" />
+          )}
         </div>
       </motion.div>
     );
