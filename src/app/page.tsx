@@ -144,13 +144,18 @@ export default function Home() {
             className="group pointer-events-auto flex flex-col gap-3"
           >
             {/* MAMSE LMS */}
-            <Link href="#" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
+            <Link href="https://portal.vmedulife.com/public/auth/#/login/mamse-trichy" target="_blank" rel="noopener noreferrer" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
                <span className="text-blue-600 font-black text-xl md:text-2xl tracking-wide">MAMSE LMS</span>
             </Link>
 
             {/* J-Gate */}
-            <Link href="#" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
+            <Link href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
                <span className="text-orange-500 font-black text-xl md:text-2xl tracking-wide">J-Gate</span>
+            </Link>
+
+            {/* Online Payment */}
+            <Link href="https://eazypay.icicibank.com/" target="_blank" rel="noopener noreferrer" className="relative bg-gray-100 hover:bg-white py-3 px-6 pl-8 rounded-l-2xl shadow-xl border-y border-l border-white/50 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:-translate-x-2">
+               <span className="text-green-600 font-black text-xl md:text-2xl tracking-wide">Online Payment</span>
             </Link>
           </motion.div>
         </motion.div>
@@ -248,9 +253,14 @@ export default function Home() {
             <div className="relative flex-1 flex items-center">
               <Marquee gradient={false} speed={40} pauseOnHover={true} className="overflow-hidden py-1">
                 <div className="flex items-center gap-8 md:gap-12 pl-6 md:pl-12 text-[11px] md:text-sm font-medium cursor-default">
-                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">National Level Technical Symposium on Oct 15</span></span>
-                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">NAAC Peer Team Visit scheduled for next month</span></span>
-                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">Campus Placement Drive by Top MNCs starts next week</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">17.08.2026 to 08.09.2026 – Training Program on “Python Web Development” – by Infosys Foundation & ICT Academy</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">22.08.2026 – ACMEBI 2k26 – National Level Technical Symposium</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">28.08.2026 – Blood Donation Camp at Konalai Village</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">31.08.2026 – Internal Smart India Hackathon - 2026</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">02.09.2026 Genesis 2k26 – First Year Inauguration (AERO, MECH, EEE, ECE & BME Programmes) – 2026 Batch</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">02.09.2026 Q Spider –On Campus Placement Drive</span></span>
+                  <span className="flex items-center gap-2 text-brand-secondary pb-0.5">★ <span className="text-white">07.09.2026 Genesis 2k26 – First Year Inauguration (CSE, AI&DS, IT & MCT Programmes) -  2026 Batch</span></span>
+                  
                   <span className="w-8 md:w-12"></span>
                 </div>
               </Marquee>

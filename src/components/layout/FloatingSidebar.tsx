@@ -98,8 +98,11 @@ export default function FloatingSidebar() {
           <a href="https://portal.vmedulife.com/public/auth/#/login/mamse-trichy" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 hover:bg-gray-50">
             <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-wide text-center leading-tight">MAMSE<br/>LMS</span>
           </a>
-          <a href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 hover:bg-gray-50">
+          <a href="https://jgatenext.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 border-r border-gray-100 hover:bg-gray-50">
             <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wide text-center leading-tight">J-Gate<br/>Library</span>
+          </a>
+          <a href="https://eazypay.icicibank.com/" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center py-2.5 px-1 hover:bg-gray-50">
+            <span className="text-[10px] font-bold text-green-600 uppercase tracking-wide text-center leading-tight">Online<br/>Payment</span>
           </a>
         </div>
       </div>
