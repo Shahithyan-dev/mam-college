@@ -106,32 +106,38 @@ export default function FloatingSidebar() {
 
       {/* Enquiry Modal */}
       {showEnquiry && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg relative overflow-hidden animate-in fade-in zoom-in duration-300">
-            {/* Header */}
-            <div className="bg-brand-primary text-white px-6 py-4 flex items-center justify-between">
-              <h3 className="text-xl font-serif font-bold">
-                {new Date() < new Date('2026-09-05T00:00:00') ? 'Genesis 2K26 Invitation' : 'Admission Enquiry'}
-              </h3>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm z-50">
+          {new Date() < new Date('2026-09-05T00:00:00') ? (
+            <div className="relative animate-in fade-in zoom-in duration-300 w-full max-w-xl max-h-[90vh] flex items-center justify-center">
               <button 
                 onClick={() => setShowEnquiry(false)}
-                className="text-white/80 hover:text-white transition-colors p-1"
+                className="absolute -top-12 right-0 md:-right-12 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/80 p-2 rounded-full z-10"
+                aria-label="Close"
               >
                 <X size={24} />
               </button>
+              <img 
+                src="/invitations/genesis-2k26.jpg" 
+                alt="Genesis 2K26 Invitation" 
+                className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              />
             </div>
-            
-            {/* Body */}
-            <div className="p-6 overflow-y-auto max-h-[80vh]">
-              {new Date() < new Date('2026-09-05T00:00:00') ? (
-                <div className="w-full flex flex-col items-center">
-                  <img 
-                    src="/invitations/genesis-2k26.jpg" 
-                    alt="Genesis 2K26 Invitation" 
-                    className="w-full h-auto object-contain rounded-md shadow-sm mb-4"
-                  />
-                </div>
-              ) : status === 'success' ? (
+          ) : (
+            <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg relative overflow-hidden animate-in fade-in zoom-in duration-300">
+              {/* Header */}
+              <div className="bg-brand-primary text-white px-6 py-4 flex items-center justify-between">
+                <h3 className="text-xl font-serif font-bold">Admission Enquiry</h3>
+                <button 
+                  onClick={() => setShowEnquiry(false)}
+                  className="text-white/80 hover:text-white transition-colors p-1"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              {/* Body */}
+              <div className="p-6 overflow-y-auto max-h-[80vh]">
+                {status === 'success' ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -215,6 +221,7 @@ export default function FloatingSidebar() {
               )}
             </div>
           </div>
+          )}
         </div>
       )}
     </>
