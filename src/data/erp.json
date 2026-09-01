@@ -1,0 +1,45 @@
+{
+  "About ERP": [
+    "### Empowering Digital Learning at M.A.M. School of Engineering",
+    "**VMeduLife – Learning Management System (LMS)**",
+    "M.A.M. School of Engineering utilizes VMeduLife Learning Management System (LMS) to facilitate an effective, flexible and technology-enabled teaching-learning environment. The platform supports the institution in delivering academic content, managing courses, monitoring student participation and enhancing communication between faculty members and students.",
+    "VMeduLife provides a centralized digital platform through which students can access learning resources and participate in various academic activities beyond the traditional classroom.",
+    "### Key Features",
+    "The VMeduLife LMS supports:",
+    "• Digital Course Content – Access to lecture notes, study materials, presentations, videos and other academic resources.",
+    "• Online Assignments – Faculty can create, distribute and evaluate assignments digitally.",
+    "• Online Assessments – Conduct of quizzes, tests and other assessments through the platform.",
+    "• Attendance Management – Digital recording and monitoring of student attendance.",
+    "• Student Performance Monitoring – Tracking of academic progress and learning activities.",
+    "• Communication and Notifications – Sharing of academic announcements, instructions and important updates.",
+    "• Learning Resources – Centralized access to subject-wise educational materials.",
+    "• Activity Tracking – Monitoring student participation and engagement in learning activities.",
+    "• Faculty–Student Interaction – Facilitates academic communication and timely dissemination of information.",
+    "### Benefits to Students",
+    "VMeduLife enables students to:",
+    "• Access learning materials anytime and anywhere.",
+    "• Review lectures and study resources at their convenience.",
+    "• Submit assignments and participate in online assessments.",
+    "• Monitor their academic activities and progress.",
+    "• Stay informed about course-related announcements and activities.",
+    "• Develop greater responsibility for self-directed learning.",
+    "### Benefits to Faculty",
+    "The LMS assists faculty members in:",
+    "• Organizing and managing course content systematically.",
+    "• Sharing learning resources efficiently.",
+    "• Conducting assignments, quizzes and assessments.",
+    "• Monitoring student participation and performance.",
+    "• Maintaining digital academic records.",
+    "• Supporting blended and technology-enabled teaching methodologies.",
+    "### Supporting Outcome-Based Education",
+    "VMeduLife contributes to the institution's Outcome-Based Education (OBE) practices by facilitating systematic planning, delivery, assessment and monitoring of academic activities. The platform supports continuous evaluation and provides opportunities for faculty to identify learning gaps and take appropriate academic interventions.",
+    "### Towards Digital and Student-Centric Education",
+    "The integration of VMeduLife into the academic ecosystem reflects M.A.M. School of Engineering's commitment to digital transformation, innovative teaching practices and student-centric learning. By combining classroom teaching with digital learning resources and online academic activities, the institution promotes a more engaging, accessible and effective learning environment."
+  ],
+  "Student Login": [
+    "<div class=\"flex flex-col items-center justify-center py-12 text-center\"><h2 class=\"text-2xl font-bold text-brand-primary mb-4\">Student Portal</h2><p class=\"text-gray-600 mb-8 max-w-lg\">Access your courses, attendance, and academic records through the VMeduLife student portal.</p><a href=\"https://vmedulife.com/\" target=\"_blank\" class=\"px-8 py-3 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors\">Login to Portal</a></div>"
+  ],
+  "Faculty Login": [
+    "<div class=\"flex flex-col items-center justify-center py-12 text-center\"><h2 class=\"text-2xl font-bold text-brand-primary mb-4\">Faculty Portal</h2><p class=\"text-gray-600 mb-8 max-w-lg\">Manage courses, assessments, and monitor student performance through the VMeduLife faculty portal.</p><a href=\"https://vmedulife.com/\" target=\"_blank\" class=\"px-8 py-3 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors\">Login to Portal</a></div>"
+  ]
+}
