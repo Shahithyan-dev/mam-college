@@ -59,6 +59,7 @@ body {
 }
 
 .html-content-container table {
+  min-width: max-content;
   width: 100%;
   border-collapse: collapse;
   margin-top: 1.5rem;
@@ -155,6 +156,7 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
 
 
 
