@@ -53,31 +53,31 @@ export default function Header() {
   const primaryLinks = [
     { name: "HOME", href: "/" },
     { name: "ABOUT US", href: "/about", subLinks: [
-      { label: "Overview", href: "/about" },
-      { label: "Vision, Mission", href: "/about" },
+      { label: "Overview", href: "/about?tab=Overview" },
+      { label: "Vision, Mission", href: "/about?tab=Vision%20%26%20Mission" },
       { label: "MAMSE Milestones", href: "/history" },
       { label: "Administration", href: "/admin" },
-      { label: "Code of Conduct", href: "/about" },
-      { label: "Awards and Recognition", href: "/about" },
+      { label: "Code of Conduct", href: "/about?tab=Code%20of%20Conduct" },
+      { label: "Awards and Recognition", href: "/about?tab=Awards%20and%20Recognition" },
     ]},
     { name: "ACADEMICS", href: "/courses", subLinks: [
-      { label: "U.G Programmes", href: "/courses" },
-      { label: "P.G Programmes", href: "/courses" },
+      { label: "U.G Programmes", href: "/courses?tab=U.G%20Programmes" },
+      { label: "P.G Programmes", href: "/courses?tab=P.G%20Programmes" },
     ]},
     { name: "ADMISSION", href: "/admission", subLinks: [
-      { label: "Eligibility", href: "/admission" },
-      { label: "Scholarships", href: "/admission" },
+      { label: "Eligibility", href: "/admission?tab=Eligibility" },
+      { label: "Scholarships", href: "/admission?tab=Scholarships" },
       // { label: "Apply Now", href: "/admission" },
       // { label: "For Admission Contact", href: "/contact" },
     ]},
     { name: "APPROVALS", href: "/approvals", subLinks: [
-      { label: 'AICTE', href: '/approvals' },
-      { label: 'Anna University', href: '/approvals' },
-      { label: 'UGC', href: '/approvals' }
+      { label: 'AICTE', href: '/approvals?tab=AICTE' },
+      { label: 'Anna University', href: '/approvals?tab=Anna%20University' },
+      { label: 'UGC', href: '/approvals?tab=UGC' }
     ]},
     { name: "ACCREDITATION", href: "/accreditation", subLinks: [
-      { label: 'NAAC', href: '/accreditation' },
-      { label: 'ISO', href: '/accreditation' }
+      { label: 'NAAC', href: '/accreditation?tab=NAAC' },
+      { label: 'ISO', href: '/accreditation?tab=ISO' }
     ]},
     { name: "AUTONOMOUS", href: "/autonomous", subLinks: [
       { label: 'UGC Approval', href: '/autonomous?tab=UGC%20Approval' },
@@ -87,49 +87,49 @@ export default function Header() {
       { label: 'Curriculum and Syllabus', href: '/autonomous?tab=Documents' }
     ]},
     { name: "COE", href: "/coe", subLinks: [
-      { label: 'About US', href: '/coe' },
-      { label: 'Notifications', href: '/coe' },
-      { label: 'Exam Schedule', href: '/coe' },
+      { label: 'About US', href: '/coe?tab=About%20US' },
+      { label: 'Notifications', href: '/coe?tab=Notifications' },
+      { label: 'Exam Schedule', href: '/coe?tab=Exam%20Schedule' },
       { label: 'Student Login', href: 'https://portal.vmedulife.com/public/auth/#/login/mamse-trichy' },
-      { label: 'Examination Manual', href: '/coe' }
+      { label: 'Examination Manual', href: '/coe?tab=Examination%20Manual' }
     ]},
     { name: "E-LEARNING", href: "/e-learning", subLinks: [
       { label: 'J-Gate (E-Library)', href: 'https://jgatenext.com/' },
-      { label: 'SWAYAM', href: '/e-learning' },
-      { label: 'NPTEL', href: '/e-learning' },
-      { label: 'Coursera', href: '/e-learning' }
+      { label: 'SWAYAM', href: '/e-learning?tab=SWAYAM' },
+      { label: 'NPTEL', href: '/e-learning?tab=NPTEL' },
+      { label: 'Coursera', href: '/e-learning?tab=Coursera' }
     ]},
     { name: "STUDENT'S CORNER", href: "/students-corner", subLinks: [
-      { label: 'Cultural Events', href: '/students-corner' },
-      { label: 'Sports', href: '/students-corner' },
-      { label: 'Technical Events', href: '/students-corner' },
-      { label: 'NSS', href: '/students-corner' },
+      { label: 'Cultural Events', href: '/students-corner?tab=Cultural%20Events' },
+      { label: 'Sports', href: '/students-corner?tab=Sports' },
+      { label: 'Technical Events', href: '/students-corner?tab=Technical%20Events' },
+      { label: 'NSS', href: '/students-corner?tab=NSS' },
       { label: 'Job Openings', href: '/career' }
     ]},
     { name: "ALUMNI", href: "/alumni", subLinks: [
-      { label: 'Alumni Registration', href: '/alumni' },
-      { label: 'Alumni Directory', href: '/alumni' },
-      { label: 'Events & Reunions', href: '/alumni' }
+      { label: 'Alumni Registration', href: '/alumni?tab=Alumni%20Registration' },
+      { label: 'Alumni Directory', href: '/alumni?tab=Alumni%20Directory' },
+      { label: 'Events & Reunions', href: '/alumni?tab=Events%20%26%20Reunions' }
     ]},
     { name: "RESEARCH", href: "/research", subLinks: [
-      { label: 'Academic Research', href: '/research' },
-      { label: 'Sponsored Research', href: '/research' },
-      { label: 'Hackathons', href: '/research' }
+      { label: 'Academic Research', href: '/research?tab=Academic%20Research' },
+      { label: 'Sponsored Research', href: '/research?tab=Sponsored%20Research' },
+      { label: 'Hackathons', href: '/research?tab=Hackathons' }
     ]},
     { name: "FACILITIES", href: "/facilities", subLinks: [
-      { label: 'Library', href: '/facilities' },
-      { label: 'Hostel', href: '/facilities' },
-      { label: 'Transport', href: '/facilities' },
-      { label: 'Canteen', href: '/facilities' },
-      { label: 'Gymnasium', href: '/facilities' }
+      { label: 'Library', href: '/facilities?tab=Library' },
+      { label: 'Hostel', href: '/facilities?tab=Hostel' },
+      { label: 'Transport', href: '/facilities?tab=Transport' },
+      { label: 'Canteen', href: '/facilities?tab=Canteen' },
+      { label: 'Gymnasium', href: '/facilities?tab=Gymnasium' }
     ]},
   ];
 
   const secondaryLinks = [
     { name: "CLUBS", href: "/clubs", subLinks: [
-        { label: 'Department Associations', href: '/clubs' },
-        { label: 'Technical Clubs', href: '/clubs' },
-        { label: 'Social Clubs', href: '/clubs' }
+        { label: 'Department Associations', href: '/clubs?tab=Department%20Associations' },
+        { label: 'Technical Clubs', href: '/clubs?tab=Technical%20Clubs' },
+        { label: 'Social Clubs', href: '/clubs?tab=Social%20Clubs' }
     ]},
     { name: "ERP", href: "/erp", subLinks: [
         { label: 'About ERP', href: '/erp?tab=About%20ERP' },
@@ -137,9 +137,9 @@ export default function Header() {
     ]},
     { name: "PLACEMENTS", href: "/placement" },
     { name: "CENTRE FOR INT. AFFAIRS", href: "/cia", subLinks: [
-        { label: 'About', href: '/cia' },
-        { label: "MoU's", href: '/cia' },
-        { label: 'Higher Studies Abroad', href: '/cia' }
+        { label: 'About', href: '/cia?tab=About' },
+        { label: "MoU's", href: '/cia?tab=MoU\'s' },
+        { label: 'Higher Studies Abroad', href: '/cia?tab=Higher%20Studies%20Abroad' }
     ]},
     { name: "IQAC", href: "/iqac", subLinks: [
         { label: 'About IQAC', href: '/iqac?tab=About%20IQAC' },
@@ -148,23 +148,24 @@ export default function Header() {
         { label: 'NBA', href: '/iqac?tab=NBA' }
     ]},
     { name: "NIRF", href: "/nirf", subLinks: [
-        { label: 'NIRF Reports', href: '/nirf' }
+        { label: 'NIRF Reports', href: '/nirf?tab=NIRF%20Reports' }
     ]},
     { name: "IIC", href: "/iic", subLinks: [
-        { label: 'About IIC', href: '/iic' },
-        { label: 'Activity Reports', href: '/iic' },
-        { label: 'Yukti', href: '/iic' }
+        { label: 'About IIC', href: '/iic?tab=About%20IIC' },
+        { label: 'Activity Reports', href: '/iic?tab=Activity%20Reports' },
+        { label: 'Yukti', href: '/iic?tab=Yukti' }
     ]},
     { name: "NISP", href: "/nisp", subLinks: [
-        { label: 'Core Team', href: '/nisp' },
-        { label: 'Policy Documents', href: '/nisp' }
+        { label: 'Core Team', href: '/nisp?tab=Core%20Team' },
+        { label: 'Policy Documents', href: '/nisp?tab=Policy%20Documents' }
     ]},
     { name: "CIRCULARS", href: "/circulars" },
     { name: "COMMITTEE", href: "/grievance", subLinks: [
         { label: 'Anti-Ragging', href: '/grievance?tab=Anti-Ragging' },
         { label: 'Grievance Redressal', href: '/grievance?tab=Grievance%20Redressal' },
         { label: 'ICC/POSH', href: '/grievance?tab=POSH%20Cell' },
-        { label: 'SC/ST', href: '/grievance?tab=SC%2FST' }
+        { label: 'SC/ST', href: '/grievance?tab=SC%2FST' },
+        { label: 'Grievance Form', href: '/grievance?tab=Grievance%20Form' }
     ]},
     { name: "CONTACT US", href: "/contact" },
   ];
