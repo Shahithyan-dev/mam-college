@@ -13,7 +13,7 @@ export default function AdminPage() {
   ];
 
   return (
-    <InnerPageLayout title="ADMINISTRATION" sidebarLinks={sidebarLinks}>
+    <InnerPageLayout title="ABOUT US" breadcrumbTitle="ADMINISTRATION" sidebarLinks={sidebarLinks}>
       <div className="space-y-12">
         {/* Correspondent's Message */}
         <section className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
