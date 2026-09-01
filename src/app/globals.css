@@ -76,16 +76,8 @@ body {
 .html-content-container table tr:hover {
   background-color: #f3f4f6;
 }
-/* Style the first row of any table as a header */
-.html-content-container table tr:first-child td {
-  background-color: var(--color-brand-primary);
-  color: white;
-  font-weight: bold;
-}
-.html-content-container table tr:first-child td p,
-.html-content-container table tr:first-child td strong {
-  color: white;
-}
+
+
 
 /* Typography and Spacing for Extracted Content */
 .html-content-container {
@@ -156,3 +148,6 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
+
