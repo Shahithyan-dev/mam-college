@@ -67,8 +67,8 @@ export default function Header() {
     { name: "ADMISSION", href: "/admission", subLinks: [
       { label: "Eligibility", href: "/admission" },
       { label: "Scholarships", href: "/admission" },
-      { label: "Apply Now", href: "/admission" },
-      { label: "For Admission Contact", href: "/contact" },
+      // { label: "Apply Now", href: "/admission" },
+      // { label: "For Admission Contact", href: "/contact" },
     ]},
     { name: "APPROVALS", href: "/approvals", subLinks: [
       { label: 'AICTE', href: '/approvals' },
@@ -163,7 +163,7 @@ export default function Header() {
     { name: "COMMITTEE", href: "/grievance", subLinks: [
         { label: 'Anti-Ragging', href: '/grievance?tab=Anti-Ragging' },
         { label: 'Grievance Redressal', href: '/grievance?tab=Grievance%20Redressal' },
-        { label: '⁠ICC/POSH', href: '/grievance?tab=POSH%20Cell' },
+        { label: 'ICC/POSH', href: '/grievance?tab=POSH%20Cell' },
         { label: 'SC/ST', href: '/grievance?tab=SC%2FST' }
     ]},
     { name: "CONTACT US", href: "/contact" },
