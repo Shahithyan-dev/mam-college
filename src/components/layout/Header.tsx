@@ -133,8 +133,7 @@ export default function Header() {
     ]},
     { name: "ERP", href: "/erp", subLinks: [
         { label: 'About ERP', href: '/erp?tab=About%20ERP' },
-        { label: 'Student Login', href: '/erp?tab=Student%20Login' },
-        { label: 'Faculty Login', href: '/erp?tab=Faculty%20Login' }
+        { label: 'ERP Login', href: '/erp?tab=ERP%20Login' }
     ]},
     { name: "PLACEMENTS", href: "/placement" },
     { name: "CENTRE FOR INT. AFFAIRS", href: "/cia", subLinks: [
