@@ -50,7 +50,7 @@ export default function InnerPageLayout({ title, breadcrumbTitle, sidebarLinks, 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-12">
           
           {/* Left Sidebar Menu */}
-          <div className="w-full md:w-1/4 shrink-0 shadow-xl border-l-4 border-gray-100">
+          <div className="w-full md:w-1/4 shrink-0 shadow-xl border-l-4 border-gray-100 h-fit">
             <ul className="flex flex-col">
               {sidebarLinks.map((link, index) => (
                 <li key={index} className="border-b border-white/20 last:border-0">
