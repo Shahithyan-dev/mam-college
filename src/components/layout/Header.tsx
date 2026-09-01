@@ -161,11 +161,11 @@ export default function Header() {
     ]},
     { name: "CIRCULARS", href: "/circulars" },
     { name: "COMMITTEE", href: "/grievance", subLinks: [
+        { label: 'Grievance Form', href: '/grievance?tab=Grievance%20Form' },
         { label: 'Anti-Ragging', href: '/grievance?tab=Anti-Ragging' },
         { label: 'Grievance Redressal', href: '/grievance?tab=Grievance%20Redressal' },
         { label: 'ICC/POSH', href: '/grievance?tab=POSH%20Cell' },
-        { label: 'SC/ST', href: '/grievance?tab=SC%2FST' },
-        { label: 'Grievance Form', href: '/grievance?tab=Grievance%20Form' }
+        { label: 'SC/ST', href: '/grievance?tab=SC%2FST' }
     ]},
     { name: "CONTACT US", href: "/contact" },
   ];
