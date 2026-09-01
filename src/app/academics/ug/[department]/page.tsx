@@ -1,3 +1,4 @@
+import { useSearchParams } from 'next/navigation';
 "use client";
 
 import React, { useState, useMemo } from 'react';
@@ -7,6 +8,14 @@ import departmentsData from '@/data/departments.json';
 import { motion } from 'framer-motion';
 
 export default function UGDepartmentPage() {
+  return (
+    <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <UGDepartmentPageInner  />
+    </React.Suspense>
+  );
+}
+
+function UGDepartmentPageInner() {
   const params = useParams();
   const departmentKey = params.department as string;
   
@@ -14,6 +23,14 @@ export default function UGDepartmentPage() {
   const departmentData = departmentsData.ug[departmentKey];
   
   const [activeTab, setActiveTab] = useState('Introduction');
+  const searchParams = useSearchParams();
+  const tabQuery = searchParams.get('tab');
+
+  React.useEffect(() => {
+    if (tabQuery) {
+      setActiveTab(tabQuery);
+    }
+  }, [tabQuery]);
 
   const tabs = useMemo(() => {
     if (!departmentData || !departmentData.sections) return [];
