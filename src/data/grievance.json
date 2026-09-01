@@ -22,5 +22,18 @@
     "  <a href=\"https://forms.gle/JZHfdMcsLtHb8D2h9\" target=\"_blank\" class=\"px-8 py-4 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary hover:text-brand-primary transition-colors text-center shadow-md flex-1\">Parent Grievance Form</a>",
     "</div>",
     "</div>"
+  ],
+  "AU Grievance Portal": [
+    "<div class=\"my-12 flex flex-col items-center justify-center p-8 bg-gray-50 rounded-xl border border-gray-100 max-w-2xl mx-auto text-center\">",
+    "  <div class=\"w-16 h-16 bg-brand-primary/10 text-brand-primary rounded-full flex items-center justify-center mb-4\">",
+    "    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"></path><polyline points=\"15 3 21 3 21 9\"></polyline><line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"></line></svg>",
+    "  </div>",
+    "  <h2 class=\"text-2xl font-bold text-brand-primary mb-2\">Anna University Grievance Redressal Portal</h2>",
+    "  <p class=\"text-gray-500 mb-8\">Access the official Anna University Student Grievance Redressal Portal.</p>",
+    "  <a href=\"https://www.auegov.ac.in/GrievancePortal/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"px-8 py-3 bg-brand-primary text-white rounded-lg font-bold hover:bg-brand-secondary transition-colors inline-flex items-center gap-2 shadow-md hover:shadow-lg\">",
+    "    <span>Open Portal</span>",
+    "    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg>",
+    "  </a>",
+    "</div>"
   ]
 }
