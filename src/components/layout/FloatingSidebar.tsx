@@ -110,7 +110,9 @@ export default function FloatingSidebar() {
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg relative overflow-hidden animate-in fade-in zoom-in duration-300">
             {/* Header */}
             <div className="bg-brand-primary text-white px-6 py-4 flex items-center justify-between">
-              <h3 className="text-xl font-serif font-bold">Admission Enquiry</h3>
+              <h3 className="text-xl font-serif font-bold">
+                {new Date() < new Date('2026-09-05T00:00:00') ? 'Genesis 2K26 Invitation' : 'Admission Enquiry'}
+              </h3>
               <button 
                 onClick={() => setShowEnquiry(false)}
                 className="text-white/80 hover:text-white transition-colors p-1"
@@ -120,8 +122,17 @@ export default function FloatingSidebar() {
             </div>
             
             {/* Body */}
-            <div className="p-6">
-              {status === 'success' ? (
+            <div className="p-6 overflow-y-auto max-h-[80vh]">
+              {new Date() < new Date('2026-09-05T00:00:00') ? (
+                <div className="w-full flex flex-col items-center">
+                  <img 
+                    src="/invitations/genesis-2k26.png" 
+                    alt="Genesis 2K26 Invitation" 
+                    className="w-full h-auto object-contain rounded-md shadow-sm mb-4"
+                  />
+                </div>
+              ) : (
+                status === 'success' ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -196,7 +207,7 @@ export default function FloatingSidebar() {
                     <button 
                       type="submit" 
                       disabled={status === 'loading'}
-                      className="w-full bg-brand-secondary text-brand-primary font-black uppercase tracking-wider py-3 rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
+                      className="w-full bg-brand-secondary text-white font-bold py-3 px-4 rounded-md hover:bg-brand-secondary/90 transition-colors disabled:opacity-70 flex justify-center items-center"
                     >
                       {status === 'loading' ? 'Submitting...' : 'Submit Enquiry'}
                     </button>
