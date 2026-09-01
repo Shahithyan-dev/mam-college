@@ -72,5 +72,26 @@
     "<img src=\"/documents/naac-certificate.jpg\" alt=\"NAAC Accreditation Certificate\" class=\"w-full max-w-4xl rounded-lg shadow-lg border border-gray-200\" />",
     "<p class=\"text-gray-500 mt-4 text-sm\">If the image does not load, please ensure your certificate image is saved at <code>public/documents/naac-certificate.jpg</code></p>",
     "</div>"
+  ],
+  "NBA": [
+    "### NBA ACCREDITATION",
+    "**Commitment to Academic Excellence and Quality Education**",
+    "M.A.M. School of Engineering is committed to maintaining high standards of technical education and continuously improving the quality of teaching, learning, research and professional development. The institution strives to provide an outcome-based education that equips students with the knowledge, skills and competencies required to meet the evolving demands of industry and society.",
+    "The National Board of Accreditation (NBA) accreditation is a significant recognition of the quality and effectiveness of academic programmes. NBA accreditation evaluates programmes based on well-defined criteria, with emphasis on Outcome-Based Education (OBE), teaching-learning processes, faculty competence, infrastructure, student development, industry interaction, continuous improvement and attainment of programme outcomes.",
+    "**Our Commitment to NBA Standards**",
+    "M.A.M. School of Engineering continuously works towards aligning its academic processes with NBA quality standards through:",
+    "• Implementation of Outcome-Based Education (OBE)",
+    "• Effective attainment and assessment of Course Outcomes (COs)",
+    "• Mapping of COs with Programme Outcomes (POs) and Programme Specific Outcomes (PSOs)",
+    "• Continuous improvement in teaching-learning methodologies",
+    "• Regular assessment of student learning outcomes",
+    "• Enhancement of laboratory and infrastructure facilities",
+    "• Faculty development and professional advancement",
+    "• Promotion of research, innovation and consultancy",
+    "• Industry interaction and experiential learning",
+    "• Internship, training and placement opportunities",
+    "• Student participation in co-curricular and extracurricular activities",
+    "• Feedback from students, alumni, employers and other stakeholders",
+    "• Continuous improvement based on outcome assessment and stakeholder feedback"
   ]
 }

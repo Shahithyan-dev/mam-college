@@ -145,7 +145,7 @@ export default function Header() {
         { label: 'About IQAC', href: '/iqac?tab=About%20IQAC' },
         { label: 'Composition', href: '/iqac?tab=Composition' },
         { label: 'NAAC', href: '/iqac?tab=NAAC' },
-        { label: 'NBA', href: '/iqac' }
+        { label: 'NBA', href: '/iqac?tab=NBA' }
     ]},
     { name: "NIRF", href: "/nirf", subLinks: [
         { label: 'NIRF Reports', href: '/nirf' }
