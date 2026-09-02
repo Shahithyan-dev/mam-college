@@ -137,8 +137,8 @@ export default function FloatingSidebar() {
               >
                 <X size={24} />
               </button>
-              <img 
-                src="/invitations/genesis-2k26.jpg" 
+              <img loading="lazy" 
+                src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333263/mam_college/invitations/genesis-2k26.jpg" 
                 alt="Genesis 2K26 Invitation" 
                 className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
               />

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
   title: "M.A.M. School of Engineering",
   description: "An Autonomous Institution | Approved By AICTE | Affiliated to Anna University",
   icons: {
-    icon: "/logo.png",
+    icon: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333270/mam_college/logo.png",
   },
 };
 

@@ -66,17 +66,17 @@ export default function Home() {
   }, []);
 
   const courses = [
-    { title: "B.E. Aeronautical Engineering", image: "/programmes/aero.jpeg" },
+    { title: "B.E. Aeronautical Engineering", image: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333273/mam_college/programmes/aero.jpg" },
     { title: "B.Tech. Artificial Intelligence and Data Science", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. BioMedical Engineering", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Computer Science and Engineering", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Electrical and Electronics Engineering", image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
     { title: "B.E. Electronics and Communication Engineering", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "B.Tech. Information Technology", image: "/programmes/IT.jpeg" },
-    { title: "B.E. Mechanical Engineering", image: "/programmes/mech.jpeg" },
-    { title: "B.E. Mechatronics Engineering", image: "/programmes/mechatronics.png" },
+    { title: "B.Tech. Information Technology", image: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333274/mam_college/programmes/IT.jpg" },
+    { title: "B.E. Mechanical Engineering", image: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333274/mam_college/programmes/mech.jpg" },
+    { title: "B.E. Mechatronics Engineering", image: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333276/mam_college/programmes/mechatronics.png" },
     { title: "M.E. Computer Integrated Manufacturing", image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-    { title: "M.E. Power Electronics and Drives", image: "/programmes/power.png" }
+    { title: "M.E. Power Electronics and Drives", image: "https://res.cloudinary.com/m6nlay03/image/upload/v1788333278/mam_college/programmes/power.png" }
   ];
 
   const fadeInUp: any = {
@@ -227,7 +227,7 @@ export default function Home() {
           </div>
           {/* Slide 2 */}
           <div className="flex-[0_0_100%] h-full relative">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Students" className="block w-full h-full object-cover" />
+            <img loading="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Students" className="block w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 flex items-center justify-center text-center px-4">
               <div className="max-w-4xl">
@@ -481,7 +481,7 @@ export default function Home() {
             className="absolute inset-0 z-0"
             style={{ opacity: aboutImageOpacity }}
           >
-            <div className="w-full h-full bg-[url('/college.png')] bg-cover bg-center bg-fixed"></div>
+            <div className="w-full h-full bg-[url('https://res.cloudinary.com/m6nlay03/image/upload/v1788333243/mam_college/college.png')] bg-cover bg-center bg-fixed"></div>
             <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
           </motion.div>
 
@@ -545,7 +545,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-[#0b335c]/10 translate-x-6 translate-y-6 rounded-2xl -z-10"></div>
             <div className="absolute inset-0 bg-[#DE9E2F]/10 -translate-x-4 -translate-y-4 rounded-2xl -z-20"></div>
-            <img src="college.png" alt="College Building" className="rounded-2xl shadow-2xl" />
+            <img loading="lazy" src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333243/mam_college/college.png" alt="College Building" className="rounded-2xl shadow-2xl" />
           </motion.div>
         </div>
       </section>
@@ -889,7 +889,7 @@ export default function Home() {
                   <div className="bg-brand-base rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-300">
                     <div className="h-64 overflow-hidden relative">
                       <div className="absolute inset-0 bg-brand-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
-                      <img src={course.image} alt={course.title} className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${course.title.includes('Mechatronics') ? 'object-left' : ''}`} />
+                      <img loading="lazy" src={course.image} alt={course.title} className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${course.title.includes('Mechatronics') ? 'object-left' : ''}`} />
                     </div>
                     <div className="p-8 border-t-4 border-brand-secondary bg-white relative">
                       <div className="absolute -top-6 right-6 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center shadow-lg group-hover:-translate-y-2 transition-transform">
@@ -985,22 +985,22 @@ export default function Home() {
             <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={40} pauseOnHover={true} className="py-2 md:py-3 overflow-hidden">
               <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
                 {[
-                  { name: 'TCS', src: '/tcs.png' },
-                  { name: 'ZOHO', src: '/zoho.png' },
-                  { name: 'Tech Mahindra', src: '/tech.png' },
+                  { name: 'TCS', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333281/mam_college/tcs.png' },
+                  { name: 'ZOHO', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333286/mam_college/zoho.png' },
+                  { name: 'Tech Mahindra', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333282/mam_college/tech.png' },
                   { name: 'L&T', src: '/l&t.png' },
-                  { name: 'Schneider Electric', src: '/se.png' },
-                  { name: 'ITC', src: '/itc.png' },
-                  { name: 'Windows', src: '/windows.png' },
-                  { name: 'Yamaha', src: '/yamaha.png' },
-                  { name: 'Infosys', src: '/infosys.png' },
-                  { name: 'Foxconn', src: '/foxconn.png' },
-                  { name: 'JK Fenner', src: '/jk.png' },
-                  { name: 'TVS', src: '/tvs.png' }
+                  { name: 'Schneider Electric', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333281/mam_college/se.png' },
+                  { name: 'ITC', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333266/mam_college/itc.png' },
+                  { name: 'Windows', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333284/mam_college/windows.png' },
+                  { name: 'Yamaha', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333285/mam_college/yamaha.png' },
+                  { name: 'Infosys', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333262/mam_college/infosys.png' },
+                  { name: 'Foxconn', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333258/mam_college/foxconn.png' },
+                  { name: 'JK Fenner', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333266/mam_college/jk.png' },
+                  { name: 'TVS', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333283/mam_college/tvs.png' }
                 ].map((company, i) => (
                   <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
                     {company.src ? (
-                      <img 
+                      <img loading="lazy" 
                         src={company.src} 
                         alt={`${company.name} Logo`} 
                         className="w-[85%] h-[85%] object-contain transition-all group-hover:scale-110" 
@@ -1019,23 +1019,23 @@ export default function Home() {
             <Marquee gradient={true} gradientColor="#001a33" gradientWidth={60} speed={35} pauseOnHover={true} direction="right" className="py-2 md:py-3 overflow-hidden">
               <div className="flex items-center gap-5 md:gap-8 px-3 md:px-4">
                 {[
-                  { name: 'Flex', src: '/flex.png' },
-                  { name: 'CSS Corp', src: '/css corp.png' },
-                  { name: 'Allsec', src: '/allsec.png' },
-                  { name: 'Autotex', src: '/autotex.png' },
-                  { name: 'Kia', src: '/kia.png' },
-                  { name: 'Royal Enfield', src: '/re.png' },
-                  { name: 'WIPRO', src: '/wipro.png' },
-                  { name: 'Cognizant', src: '/cts.png' },
-                  { name: 'HCL', src: '/hcl.png' },
-                  { name: 'Airtel', src: '/airtel.png' },
-                  { name: 'Garuda', src: '/garuda.png' },
-                  { name: 'INFAC', src: '/infac.png' },
-                  { name: 'Sanmar', src: '/sanmar.png' }
+                  { name: 'Flex', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333257/mam_college/flex.png' },
+                  { name: 'CSS Corp', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333250/mam_college/css%20corp.png' },
+                  { name: 'Allsec', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333229/mam_college/allsec.png' },
+                  { name: 'Autotex', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333230/mam_college/autotex.png' },
+                  { name: 'Kia', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333267/mam_college/kia.png' },
+                  { name: 'Royal Enfield', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333280/mam_college/re.png' },
+                  { name: 'WIPRO', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333285/mam_college/wipro.png' },
+                  { name: 'Cognizant', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333251/mam_college/cts.png' },
+                  { name: 'HCL', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333259/mam_college/hcl.png' },
+                  { name: 'Airtel', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333228/mam_college/airtel.png' },
+                  { name: 'Garuda', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333258/mam_college/garuda.png' },
+                  { name: 'INFAC', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333261/mam_college/infac.png' },
+                  { name: 'Sanmar', src: 'https://res.cloudinary.com/m6nlay03/image/upload/v1788333280/mam_college/sanmar.png' }
                 ].map((company, i) => (
                   <div key={i} className="w-32 h-20 md:w-44 md:h-24 bg-white/95 backdrop-blur-sm rounded-xl md:rounded-2xl flex flex-col items-center justify-center p-1 md:p-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] hover:bg-white cursor-pointer group select-none shrink-0 border border-white/50">
                     {company.src ? (
-                      <img 
+                      <img loading="lazy" 
                         src={company.src} 
                         alt={`${company.name} Logo`} 
                         className="w-[85%] h-[85%] object-contain transition-all group-hover:scale-110" 

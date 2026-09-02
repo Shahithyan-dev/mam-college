@@ -57,8 +57,8 @@ export default function SplashScreen() {
             transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
             className="relative w-36 h-36 md:w-48 md:h-48 bg-white rounded-3xl shadow-[0_0_60px_rgba(222,158,47,0.4)] flex items-center justify-center p-6 border-b-4 border-[#DE9E2F] z-10"
           >
-            <img 
-              src="/logo.png" 
+            <img loading="lazy" 
+              src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333270/mam_college/logo.png" 
               alt="MAMSE Logo" 
               className="w-full h-full object-contain drop-shadow-md"
             />

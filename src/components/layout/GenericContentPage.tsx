@@ -10,21 +10,24 @@ interface GenericContentPageProps {
   title: string;
   data: Record<string, any>;
   pdfs?: { label: string; href: string }[];
+  pdfTabLabel?: string;
 }
 
-function GenericContentInner({ title, data, pdfs = [] }: GenericContentPageProps) {
+function GenericContentInner({ title, data, pdfs = [], pdfTabLabel = 'Documents & Downloads' }: GenericContentPageProps) {
   const searchParams = useSearchParams();
   const tabQuery = searchParams.get('tab');
 
   const tabs = useMemo(() => [
     ...Object.keys(data).map(section => ({ label: section, id: section })),
-    ...(pdfs.length > 0 ? [{ label: 'Documents & Downloads', id: 'Documents' }] : [])
-  ], [data, pdfs]);
+    ...(pdfs.length > 0 ? [{ label: pdfTabLabel, id: 'Documents' }] : [])
+  ], [data, pdfs, pdfTabLabel]);
 
+  
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || '');
 
   useEffect(() => {
     if (tabQuery && tabs.some(t => t.id === tabQuery)) {
+      
       setActiveTab(tabQuery);
     }
   }, [tabQuery, tabs]);
@@ -41,7 +44,7 @@ function GenericContentInner({ title, data, pdfs = [] }: GenericContentPageProps
       return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6 bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
           <h2 className="text-3xl font-bold text-brand-primary border-b-2 border-brand-secondary pb-2 mb-6 inline-block">
-            Documents & Downloads
+            {pdfTabLabel}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {pdfs.map((pdf, idx) => (
@@ -153,7 +156,7 @@ function GenericContentInner({ title, data, pdfs = [] }: GenericContentPageProps
     <div className="pt-0">
       <InnerPageLayout 
         title={title.toUpperCase()}
-        breadcrumbTitle={activeTab}
+        breadcrumbTitle={activeTab === 'Documents' ? pdfTabLabel : activeTab}
         sidebarLinks={sidebarLinks}
       >
         {renderContent()}

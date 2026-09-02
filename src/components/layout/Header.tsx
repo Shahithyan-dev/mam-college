@@ -186,7 +186,7 @@ export default function Header() {
              {/* Logo & Name */}
              <div className="flex items-start gap-3">
                <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 mt-1">
-                 <img src="/logo.png" alt="MAM Logo" className="w-full h-full object-contain" />
+                 <img loading="lazy" src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333270/mam_college/logo.png" alt="MAM Logo" className="w-full h-full object-contain" />
                </div>
                <div className="flex flex-col">
                  <h1 className="text-[15px] sm:text-[18px] font-black text-brand-primary tracking-tight leading-[1.1]">
@@ -205,7 +205,7 @@ export default function Header() {
           {/* Desktop Layout (Visible only on lg) */}
           <div className="hidden lg:flex items-center gap-5 w-full">
              <div className="w-24 h-24 xl:w-28 xl:h-28 flex items-center justify-center shrink-0">
-               <img src="/logo.png" alt="MAM Logo" className="w-[90%] h-[90%] object-contain" />
+               <img loading="lazy" src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333270/mam_college/logo.png" alt="MAM Logo" className="w-[90%] h-[90%] object-contain" />
              </div>
              <div className="flex flex-col items-start text-left flex-1">
                <h1 className="text-[28px] font-black text-brand-primary tracking-tight leading-[1.1]">
@@ -229,7 +229,7 @@ export default function Header() {
               <span className="text-sm font-black text-brand-secondary">3786</span>
             </div>
             <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md border-2 border-white shrink-0 overflow-hidden">
-              <img src="/nacc.png" alt="NAAC A Grade" className="w-full h-full object-cover mix-blend-multiply" />
+              <img loading="lazy" src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333272/mam_college/nacc.png" alt="NAAC A Grade" className="w-full h-full object-cover mix-blend-multiply" />
             </div>
           </div>
         </div>
@@ -242,8 +242,8 @@ export default function Header() {
             
             {/* NAAC Image (Replacing Call Now) */}
             <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full p-1 shadow-lg transform hover:scale-105 transition-transform">
-              <img 
-                src="/nacc.png" 
+              <img loading="lazy" 
+                src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333272/mam_college/nacc.png" 
                 alt="NAAC A Grade" 
                 className="w-full h-full object-contain" 
               />

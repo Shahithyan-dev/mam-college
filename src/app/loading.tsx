@@ -33,8 +33,8 @@ export default function Loading() {
           }}
           className="relative w-32 h-32 md:w-40 md:h-40 bg-white rounded-full shadow-2xl flex items-center justify-center p-4 md:p-6 border-4 border-gray-50"
         >
-          <img 
-            src="/logo.png" 
+          <img loading="lazy" 
+            src="https://res.cloudinary.com/m6nlay03/image/upload/v1788333270/mam_college/logo.png" 
             alt="M.A.M. School of Engineering" 
             className="w-full h-full object-contain"
           />
