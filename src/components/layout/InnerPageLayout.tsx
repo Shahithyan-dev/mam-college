@@ -50,46 +50,48 @@ export default function InnerPageLayout({ title, breadcrumbTitle, sidebarLinks, 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-6 md:gap-12">
           
           {/* Sidebar Menu - Horizontal pills on Mobile, Vertical list on Desktop */}
-          <div className="w-full md:w-1/4 shrink-0 h-fit">
-            <ul className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-3 md:gap-0 pb-4 md:pb-0 hide-scrollbar snap-x shadow-none md:shadow-xl md:border-l-4 md:border-gray-100 rounded-lg md:rounded-none">
-              {sidebarLinks.map((link, index) => (
-                <li key={index} className="snap-start shrink-0 md:shrink border-none md:border-b md:border-white/20 last:border-0">
-                  {link.onClick ? (
-                    <button 
-                      onClick={link.onClick}
-                      className={`w-full flex items-center justify-center md:justify-between px-5 md:px-6 py-2.5 md:py-4 font-medium transition-all rounded-full md:rounded-none whitespace-nowrap md:whitespace-normal text-sm md:text-base ${
-                        link.isActive 
-                          ? 'bg-brand-primary md:bg-brand-secondary text-white md:text-brand-primary font-bold shadow-md' 
-                          : 'bg-white md:bg-brand-primary text-brand-primary md:text-white hover:bg-gray-50 md:hover:bg-brand-primary/90 border border-gray-200 md:border-none'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                      <span className="hidden md:block ml-3">
-                        {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
-                      </span>
-                    </button>
-                  ) : (
-                    <Link 
-                      href={link.href}
-                      className={`flex items-center justify-center md:justify-between px-5 md:px-6 py-2.5 md:py-4 font-medium transition-all rounded-full md:rounded-none whitespace-nowrap md:whitespace-normal text-sm md:text-base ${
-                        link.isActive 
-                          ? 'bg-brand-primary md:bg-brand-secondary text-white md:text-brand-primary font-bold shadow-md' 
-                          : 'bg-white md:bg-brand-primary text-brand-primary md:text-white hover:bg-gray-50 md:hover:bg-brand-primary/90 border border-gray-200 md:border-none'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                      <span className="hidden md:block ml-3">
-                        {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
-                      </span>
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {sidebarLinks && sidebarLinks.length > 0 && (
+            <div className="w-full md:w-1/4 shrink-0 h-fit">
+              <ul className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-3 md:gap-0 pb-4 md:pb-0 hide-scrollbar snap-x shadow-none md:shadow-xl md:border-l-4 md:border-gray-100 rounded-lg md:rounded-none">
+                {sidebarLinks.map((link, index) => (
+                  <li key={index} className="snap-start shrink-0 md:shrink border-none md:border-b md:border-white/20 last:border-0">
+                    {link.onClick ? (
+                      <button 
+                        onClick={link.onClick}
+                        className={`w-full flex items-center justify-center md:justify-between px-5 md:px-6 py-2.5 md:py-4 font-medium transition-all rounded-full md:rounded-none whitespace-nowrap md:whitespace-normal text-sm md:text-base ${
+                          link.isActive 
+                            ? 'bg-brand-primary md:bg-brand-secondary text-white md:text-brand-primary font-bold shadow-md' 
+                            : 'bg-white md:bg-brand-primary text-brand-primary md:text-white hover:bg-gray-50 md:hover:bg-brand-primary/90 border border-gray-200 md:border-none'
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <span className="hidden md:block ml-3">
+                          {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
+                        </span>
+                      </button>
+                    ) : (
+                      <Link 
+                        href={link.href}
+                        className={`flex items-center justify-center md:justify-between px-5 md:px-6 py-2.5 md:py-4 font-medium transition-all rounded-full md:rounded-none whitespace-nowrap md:whitespace-normal text-sm md:text-base ${
+                          link.isActive 
+                            ? 'bg-brand-primary md:bg-brand-secondary text-white md:text-brand-primary font-bold shadow-md' 
+                            : 'bg-white md:bg-brand-primary text-brand-primary md:text-white hover:bg-gray-50 md:hover:bg-brand-primary/90 border border-gray-200 md:border-none'
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <span className="hidden md:block ml-3">
+                          {link.isActive ? <ArrowDown size={16} /> : <ArrowRight size={16} />}
+                        </span>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Right Main Content */}
-          <div className="w-full md:w-3/4">
+          <div className={sidebarLinks && sidebarLinks.length > 0 ? "w-full md:w-3/4" : "w-full"}>
              {children}
           </div>
 
