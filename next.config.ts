@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         source: '/April 2026/:path*', // For URLs like /April 2026/circular.pdf
         destination: 'https://files.mamse.in/April 2026/:path*', // Forward to one.com storage
         permanent: true,
+      },
+      {
+        source: '/mad_dis/:path*',
+        destination: 'https://files.mamse.in/mad_dis/:path*',
+        permanent: true,
       }
     ];
   },
