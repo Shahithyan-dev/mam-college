@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch/utility scripts
+cloudinary_map.json
+cloudinary_map.zip
+convert_and_replace.js
+convert_md.js
+extract_links.js
+fix_links.js
+fix_spaces.js
+upload_to_cloudinary.js
+aero.html
+mandatory_disclosure.html
+previous_grievance.json
+*.zip
+
+# Word documents in public
+public/*.docx
