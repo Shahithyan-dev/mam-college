@@ -30,15 +30,15 @@ export default function MandatoryDisclosurePage() {
           </div>
           
           {/* HTML Content Viewer */}
-          <div className="w-full bg-white text-gray-800 
+          <div className="w-full bg-white text-gray-800 break-words overflow-hidden
             [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-brand-primary [&_h1]:mb-6 [&_h1]:mt-8
             [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-brand-primary [&_h2]:mb-4 [&_h2]:mt-6
             [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-brand-secondary [&_h3]:mb-3 [&_h3]:mt-5
             [&_p]:mb-4 [&_p]:leading-relaxed
-            [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800
+            [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800 [&_a]:break-all
             [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4
             [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4
-            [&_table]:w-full [&_table]:border-collapse [&_table]:mb-6
+            [&_table]:w-full [&_table]:border-collapse [&_table]:mb-6 [&_table]:block [&_table]:overflow-x-auto
             [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:p-3 [&_th]:font-semibold [&_th]:text-left
             [&_td]:border [&_td]:border-gray-300 [&_td]:p-3
             [&_img]:max-w-full [&_img]:h-auto [&_img]:my-4 [&_img]:rounded
